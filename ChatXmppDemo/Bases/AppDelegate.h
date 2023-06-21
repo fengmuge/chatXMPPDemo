@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class LXTabbarViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) LXTabbarViewController *rootTabbarController;
 
 @end
 
