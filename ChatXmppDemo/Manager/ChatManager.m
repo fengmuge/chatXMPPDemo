@@ -372,14 +372,17 @@ static ChatManager *_sharedInstance;
     if (connectionFlags == kSCNetworkFlagsConnectionRequired) {
         NSLog(@"xmpp意外断开连接");
     }
+    XMPPJID *myJid = [[UserManager sharedInstance].jid copy];
     // 清空本地用户数据
     [[UserManager sharedInstance] clearAll];
-    // 重新进行认证
-    NSError *error;
-    [[ChatManager sharedInstance].stream authenticateWithPassword:[UserManager sharedInstance].password error:&error];
-    if (error) {
-        NSLog(@"%s \n authenticateWithPassword:error: %@", __func__, [error localizedDescription]);
-    }
+    
+    [self connectToServerWithJID:myJid pasword:self.password type:LXConnectTypeLogin];
+//    // 重新进行认证
+//    NSError *error;
+//    [[ChatManager sharedInstance].stream authenticateWithPassword:[UserManager sharedInstance].password error:&error];
+//    if (error) {
+//        NSLog(@"%s \n authenticateWithPassword:error: %@", __func__, [error localizedDescription]);
+//    }
 }
 
 #pragma mark --XMPPRosterDelegate--
