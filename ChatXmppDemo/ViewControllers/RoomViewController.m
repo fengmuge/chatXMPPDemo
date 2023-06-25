@@ -8,7 +8,9 @@
 #import "RoomViewController.h"
 #import "ChatViewController.h"
 #import "RoomManager.h"
+#import "UserManager.h"
 #import "Room.h"
+#import "User.h"
 
 @interface RoomViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -46,12 +48,37 @@
  }
 
 - (void)refreshRoomList {
+    [self showHud:0.25];
     [self.roomDatas removeAllObjects];
     [[RoomManager sharedInstance] fetchJoinedRoomList];
 }
 
+// 如果输入的群组id是目前已经存在的，那么会加入到群组中(细节待确认)
 - (void)createRoom {
+    __weak typeof(self) weakSelf = self;
+    [self inputAlertWithTitle:@"创建/加入群组" textFieldHandler:^(UITextField * _Nonnull textField) {
+        textField.maxTextLength = 10;
+        textField.text = [NSDate transformCurrentDate];
+    } actionHandler:^(bool result, UITextField * _Nullable textField) {
+        if (!result) {
+            return;
+        }
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf createOrJoinRoom:textField];
+    }];
+}
+
+- (void)createOrJoinRoom:(nullable UITextField *)tf {
+    if ([NSString isNone:tf.text]) {
+        NSLog(@"群组id不能为空");
+        return;
+    }
+    // 这个地方应该添加判断，textfield是否高亮，即内容是否是合法的
     
+    // roomid不允许存在空格
+    NSString *roomId = [NSString stringWithFormat:@"%@@%@.%@", tf.text, kSubdomain, kDomin];
+    [[ChatManager sharedInstance] makeRoom:roomId
+                             usingNickname:[UserManager sharedInstance].user.name];
 }
 
 #pragma mark --notification--
@@ -117,6 +144,7 @@
 }
 // 获取到群组列表
 - (void)fetchJoinedRoomResult:(NSNotification *)notification {
+    [self hideHud:NO];
     NSArray *rooms = (NSArray *)[notification object];
     if (!rooms || rooms.count == 0) {
         return;

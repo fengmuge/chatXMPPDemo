@@ -6,219 +6,8 @@
 //
 
 #import "RoomManager.h"
+#import "RoomConfiguration.h"
 #import "Room.h"
-
-@interface RoomConfiguration ()
-
-@end
-
-@implementation RoomConfiguration
-
-- (instancetype)init {
-    if (self = [super init]) {
-        self.maxusers = @"10000";
-        self.isPublic = YES;
-        self.isPersistent = YES;
-        self.isModerated = NO;
-        self.isMembersOnly = YES;
-        self.isAllowInvites = YES;
-        self.isPasswordProtected = NO;
-//        self.isAllowWhois = YES; // 这个应该是错误的，因为whois是list-single类型的
-        self.enableLogging = YES;
-        self.isAllowChangeSubject = YES;
-        self.isReservedNick = NO;
-        self.isAllowChangeNick = YES;
-        self.isRegistration = NO;
-        self.isAllowPm = YES;
-    }
-    return self;
-}
-
-/**
- 房间名称| muc#roomconfig_roomname
- 描述| muc#roomconfig_roomdesc
- 允许占有者更改主题| muc#roomconfig_changesubject
- 最大房间占有者人数| muc#roomconfig_maxusers
- 其 Presence 是 Broadcast 的角色| muc#roomconfig_presencebroadcast
- 列出目录中的房间| muc#roomconfig_publicroom
- 房间是持久的| muc#roomconfig_persistentroom
- 房间是适度的| muc#roomconfig_moderatedroom
- 房间仅对成员开放| muc#roomconfig_membersonly
- 允许占有者邀请其他人| muc#roomconfig_allowinvites
- 需要密码才能进入房间| muc#roomconfig_passwordprotectedroom
- 密码| muc#roomconfig_roomsecret
- 能够发现占有者真实 JID 的角色| muc#roomconfig_whois
- 登录房间对话| muc#roomconfig_enablelogging
- 仅允许注册的昵称登录| x-muc#roomconfig_reservednick
- 允许使用者修改昵称| x-muc#roomconfig_canchangenick
- 允许用户注册房间| x-muc#roomconfig_registration
- 房间管理员| muc#roomconfig_roomadmins
- 房间拥有者| muc#roomconfig_roomowners
- 允许发送私聊  muc#roomconfig_allowpm
- */
-
-#warning mark --测试代码,具体业务中应该是可以单独设置任意一项的--
-- (DDXMLElement *)getRoomConfiguration {
-    NSXMLElement *options = [NSXMLElement elementWithName:@"x" xmlns:@"jabber:x:data"];
-    // 房间名称
-    NSXMLElement *nameField = [self setTextConfigureWith:LXRoomConfigurationName value:self.roomName];
-    [options addChildNonNull:nameField];
-    // 房间描述
-    NSXMLElement *descField = [self setTextConfigureWith:LXRoomConfigurationDesc value:self.roomDesc];
-    [options addChildNonNull:descField];
-    // 房间密码
-    NSXMLElement *secretField = [self setTextConfigureWith:LXRoomConfigurationSecret value:self.roomSecret];
-    [options addChildNonNull:secretField];
-    // 是否需要密码
-    NSXMLElement *isPasseordProtectedField = [self setBooleanConfigureWith:LXRoomConfigurationPasswordProtected value:self.isPasswordProtected];
-    [options addChildNonNull:isPasseordProtectedField];
-    // 房间最大人数
-    NSXMLElement *maxusersField = [self setTextConfigureWith:LXRoomConfigurationMaxusers value:self.maxusers];
-    [options addChildNonNull:maxusersField];
-    // 房间管理员
-    NSXMLElement *adminsField = [self setJidMultiConfigureWith:LXRoomConfigurationAdmins multiData:self.roomadmins];
-    [options addChildNonNull:adminsField];
-    // 房间拥有者
-    NSXMLElement *ownersField = [self setJidMultiConfigureWith:LXRoomConfigurationOwners multiData:self.roomowners];
-    [options addChildNonNull:ownersField];
-    // 广播其存在的角色 不知道是否正确
-    NSXMLElement *broadcastField = [self setListMultiConfigureWith:LXRoomConfigurationPresenceBroadcast multiData:self.presencebroadcast];
-    [options addChildNonNull:broadcastField];
-    // 是否是开放的房间
-    NSXMLElement *publicField = [self setBooleanConfigureWith:LXRoomConfigurationPublic value:self.isPublic];
-    [options addChildNonNull:publicField];
-    // 是否是持久性房间
-    NSXMLElement *persistentField = [self setBooleanConfigureWith:LXRoomConfigurationPersistent value:self.isPersistent];
-    [options addChildNonNull:persistentField];
-    // 进入房间是否需要审核
-    NSXMLElement *moderatedField = [self setBooleanConfigureWith:LXRoomConfigurationModerated value:self.isModerated];
-    [options addChildNonNull:moderatedField];
-    // 是否仅对成员开放
-    NSXMLElement *membersOnlyField = [self setBooleanConfigureWith:LXRoomConfigurationMembersOnly value:self.isMembersOnly];
-    [options addChildNonNull:membersOnlyField];
-    // 是否允许成员邀请其他人加入
-    NSXMLElement *allowInvitesField = [self setBooleanConfigureWith:LXRoomConfigurationAllowInvites value:self.isAllowInvites];
-    [options addChildNonNull:allowInvitesField];
-//    // 是否可以查询具体成员信息  --- whois类型是list-single，应该不是bool，目前还不明白具体用法
-//    NSXMLElement *whoisField = [self setBooleanConfigureWith:LXRoomConfigurationWhois value:self.isAllowWhois];
-//    [options addChildNonNull:whoisField];
-    // 是否记录聊天信息
-    NSXMLElement *enableLoggingField = [self setBooleanConfigureWith:LXRoomConfigurationEnableLogging value:self.enableLogging];
-    [options addChildNonNull:enableLoggingField];
-    // 是否允许成员修改主题
-    NSXMLElement *changeSubjectField = [self setBooleanConfigureWith:LXRoomConfigurationAllowChangeSubject value:self.isAllowChangeSubject];
-    [options addChildNonNull:changeSubjectField];
-    // 仅允许注册昵称登录
-    NSXMLElement *reservedNickField = [self setBooleanConfigureWith:LXRoomConfigurationReservedNick value:self.isReservedNick];
-    [options addChildNonNull:reservedNickField];
-    // 允许成员修改昵称
-    NSXMLElement *changeNickField = [self setBooleanConfigureWith:LXRoomConfigurationAllowChangeNick value:self.isAllowChangeNick];
-    [options addChildNonNull:changeNickField];
-    // 允许成员注册房间
-    NSXMLElement *registrationField = [self setBooleanConfigureWith:LXRoomConfigurationRegistration value:self.isRegistration];
-    [options addChildNonNull:registrationField];
-    // 允许发送私有信息
-    NSXMLElement *pmField = [self setBooleanConfigureWith:LXRoomConfigurationAllowPM value:self.isAllowPm];
-    [options addChildNonNull:pmField];
-    
-    return options;
-}
-
-
-// 设置text-single类型数据，不知道text-private类型数据是否需要添加其他参数
-- (NSXMLElement *)setTextConfigureWith:(LXRoomConfigurationType)type value:(NSString *)value {
-    if ([NSString isNone:value]) {
-        return nil;
-    }
-    NSString *typeValue = [self getConfigurationValueFrom:type];
-    NSXMLElement *p = [NSXMLElement elementWithName:@"field" ];
-    [p addAttributeWithName:@"var"stringValue:typeValue];
-    [p addChild:[NSXMLElement elementWithName:@"value"stringValue:value]];
-    return p;
-}
-
-// 设置boolean类型配置数据
-- (NSXMLElement *)setBooleanConfigureWith:(LXRoomConfigurationType)type value:(BOOL)value {
-    NSString *valueStr = value ? @"1" : @"0";
-    return [self setTextConfigureWith:type value:valueStr];
-}
-
-// 设置jid多选配置数据
-- (NSXMLElement *)setJidMultiConfigureWith:(LXRoomConfigurationType)type multiData:(NSArray <XMPPJID *> *)datas {
-    if ([NSArray isEmpty:datas]) {
-        return nil;
-    }
-    NSString *typeValue = [self getConfigurationValueFrom:type];
-    NSXMLElement *p = [NSXMLElement elementWithName:@"field" ];
-    [p addAttributeWithName:@"var"stringValue:typeValue];
-    for (XMPPJID *jid in datas) {
-        [p addChild:[NSXMLElement elementWithName:@"value" stringValue:jid.bare]];
-    }
-    
-    return p;
-}
-
-// 设置list-multi类型数据配置 (说实话，我不明白这怎么配置，数组元素数据类型是什么)
-- (NSXMLElement *)setListMultiConfigureWith:(LXRoomConfigurationType)type multiData:(NSArray <NSString *> *)datas {
-    if ([NSArray isEmpty:datas]) {
-        return nil;
-    }
-    NSString *typeValue = [self getConfigurationValueFrom:type];
-    NSXMLElement *p = [NSXMLElement elementWithName:@"field" ];
-    [p addAttributeWithName:@"var"stringValue:typeValue];
-    for (NSString *val in datas) {
-        [p addChild:[NSXMLElement elementWithName:@"value" stringValue:val]];
-    }
-    
-    return p;
-}
-
-- (NSString *)getConfigurationValueFrom:(LXRoomConfigurationType)type {
-    switch (type) {
-        case LXRoomConfigurationName:
-            return @"muc#roomconfig_roomname";
-        case LXRoomConfigurationDesc:
-            return @"muc#roomconfig_roomdesc";
-        case LXRoomConfigurationSecret:
-            return @"muc#roomconfig_roomsecret";
-        case LXRoomConfigurationMaxusers:
-            return @"muc#roomconfig_maxusers";
-        case LXRoomConfigurationAdmins:
-            return @"muc#roomconfig_roomadmins";
-        case LXRoomConfigurationOwners:
-            return @"muc#roomconfig_roomowners";
-        case LXRoomConfigurationPresenceBroadcast:
-            return @"muc#roomconfig_presencebroadcast";
-        case LXRoomConfigurationPublic:
-            return @"muc#roomconfig_publicroom";
-        case LXRoomConfigurationPersistent:
-            return @"muc#roomconfig_persistentroom";
-        case LXRoomConfigurationModerated:
-            return @"muc#roomconfig_moderatedroom";
-        case LXRoomConfigurationMembersOnly:
-            return @"muc#roomconfig_membersonly";
-        case LXRoomConfigurationAllowInvites:
-            return @"muc#roomconfig_allowinvites";
-        case LXRoomConfigurationPasswordProtected:
-            return @"muc#roomconfig_passwordprotectedroom";
-        case LXRoomConfigurationWhois:
-            return @"muc#roomconfig_whois";
-        case LXRoomConfigurationEnableLogging:
-            return @"muc#roomconfig_enablelogging";
-        case LXRoomConfigurationAllowChangeSubject:
-            return @"muc#roomconfig_changesubject";
-        case LXRoomConfigurationReservedNick:
-            return @"x-muc#roomconfig_reservednick";
-        case LXRoomConfigurationAllowChangeNick:
-            return @"x-muc#roomconfig_canchangenick";
-        case LXRoomConfigurationRegistration:
-            return @"x-muc#roomconfig_registration";
-        default:
-            return @"muc#roomconfig_allowpm";
-    }
-}
-
-@end
 
 @interface RoomManager () <XMPPRoomDelegate, XMPPRoomStorage>
 // 以下，以room.bare为key,保存不同用户的数据
@@ -386,10 +175,14 @@ static RoomManager *_sharedInstance;
 - (void)sortJoinedRoonFetchedResult:(XMPPIQ *)iq {
     NSString *elementId = iq.elementID;
     if (![elementId isEqualToString:@"getJoinedRoom"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_FETCHED_GROUPS
+                                                            object:nil];
         return;
     }
     NSArray *results = [iq elementsForXmlns:@"http://jabber.org/protocol/disco#items"];
     if (results.count < 1) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_FETCHED_GROUPS
+                                                            object:nil];
         return;
     }
     NSMutableArray *array = [NSMutableArray array]; // 群列表
@@ -475,7 +268,7 @@ static RoomManager *_sharedInstance;
 - (void)xmppRoom:(XMPPRoom *)sender didFetchConfigurationForm:(NSXMLElement *)configForm {
     NSLog(@"%s 房间配置获取成功", __func__);
     // 直接用RoomConfiguration对象进行解析，并发送到房间聊天页面缓存，和进行相关UI配置
-    RoomConfiguration *configuration; // =
+    RoomConfiguration *configuration = [[RoomConfiguration alloc] initWithXMLElement:configForm];
     // 将房间的配置信息添加到缓存
     [self setConfigurationCache:configuration
                          toRoom:sender];
