@@ -1,0 +1,27 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '16.4'
+
+inhibit_all_warnings!
+use_frameworks!
+
+target 'ChatXmppDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # 忽略掉Pod库所有警告
+  pod 'SDWebImage'
+  pod 'FDFullscreenPopGesture'
+  pod 'MBProgressHUD'
+#  pod 'MessageKit'
+  pod 'JSQMessagesViewController'
+  pod 'UITableView+FDTemplateLayoutCell'
+  pod 'Masonry'
+  pod 'XMPPFramework'
+  pod 'MJRefresh'
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      end
+    end
+  end
+end
