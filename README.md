@@ -1,2 +1,3 @@
-# chatXMPPDemo
-# chatXMPPDemo
+学习xmpp的练习之作
+通过openfire+xmppframwork实现了单聊、群聊等功能
+通过JSQMessagesViewController实现了聊天页面的UI
