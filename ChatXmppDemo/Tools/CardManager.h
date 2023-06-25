@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardManager : NSObject
 
++ (CardManager *)sharedInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

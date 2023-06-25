@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (custom)
 
++ (BOOL)isEmpty:(NSArray * _Nullable)array;
+
 @end
 
 NS_ASSUME_NONNULL_END

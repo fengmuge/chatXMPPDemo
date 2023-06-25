@@ -9,4 +9,15 @@
 
 @implementation UICollectionView (custom)
 
+- (void)scrollToBottom:(bool)animated {
+    CGFloat collectionViewContentHeight = self.collectionViewLayout.collectionViewContentSize.height;
+    
+    __weak typeof(self) weakSelf = self;
+    [self performBatchUpdates:^{
+    } completion:^(BOOL finished) {
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf scrollRectToVisible:CGRectMake(0, collectionViewContentHeight - 1.0, 1.0, 1.0) animated:animated];
+    }];
+}
+
 @end

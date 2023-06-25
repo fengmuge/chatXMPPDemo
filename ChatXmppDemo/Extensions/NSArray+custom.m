@@ -9,4 +9,9 @@
 
 @implementation NSArray (custom)
 
++ (BOOL)isEmpty:(NSArray *)array {
+    return array == nil ||
+           array.count == 0;
+}
+
 @end

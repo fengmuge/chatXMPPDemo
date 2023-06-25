@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextField (custom)
 
+@property (nonatomic, assign) NSInteger maxTextLength;
+
 @end
 
 NS_ASSUME_NONNULL_END

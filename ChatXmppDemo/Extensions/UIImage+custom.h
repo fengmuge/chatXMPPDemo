@@ -10,6 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (custom)
+// 转化为data数据
+- (NSData *)toData;
+// 重新设置size
+- (UIImage *)reSize:(CGSize)reSize;
 
 @end
 

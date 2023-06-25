@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XMPPJID (custom)
 
+// 配置jid
++ (XMPPJID *)lxJidWithUsername:(NSString *)username;
+
+// 是否是用户自己
+- (bool)isMy;
+
 @end
 
 NS_ASSUME_NONNULL_END

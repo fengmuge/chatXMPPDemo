@@ -6,10 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ContactTableViewCell : UITableViewCell
+
+- (void)reload:(User *)user;
 
 @end
 

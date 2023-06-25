@@ -7,6 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    LXNavgationBarItemLeft,
+    LXNavgationBarItemRight,
+} LXNavgationBarItemPoistion;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LXNavgationViewController : UINavigationController

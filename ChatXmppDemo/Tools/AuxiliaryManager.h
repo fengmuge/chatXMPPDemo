@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AuxiliaryManager : NSObject
 
++ (AuxiliaryManager *)sharedInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

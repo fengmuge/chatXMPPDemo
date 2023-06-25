@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FriendsViewController : UIViewController
+@interface FriendsViewController : LXViewController
 
 @end
 

@@ -7,7 +7,7 @@
 
 #import "AppDelegate.h"
 #import "LXNavgationViewController.h"
-#import "LXTableViewController.h"
+#import "LXTabbarViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    LXNavgationViewController *navController = [[LXNavgationViewController alloc] initWithRootViewController:[[LXTableViewController alloc] init]];
-    self.window.rootViewController = navController;
+    self.window.rootViewController = [[LXTabbarViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;

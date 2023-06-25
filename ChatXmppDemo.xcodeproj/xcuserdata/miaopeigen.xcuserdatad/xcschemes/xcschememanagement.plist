@@ -7,7 +7,40 @@
 		<key>ChatXmppDemo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>13</integer>
+		</dict>
+		<key>ChatXmppDemoDebug.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>ChatXmppDemoDev.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>654CEAA22A2D85E6001F8541</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>654CEABD2A2D85E8001F8541</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>654CEAC72A2D85E8001F8541</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>65B0C6A42A47D164008B65AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

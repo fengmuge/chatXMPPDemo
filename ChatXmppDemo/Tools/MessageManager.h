@@ -11,6 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MessageManager : NSObject
 
++ (MessageManager *)sharedInstance;
+
+// 获取历史聊天记录
+// toUserJid目标联系人jid,用于单聊
+// toRoomJid目标聊天室jid，用于群聊
+// 以上两个参数互斥，以toUserJid优先
++ (NSArray *)getHistoryMessageWith:(nullable XMPPJID *)toUserJid orRoomId:(nullable XMPPJID *)toRoomJid;
+
 @end
 
 NS_ASSUME_NONNULL_END

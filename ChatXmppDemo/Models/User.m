@@ -9,4 +9,11 @@
 
 @implementation User
 
+- (NSString *)name {
+    if (self.vCard.nickname) {
+        return self.vCard.nickname;
+    }
+    return self.jid.user;
+}
+
 @end

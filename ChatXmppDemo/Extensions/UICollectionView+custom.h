@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UICollectionView (custom)
 
+- (void)scrollToBottom:(bool)animated;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -44,24 +44,24 @@
     }
 }
 
-+ (void)initialize {
-    // 设置背景图片可以避免专场时顶部的黑色阴影
-    UINavigationBar *navgationBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]];
-//    [navgationBar setBackgroundImage:[UIImage imageWithCGImage:[UIColor whiteColor].c] forBarMetrics:UIBarMetricsDefault];
-    
-    // 设置项目中item主题样式
-    UIBarButtonItem *item = [UIBarButtonItem appearance];
-    // normal
-    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
-    textAttributes[NSForegroundColorAttributeName] = [UIColor blackColor];
-    textAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:16];
-    [item setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-    // disable
-    NSMutableDictionary *disableAttributes = [NSMutableDictionary dictionary];
-    disableAttributes[NSForegroundColorAttributeName] = [UIColor grayColor];
-    disableAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:14];
-    [item setTitleTextAttributes:disableAttributes forState:UIControlStateDisabled];
-}
+//+ (void)initialize {
+//    // 设置背景图片可以避免专场时顶部的黑色阴影
+//    UINavigationBar *navgationBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]];
+////    [navgationBar setBackgroundImage:[UIImage imageWithCGImage:[UIColor whiteColor].c] forBarMetrics:UIBarMetricsDefault];
+//
+//    // 设置项目中item主题样式
+//    UIBarButtonItem *item = [UIBarButtonItem appearance];
+//    // normal
+//    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
+//    textAttributes[NSForegroundColorAttributeName] = [UIColor blackColor];
+//    textAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:16];
+//    [item setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+//    // disable
+//    NSMutableDictionary *disableAttributes = [NSMutableDictionary dictionary];
+//    disableAttributes[NSForegroundColorAttributeName] = [UIColor grayColor];
+//    disableAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+//    [item setTitleTextAttributes:disableAttributes forState:UIControlStateDisabled];
+//}
 
 - (void)setBackgroundImage:(UIImage *)backgroundImage {
     

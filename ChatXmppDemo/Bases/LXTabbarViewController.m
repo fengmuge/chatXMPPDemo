@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "ConversationViewController.h"
 #import "FriendsViewController.h"
+#import "LoginViewController.h"
 #import "LXNavgationViewController.h"
 
 #import "UIImage+windowImage.h"
@@ -45,6 +46,12 @@
     self.tabBarController.delegate = self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self presentLoginViewController];
+}
+
 - (NSArray<UIViewController *> *)makeViewControllers {
     LXNavgationViewController *conversationNav = [LXNavgationViewController initWithRootViewController:[[ConversationViewController alloc] init] itemTitle:@"会话"];
     LXNavgationViewController *roomsNav = [LXNavgationViewController initWithRootViewController:[[RoomViewController alloc] init] itemTitle:@"群聊"];
@@ -52,6 +59,15 @@
     LXNavgationViewController *settingNav = [LXNavgationViewController initWithRootViewController:[[SettingViewController alloc] init] itemTitle:@"设置"];
     
     return @[conversationNav, roomsNav, friendsNav, settingNav];
+}
+
+- (void)presentLoginViewController {
+    if ([UserManager sharedInstance].isLogin) {
+        return;
+    }
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    LXNavgationViewController *loginNav = [[LXNavgationViewController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:loginNav animated:NO completion:nil];
 }
 
 - (BOOL)shouldAutorotate {

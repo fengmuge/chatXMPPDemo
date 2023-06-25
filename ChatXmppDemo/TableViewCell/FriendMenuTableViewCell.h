@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendMenuTableViewCell : UITableViewCell
 
+- (void)reloadWithImage:(NSString *)imgname title:(NSString *)title messageCount:(NSUInteger)count;
+- (void)resetMessageCount:(int)count;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
-		654CEAAB2A2D85E6001F8541 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAA2A2D85E6001F8541 /* SceneDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
 		654CEAB32A2D85E8001F8541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAB22A2D85E8001F8541 /* Assets.xcassets */; };
@@ -17,6 +16,159 @@
 		654CEAC32A2D85E8001F8541 /* ChatXmppDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAC22A2D85E8001F8541 /* ChatXmppDemoTests.m */; };
 		654CEACD2A2D85E8001F8541 /* ChatXmppDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEACC2A2D85E8001F8541 /* ChatXmppDemoUITests.m */; };
 		654CEACF2A2D85E8001F8541 /* ChatXmppDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEACE2A2D85E8001F8541 /* ChatXmppDemoUITestsLaunchTests.m */; };
+		654CEADF2A2D8633001F8541 /* ChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEADE2A2D8633001F8541 /* ChatManager.m */; };
+		654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE12A2D8640001F8541 /* RosterManager.m */; };
+		654CEAE52A2D8649001F8541 /* RoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE42A2D8649001F8541 /* RoomManager.m */; };
+		654CEAE82A2D865C001F8541 /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE72A2D865C001F8541 /* CardManager.m */; };
+		654CEAEB2A2D866E001F8541 /* MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAEA2A2D866E001F8541 /* MessageManager.m */; };
+		654CEAEE2A2D86B1001F8541 /* FlieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAED2A2D86B1001F8541 /* FlieManager.m */; };
+		654CEAF12A2D86D0001F8541 /* AuxiliaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF02A2D86D0001F8541 /* AuxiliaryManager.m */; };
+		654CEAF82A2DB1C6001F8541 /* LXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF72A2DB1C6001F8541 /* LXTableViewController.m */; };
+		654CEAFB2A2DB270001F8541 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAFA2A2DB270001F8541 /* ChatViewController.m */; };
+		654CEB012A2ECAA0001F8541 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB002A2ECAA0001F8541 /* RoomViewController.m */; };
+		654CEB042A2ECAAA001F8541 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB032A2ECAAA001F8541 /* SettingViewController.m */; };
+		654CEB0A2A2ECB23001F8541 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB092A2ECB23001F8541 /* ConversationViewController.m */; };
+		654CEB0D2A2ECBBE001F8541 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0C2A2ECBBE001F8541 /* FriendsViewController.m */; };
+		654CEB102A2ECC67001F8541 /* LXNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0F2A2ECC67001F8541 /* LXNavgationViewController.m */; };
+		654CEB132A2ECCA8001F8541 /* LXTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB122A2ECCA8001F8541 /* LXTabbarViewController.m */; };
+		654CEB172A2ED50A001F8541 /* UITabBarItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB162A2ED50A001F8541 /* UITabBarItem+custom.m */; };
+		654CEB202A2F0AE9001F8541 /* UIImage+windowImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB1F2A2F0AE9001F8541 /* UIImage+windowImage.m */; };
+		654CEB252A2F0C10001F8541 /* HHDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB222A2F0C10001F8541 /* HHDeviceTool.m */; };
+		654CEB282A2F0CA5001F8541 /* NSString+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB272A2F0CA5001F8541 /* NSString+custom.m */; };
+		654CEB2B2A2F1A92001F8541 /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2A2A2F1A92001F8541 /* LXViewController.m */; };
+		654CEB2D2A305D51001F8541 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEB2C2A305D51001F8541 /* Normal.xcassets */; };
+		654CEB302A307A64001F8541 /* UITableView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2F2A307A64001F8541 /* UITableView+custom.m */; };
+		654CEB342A308573001F8541 /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB332A308573001F8541 /* ConversationTableViewCell.m */; };
+		654CEB382A316E5F001F8541 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB372A316E5F001F8541 /* User.m */; };
+		654CEB3F2A31CC13001F8541 /* UIViewController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */; };
+		654CEB422A32CD6B001F8541 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB412A32CD6B001F8541 /* UserManager.m */; };
+		654CEB452A32F53E001F8541 /* XMPPPresence+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB442A32F53E001F8541 /* XMPPPresence+custom.m */; };
+		654CF6732A371BB9001F8541 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6722A371BB9001F8541 /* ContactTableViewCell.m */; };
+		654CF6792A371BFA001F8541 /* SubscriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6782A371BFA001F8541 /* SubscriptionTableViewCell.m */; };
+		654CF67D2A373386001F8541 /* DDXMLElement+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67C2A373386001F8541 /* DDXMLElement+custom.m */; };
+		654CF6802A384166001F8541 /* UIImage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67F2A384166001F8541 /* UIImage+custom.m */; };
+		654CF6832A384312001F8541 /* XMPPJID+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6822A384312001F8541 /* XMPPJID+custom.m */; };
+		654CF6862A384A51001F8541 /* FriendMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6852A384A51001F8541 /* FriendMenuTableViewCell.m */; };
+		654CF6892A385724001F8541 /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6882A385724001F8541 /* Subscription.m */; };
+		654CF68C2A387003001F8541 /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68B2A387003001F8541 /* SubscriptionViewController.m */; };
+		654CF68F2A388F71001F8541 /* UIAlertController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68E2A388F71001F8541 /* UIAlertController+custom.m */; };
+		654CF6922A395DA0001F8541 /* UITextField+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6912A395DA0001F8541 /* UITextField+custom.m */; };
+		654CF6952A395E45001F8541 /* UITextView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6942A395E45001F8541 /* UITextView+custom.m */; };
+		654CF6982A399397001F8541 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6972A399397001F8541 /* LoginViewController.m */; };
+		654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69A2A399422001F8541 /* RegisterViewController.m */; };
+		654CF69F2A3C5791001F8541 /* LXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69E2A3C5791001F8541 /* LXMessage.m */; };
+		65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */; };
+		65AABE522A403247000EBEA6 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE512A403247000EBEA6 /* AudioManager.m */; };
+		65AABE562A404F77000EBEA6 /* TranscribeVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */; };
+		65B0C6A02A418962008B65AB /* NSArray+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C69F2A418962008B65AB /* NSArray+custom.m */; };
+		65B0C6A32A42D80C008B65AB /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C6A22A42D80C008B65AB /* Room.m */; };
+		65B0C7272A47D53F008B65AB /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB332A308573001F8541 /* ConversationTableViewCell.m */; };
+		65B0C7282A47D53F008B65AB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAFA2A2DB270001F8541 /* ChatViewController.m */; };
+		65B0C7292A47D53F008B65AB /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6722A371BB9001F8541 /* ContactTableViewCell.m */; };
+		65B0C72A2A47D53F008B65AB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB372A316E5F001F8541 /* User.m */; };
+		65B0C72B2A47D53F008B65AB /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB092A2ECB23001F8541 /* ConversationViewController.m */; };
+		65B0C72C2A47D53F008B65AB /* AuxiliaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF02A2D86D0001F8541 /* AuxiliaryManager.m */; };
+		65B0C72D2A47D53F008B65AB /* RosterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE12A2D8640001F8541 /* RosterManager.m */; };
+		65B0C72E2A47D53F008B65AB /* UICollectionView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */; };
+		65B0C72F2A47D53F008B65AB /* LXNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0F2A2ECC67001F8541 /* LXNavgationViewController.m */; };
+		65B0C7302A47D53F008B65AB /* HHDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB222A2F0C10001F8541 /* HHDeviceTool.m */; };
+		65B0C7312A47D53F008B65AB /* LXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69E2A3C5791001F8541 /* LXMessage.m */; };
+		65B0C7322A47D53F008B65AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
+		65B0C7332A47D53F008B65AB /* UITextView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6942A395E45001F8541 /* UITextView+custom.m */; };
+		65B0C7342A47D53F008B65AB /* UIImage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67F2A384166001F8541 /* UIImage+custom.m */; };
+		65B0C7352A47D53F008B65AB /* UIViewController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */; };
+		65B0C7362A47D53F008B65AB /* LXTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB122A2ECCA8001F8541 /* LXTabbarViewController.m */; };
+		65B0C7372A47D53F008B65AB /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2A2A2F1A92001F8541 /* LXViewController.m */; };
+		65B0C7382A47D53F008B65AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
+		65B0C7392A47D53F008B65AB /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE512A403247000EBEA6 /* AudioManager.m */; };
+		65B0C73A2A47D53F008B65AB /* ChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEADE2A2D8633001F8541 /* ChatManager.m */; };
+		65B0C73B2A47D53F008B65AB /* LXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF72A2DB1C6001F8541 /* LXTableViewController.m */; };
+		65B0C73C2A47D53F008B65AB /* UIImage+windowImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB1F2A2F0AE9001F8541 /* UIImage+windowImage.m */; };
+		65B0C73D2A47D53F008B65AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6972A399397001F8541 /* LoginViewController.m */; };
+		65B0C73E2A47D53F008B65AB /* UITextField+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6912A395DA0001F8541 /* UITextField+custom.m */; };
+		65B0C73F2A47D53F008B65AB /* MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAEA2A2D866E001F8541 /* MessageManager.m */; };
+		65B0C7402A47D53F008B65AB /* XMPPJID+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6822A384312001F8541 /* XMPPJID+custom.m */; };
+		65B0C7412A47D53F008B65AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAB82A2D85E8001F8541 /* main.m */; };
+		65B0C7422A47D53F008B65AB /* NSArray+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C69F2A418962008B65AB /* NSArray+custom.m */; };
+		65B0C7432A47D53F008B65AB /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0C2A2ECBBE001F8541 /* FriendsViewController.m */; };
+		65B0C7442A47D53F008B65AB /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69A2A399422001F8541 /* RegisterViewController.m */; };
+		65B0C7452A47D53F008B65AB /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C6A22A42D80C008B65AB /* Room.m */; };
+		65B0C7462A47D53F008B65AB /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE72A2D865C001F8541 /* CardManager.m */; };
+		65B0C7472A47D53F008B65AB /* FlieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAED2A2D86B1001F8541 /* FlieManager.m */; };
+		65B0C7482A47D53F008B65AB /* UITabBarItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB162A2ED50A001F8541 /* UITabBarItem+custom.m */; };
+		65B0C7492A47D53F008B65AB /* SubscriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6782A371BFA001F8541 /* SubscriptionTableViewCell.m */; };
+		65B0C74A2A47D53F008B65AB /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB412A32CD6B001F8541 /* UserManager.m */; };
+		65B0C74B2A47D53F008B65AB /* FriendMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6852A384A51001F8541 /* FriendMenuTableViewCell.m */; };
+		65B0C74C2A47D53F008B65AB /* DDXMLElement+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67C2A373386001F8541 /* DDXMLElement+custom.m */; };
+		65B0C74D2A47D53F008B65AB /* XMPPPresence+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB442A32F53E001F8541 /* XMPPPresence+custom.m */; };
+		65B0C74E2A47D53F008B65AB /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB002A2ECAA0001F8541 /* RoomViewController.m */; };
+		65B0C74F2A47D53F008B65AB /* TranscribeVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */; };
+		65B0C7502A47D53F008B65AB /* UIAlertController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68E2A388F71001F8541 /* UIAlertController+custom.m */; };
+		65B0C7512A47D53F008B65AB /* UITableView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2F2A307A64001F8541 /* UITableView+custom.m */; };
+		65B0C7522A47D53F008B65AB /* RoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE42A2D8649001F8541 /* RoomManager.m */; };
+		65B0C7532A47D53F008B65AB /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68B2A387003001F8541 /* SubscriptionViewController.m */; };
+		65B0C7542A47D53F008B65AB /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB032A2ECAAA001F8541 /* SettingViewController.m */; };
+		65B0C7552A47D53F008B65AB /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6882A385724001F8541 /* Subscription.m */; };
+		65B0C7562A47D53F008B65AB /* NSString+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB272A2F0CA5001F8541 /* NSString+custom.m */; };
+		65B0C7582A47D53F008B65AB /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
+		65B0C75A2A47D53F008B65AB /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEB2C2A305D51001F8541 /* Normal.xcassets */; };
+		65B0C75B2A47D53F008B65AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAB42A2D85E8001F8541 /* LaunchScreen.storyboard */; };
+		65B0C75C2A47D53F008B65AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAB22A2D85E8001F8541 /* Assets.xcassets */; };
+		65B0C75D2A47D53F008B65AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
+		65B0C7672A47D5D2008B65AB /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB332A308573001F8541 /* ConversationTableViewCell.m */; };
+		65B0C7682A47D5D2008B65AB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAFA2A2DB270001F8541 /* ChatViewController.m */; };
+		65B0C7692A47D5D2008B65AB /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6722A371BB9001F8541 /* ContactTableViewCell.m */; };
+		65B0C76A2A47D5D2008B65AB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB372A316E5F001F8541 /* User.m */; };
+		65B0C76B2A47D5D2008B65AB /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB092A2ECB23001F8541 /* ConversationViewController.m */; };
+		65B0C76C2A47D5D2008B65AB /* AuxiliaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF02A2D86D0001F8541 /* AuxiliaryManager.m */; };
+		65B0C76D2A47D5D2008B65AB /* RosterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE12A2D8640001F8541 /* RosterManager.m */; };
+		65B0C76E2A47D5D2008B65AB /* UICollectionView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */; };
+		65B0C76F2A47D5D2008B65AB /* LXNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0F2A2ECC67001F8541 /* LXNavgationViewController.m */; };
+		65B0C7702A47D5D2008B65AB /* HHDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB222A2F0C10001F8541 /* HHDeviceTool.m */; };
+		65B0C7712A47D5D2008B65AB /* LXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69E2A3C5791001F8541 /* LXMessage.m */; };
+		65B0C7722A47D5D2008B65AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
+		65B0C7732A47D5D2008B65AB /* UITextView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6942A395E45001F8541 /* UITextView+custom.m */; };
+		65B0C7742A47D5D2008B65AB /* UIImage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67F2A384166001F8541 /* UIImage+custom.m */; };
+		65B0C7752A47D5D2008B65AB /* UIViewController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */; };
+		65B0C7762A47D5D2008B65AB /* LXTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB122A2ECCA8001F8541 /* LXTabbarViewController.m */; };
+		65B0C7772A47D5D2008B65AB /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2A2A2F1A92001F8541 /* LXViewController.m */; };
+		65B0C7782A47D5D2008B65AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
+		65B0C7792A47D5D2008B65AB /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE512A403247000EBEA6 /* AudioManager.m */; };
+		65B0C77A2A47D5D2008B65AB /* ChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEADE2A2D8633001F8541 /* ChatManager.m */; };
+		65B0C77B2A47D5D2008B65AB /* LXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAF72A2DB1C6001F8541 /* LXTableViewController.m */; };
+		65B0C77C2A47D5D2008B65AB /* UIImage+windowImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB1F2A2F0AE9001F8541 /* UIImage+windowImage.m */; };
+		65B0C77D2A47D5D2008B65AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6972A399397001F8541 /* LoginViewController.m */; };
+		65B0C77E2A47D5D2008B65AB /* UITextField+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6912A395DA0001F8541 /* UITextField+custom.m */; };
+		65B0C77F2A47D5D2008B65AB /* MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAEA2A2D866E001F8541 /* MessageManager.m */; };
+		65B0C7802A47D5D2008B65AB /* XMPPJID+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6822A384312001F8541 /* XMPPJID+custom.m */; };
+		65B0C7812A47D5D2008B65AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAB82A2D85E8001F8541 /* main.m */; };
+		65B0C7822A47D5D2008B65AB /* NSArray+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C69F2A418962008B65AB /* NSArray+custom.m */; };
+		65B0C7832A47D5D2008B65AB /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB0C2A2ECBBE001F8541 /* FriendsViewController.m */; };
+		65B0C7842A47D5D2008B65AB /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69A2A399422001F8541 /* RegisterViewController.m */; };
+		65B0C7852A47D5D2008B65AB /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C6A22A42D80C008B65AB /* Room.m */; };
+		65B0C7862A47D5D2008B65AB /* CardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE72A2D865C001F8541 /* CardManager.m */; };
+		65B0C7872A47D5D2008B65AB /* FlieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAED2A2D86B1001F8541 /* FlieManager.m */; };
+		65B0C7882A47D5D2008B65AB /* UITabBarItem+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB162A2ED50A001F8541 /* UITabBarItem+custom.m */; };
+		65B0C7892A47D5D2008B65AB /* SubscriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6782A371BFA001F8541 /* SubscriptionTableViewCell.m */; };
+		65B0C78A2A47D5D2008B65AB /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB412A32CD6B001F8541 /* UserManager.m */; };
+		65B0C78B2A47D5D2008B65AB /* FriendMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6852A384A51001F8541 /* FriendMenuTableViewCell.m */; };
+		65B0C78C2A47D5D2008B65AB /* DDXMLElement+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF67C2A373386001F8541 /* DDXMLElement+custom.m */; };
+		65B0C78D2A47D5D2008B65AB /* XMPPPresence+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB442A32F53E001F8541 /* XMPPPresence+custom.m */; };
+		65B0C78E2A47D5D2008B65AB /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB002A2ECAA0001F8541 /* RoomViewController.m */; };
+		65B0C78F2A47D5D2008B65AB /* TranscribeVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */; };
+		65B0C7902A47D5D2008B65AB /* UIAlertController+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68E2A388F71001F8541 /* UIAlertController+custom.m */; };
+		65B0C7912A47D5D2008B65AB /* UITableView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB2F2A307A64001F8541 /* UITableView+custom.m */; };
+		65B0C7922A47D5D2008B65AB /* RoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAE42A2D8649001F8541 /* RoomManager.m */; };
+		65B0C7932A47D5D2008B65AB /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF68B2A387003001F8541 /* SubscriptionViewController.m */; };
+		65B0C7942A47D5D2008B65AB /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB032A2ECAAA001F8541 /* SettingViewController.m */; };
+		65B0C7952A47D5D2008B65AB /* Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6882A385724001F8541 /* Subscription.m */; };
+		65B0C7962A47D5D2008B65AB /* NSString+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEB272A2F0CA5001F8541 /* NSString+custom.m */; };
+		65B0C7982A47D5D2008B65AB /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
+		65B0C79A2A47D5D2008B65AB /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEB2C2A305D51001F8541 /* Normal.xcassets */; };
+		65B0C79B2A47D5D2008B65AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAB42A2D85E8001F8541 /* LaunchScreen.storyboard */; };
+		65B0C79C2A47D5D2008B65AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAB22A2D85E8001F8541 /* Assets.xcassets */; };
+		65B0C79D2A47D5D2008B65AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
+		8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +189,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatXmppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		654CEAA92A2D85E6001F8541 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		654CEAAA2A2D85E6001F8541 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		654CEAAC2A2D85E6001F8541 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		654CEAAD2A2D85E6001F8541 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		654CEAB02A2D85E6001F8541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +205,107 @@
 		654CEAC82A2D85E8001F8541 /* ChatXmppDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXmppDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEACC2A2D85E8001F8541 /* ChatXmppDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatXmppDemoUITests.m; sourceTree = "<group>"; };
 		654CEACE2A2D85E8001F8541 /* ChatXmppDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatXmppDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
+		654CEADD2A2D8633001F8541 /* ChatManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatManager.h; sourceTree = "<group>"; };
+		654CEADE2A2D8633001F8541 /* ChatManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatManager.m; sourceTree = "<group>"; };
+		654CEAE02A2D8640001F8541 /* RosterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RosterManager.h; sourceTree = "<group>"; };
+		654CEAE12A2D8640001F8541 /* RosterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RosterManager.m; sourceTree = "<group>"; };
+		654CEAE32A2D8649001F8541 /* RoomManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomManager.h; sourceTree = "<group>"; };
+		654CEAE42A2D8649001F8541 /* RoomManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomManager.m; sourceTree = "<group>"; };
+		654CEAE62A2D865C001F8541 /* CardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardManager.h; sourceTree = "<group>"; };
+		654CEAE72A2D865C001F8541 /* CardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardManager.m; sourceTree = "<group>"; };
+		654CEAE92A2D866E001F8541 /* MessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageManager.h; sourceTree = "<group>"; };
+		654CEAEA2A2D866E001F8541 /* MessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageManager.m; sourceTree = "<group>"; };
+		654CEAEC2A2D86B1001F8541 /* FlieManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlieManager.h; sourceTree = "<group>"; };
+		654CEAED2A2D86B1001F8541 /* FlieManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlieManager.m; sourceTree = "<group>"; };
+		654CEAEF2A2D86D0001F8541 /* AuxiliaryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuxiliaryManager.h; sourceTree = "<group>"; };
+		654CEAF02A2D86D0001F8541 /* AuxiliaryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuxiliaryManager.m; sourceTree = "<group>"; };
+		654CEAF62A2DB1C6001F8541 /* LXTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXTableViewController.h; sourceTree = "<group>"; };
+		654CEAF72A2DB1C6001F8541 /* LXTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXTableViewController.m; sourceTree = "<group>"; };
+		654CEAF92A2DB270001F8541 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		654CEAFA2A2DB270001F8541 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		654CEAFF2A2ECAA0001F8541 /* RoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		654CEB002A2ECAA0001F8541 /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		654CEB022A2ECAAA001F8541 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		654CEB032A2ECAAA001F8541 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		654CEB082A2ECB23001F8541 /* ConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		654CEB092A2ECB23001F8541 /* ConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
+		654CEB0B2A2ECBBE001F8541 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		654CEB0C2A2ECBBE001F8541 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		654CEB0E2A2ECC67001F8541 /* LXNavgationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXNavgationViewController.h; sourceTree = "<group>"; };
+		654CEB0F2A2ECC67001F8541 /* LXNavgationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXNavgationViewController.m; sourceTree = "<group>"; };
+		654CEB112A2ECCA8001F8541 /* LXTabbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXTabbarViewController.h; sourceTree = "<group>"; };
+		654CEB122A2ECCA8001F8541 /* LXTabbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXTabbarViewController.m; sourceTree = "<group>"; };
+		654CEB152A2ED50A001F8541 /* UITabBarItem+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+custom.h"; sourceTree = "<group>"; };
+		654CEB162A2ED50A001F8541 /* UITabBarItem+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+custom.m"; sourceTree = "<group>"; };
+		654CEB1E2A2F0AE9001F8541 /* UIImage+windowImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+windowImage.h"; sourceTree = "<group>"; };
+		654CEB1F2A2F0AE9001F8541 /* UIImage+windowImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+windowImage.m"; sourceTree = "<group>"; };
+		654CEB222A2F0C10001F8541 /* HHDeviceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHDeviceTool.m; sourceTree = "<group>"; };
+		654CEB232A2F0C10001F8541 /* HHDeviceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHDeviceTool.h; sourceTree = "<group>"; };
+		654CEB242A2F0C10001F8541 /* globalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalDefine.h; sourceTree = "<group>"; };
+		654CEB262A2F0CA5001F8541 /* NSString+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+custom.h"; sourceTree = "<group>"; };
+		654CEB272A2F0CA5001F8541 /* NSString+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+custom.m"; sourceTree = "<group>"; };
+		654CEB292A2F1A92001F8541 /* LXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXViewController.h; sourceTree = "<group>"; };
+		654CEB2A2A2F1A92001F8541 /* LXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXViewController.m; sourceTree = "<group>"; };
+		654CEB2C2A305D51001F8541 /* Normal.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Normal.xcassets; sourceTree = "<group>"; };
+		654CEB2E2A307A64001F8541 /* UITableView+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+custom.h"; sourceTree = "<group>"; };
+		654CEB2F2A307A64001F8541 /* UITableView+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+custom.m"; sourceTree = "<group>"; };
+		654CEB322A308573001F8541 /* ConversationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationTableViewCell.h; sourceTree = "<group>"; };
+		654CEB332A308573001F8541 /* ConversationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationTableViewCell.m; sourceTree = "<group>"; };
+		654CEB362A316E5F001F8541 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		654CEB372A316E5F001F8541 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		654CEB3C2A3181D9001F8541 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		654CEB3D2A31CC13001F8541 /* UIViewController+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+custom.h"; sourceTree = "<group>"; };
+		654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+custom.m"; sourceTree = "<group>"; };
+		654CEB402A32CD6B001F8541 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		654CEB412A32CD6B001F8541 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
+		654CEB432A32F53E001F8541 /* XMPPPresence+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPPresence+custom.h"; sourceTree = "<group>"; };
+		654CEB442A32F53E001F8541 /* XMPPPresence+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPPresence+custom.m"; sourceTree = "<group>"; };
+		654CF6702A36FCD8001F8541 /* NotificationDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationDefine.h; sourceTree = "<group>"; };
+		654CF6712A371BB9001F8541 /* ContactTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		654CF6722A371BB9001F8541 /* ContactTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		654CF6772A371BFA001F8541 /* SubscriptionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscriptionTableViewCell.h; sourceTree = "<group>"; };
+		654CF6782A371BFA001F8541 /* SubscriptionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscriptionTableViewCell.m; sourceTree = "<group>"; };
+		654CF67A2A37216D001F8541 /* FontDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontDefine.h; sourceTree = "<group>"; };
+		654CF67B2A373386001F8541 /* DDXMLElement+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDXMLElement+custom.h"; sourceTree = "<group>"; };
+		654CF67C2A373386001F8541 /* DDXMLElement+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDXMLElement+custom.m"; sourceTree = "<group>"; };
+		654CF67E2A384166001F8541 /* UIImage+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+custom.h"; sourceTree = "<group>"; };
+		654CF67F2A384166001F8541 /* UIImage+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+custom.m"; sourceTree = "<group>"; };
+		654CF6812A384312001F8541 /* XMPPJID+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPJID+custom.h"; sourceTree = "<group>"; };
+		654CF6822A384312001F8541 /* XMPPJID+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPJID+custom.m"; sourceTree = "<group>"; };
+		654CF6842A384A51001F8541 /* FriendMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendMenuTableViewCell.h; sourceTree = "<group>"; };
+		654CF6852A384A51001F8541 /* FriendMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendMenuTableViewCell.m; sourceTree = "<group>"; };
+		654CF6872A385724001F8541 /* Subscription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
+		654CF6882A385724001F8541 /* Subscription.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Subscription.m; sourceTree = "<group>"; };
+		654CF68A2A387003001F8541 /* SubscriptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
+		654CF68B2A387003001F8541 /* SubscriptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
+		654CF68D2A388F71001F8541 /* UIAlertController+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+custom.h"; sourceTree = "<group>"; };
+		654CF68E2A388F71001F8541 /* UIAlertController+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+custom.m"; sourceTree = "<group>"; };
+		654CF6902A395DA0001F8541 /* UITextField+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+custom.h"; sourceTree = "<group>"; };
+		654CF6912A395DA0001F8541 /* UITextField+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+custom.m"; sourceTree = "<group>"; };
+		654CF6932A395E45001F8541 /* UITextView+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+custom.h"; sourceTree = "<group>"; };
+		654CF6942A395E45001F8541 /* UITextView+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+custom.m"; sourceTree = "<group>"; };
+		654CF6962A399397001F8541 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		654CF6972A399397001F8541 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		654CF6992A399422001F8541 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		654CF69A2A399422001F8541 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		654CF69D2A3C5791001F8541 /* LXMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMessage.h; sourceTree = "<group>"; };
+		654CF69E2A3C5791001F8541 /* LXMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMessage.m; sourceTree = "<group>"; };
+		65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+custom.h"; sourceTree = "<group>"; };
+		65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+custom.m"; sourceTree = "<group>"; };
+		65AABE502A403247000EBEA6 /* AudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		65AABE512A403247000EBEA6 /* AudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		65AABE542A404F77000EBEA6 /* TranscribeVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranscribeVoiceView.h; sourceTree = "<group>"; };
+		65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranscribeVoiceView.m; sourceTree = "<group>"; };
+		65B0C69E2A418962008B65AB /* NSArray+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+custom.h"; sourceTree = "<group>"; };
+		65B0C69F2A418962008B65AB /* NSArray+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+custom.m"; sourceTree = "<group>"; };
+		65B0C6A12A42D80C008B65AB /* Room.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		65B0C6A22A42D80C008B65AB /* Room.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		65B0C7232A47D449008B65AB /* ChatXmppDemoDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ChatXmppDemoDev-Info.plist"; path = "/Users/miaopeigen/Desktop/chatDemo/ChatXmppDemo/ChatXmppDemoDev-Info.plist"; sourceTree = "<absolute>"; };
+		65B0C7622A47D53F008B65AB /* ChatXmppDemoDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemoDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B0C7A22A47D5D2008B65AB /* ChatXmppDemoDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemoDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B0C7A32A47D5D2008B65AB /* ChatXmppDemoDebug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ChatXmppDemoDebug-Info.plist"; path = "/Users/miaopeigen/Desktop/chatDemo/ChatXmppDemo/ChatXmppDemoDebug-Info.plist"; sourceTree = "<absolute>"; };
+		B0E1AAD358244DEB42EA8CD6 /* Pods-ChatXmppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatXmppDemo.release.xcconfig"; path = "Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B8B5AD6FC7BC79F1024B3081 /* Pods-ChatXmppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatXmppDemo.debug.xcconfig"; path = "Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +331,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65B0C7572A47D53F008B65AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C7582A47D53F008B65AB /* Pods_ChatXmppDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B0C7972A47D5D2008B65AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C7982A47D5D2008B65AB /* Pods_ChatXmppDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,6 +357,10 @@
 				654CEAC12A2D85E8001F8541 /* ChatXmppDemoTests */,
 				654CEACB2A2D85E8001F8541 /* ChatXmppDemoUITests */,
 				654CEAA42A2D85E6001F8541 /* Products */,
+				73CA0F2247DFFD1217603A72 /* Pods */,
+				F57FCB7000D5BA7613CFADFB /* Frameworks */,
+				65B0C7232A47D449008B65AB /* ChatXmppDemoDev-Info.plist */,
+				65B0C7A32A47D5D2008B65AB /* ChatXmppDemoDebug-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +370,8 @@
 				654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */,
 				654CEABE2A2D85E8001F8541 /* ChatXmppDemoTests.xctest */,
 				654CEAC82A2D85E8001F8541 /* ChatXmppDemoUITests.xctest */,
+				65B0C7622A47D53F008B65AB /* ChatXmppDemoDev.app */,
+				65B0C7A22A47D5D2008B65AB /* ChatXmppDemoDebug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,17 +379,17 @@
 		654CEAA52A2D85E6001F8541 /* ChatXmppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				654CEAA62A2D85E6001F8541 /* AppDelegate.h */,
-				654CEAA72A2D85E6001F8541 /* AppDelegate.m */,
-				654CEAA92A2D85E6001F8541 /* SceneDelegate.h */,
-				654CEAAA2A2D85E6001F8541 /* SceneDelegate.m */,
-				654CEAAC2A2D85E6001F8541 /* ViewController.h */,
-				654CEAAD2A2D85E6001F8541 /* ViewController.m */,
-				654CEAAF2A2D85E6001F8541 /* Main.storyboard */,
-				654CEAB22A2D85E8001F8541 /* Assets.xcassets */,
-				654CEAB42A2D85E8001F8541 /* LaunchScreen.storyboard */,
+				654CEB3B2A3177BD001F8541 /* Bases */,
+				654CEB142A2ED4B1001F8541 /* Extensions */,
+				654CEB352A316E44001F8541 /* Models */,
+				654CF69C2A3C3247001F8541 /* Messages */,
+				654CEADC2A2D8612001F8541 /* Tools */,
+				65AABE532A404F68000EBEA6 /* Views */,
+				654CEB392A3176D9001F8541 /* Sources */,
+				654CEB312A30854C001F8541 /* TableViewCell */,
+				654CEB212A2F0BED001F8541 /* BaseConfig */,
+				654CEAF52A2DB1A8001F8541 /* ViewControllers */,
 				654CEAB72A2D85E8001F8541 /* Info.plist */,
-				654CEAB82A2D85E8001F8541 /* main.m */,
 			);
 			path = ChatXmppDemo;
 			sourceTree = "<group>";
@@ -136,6 +411,196 @@
 			path = ChatXmppDemoUITests;
 			sourceTree = "<group>";
 		};
+		654CEADC2A2D8612001F8541 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				654CEADD2A2D8633001F8541 /* ChatManager.h */,
+				654CEADE2A2D8633001F8541 /* ChatManager.m */,
+				654CEAE02A2D8640001F8541 /* RosterManager.h */,
+				654CEAE12A2D8640001F8541 /* RosterManager.m */,
+				654CEAE32A2D8649001F8541 /* RoomManager.h */,
+				654CEAE42A2D8649001F8541 /* RoomManager.m */,
+				654CEAE62A2D865C001F8541 /* CardManager.h */,
+				654CEAE72A2D865C001F8541 /* CardManager.m */,
+				654CEAE92A2D866E001F8541 /* MessageManager.h */,
+				654CEAEA2A2D866E001F8541 /* MessageManager.m */,
+				654CEAEC2A2D86B1001F8541 /* FlieManager.h */,
+				654CEAED2A2D86B1001F8541 /* FlieManager.m */,
+				654CEAEF2A2D86D0001F8541 /* AuxiliaryManager.h */,
+				654CEAF02A2D86D0001F8541 /* AuxiliaryManager.m */,
+				654CEB402A32CD6B001F8541 /* UserManager.h */,
+				654CEB412A32CD6B001F8541 /* UserManager.m */,
+				65AABE502A403247000EBEA6 /* AudioManager.h */,
+				65AABE512A403247000EBEA6 /* AudioManager.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		654CEAF52A2DB1A8001F8541 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				654CEAF92A2DB270001F8541 /* ChatViewController.h */,
+				654CEAFA2A2DB270001F8541 /* ChatViewController.m */,
+				654CEAFF2A2ECAA0001F8541 /* RoomViewController.h */,
+				654CEB002A2ECAA0001F8541 /* RoomViewController.m */,
+				654CEB022A2ECAAA001F8541 /* SettingViewController.h */,
+				654CEB032A2ECAAA001F8541 /* SettingViewController.m */,
+				654CEB082A2ECB23001F8541 /* ConversationViewController.h */,
+				654CEB092A2ECB23001F8541 /* ConversationViewController.m */,
+				654CEB0B2A2ECBBE001F8541 /* FriendsViewController.h */,
+				654CEB0C2A2ECBBE001F8541 /* FriendsViewController.m */,
+				654CF68A2A387003001F8541 /* SubscriptionViewController.h */,
+				654CF68B2A387003001F8541 /* SubscriptionViewController.m */,
+				654CF6962A399397001F8541 /* LoginViewController.h */,
+				654CF6972A399397001F8541 /* LoginViewController.m */,
+				654CF6992A399422001F8541 /* RegisterViewController.h */,
+				654CF69A2A399422001F8541 /* RegisterViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		654CEB142A2ED4B1001F8541 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				654CEB1E2A2F0AE9001F8541 /* UIImage+windowImage.h */,
+				654CEB1F2A2F0AE9001F8541 /* UIImage+windowImage.m */,
+				654CEB152A2ED50A001F8541 /* UITabBarItem+custom.h */,
+				654CEB162A2ED50A001F8541 /* UITabBarItem+custom.m */,
+				654CEB262A2F0CA5001F8541 /* NSString+custom.h */,
+				654CEB272A2F0CA5001F8541 /* NSString+custom.m */,
+				654CEB2E2A307A64001F8541 /* UITableView+custom.h */,
+				654CEB2F2A307A64001F8541 /* UITableView+custom.m */,
+				654CEB3D2A31CC13001F8541 /* UIViewController+custom.h */,
+				654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */,
+				654CEB432A32F53E001F8541 /* XMPPPresence+custom.h */,
+				654CEB442A32F53E001F8541 /* XMPPPresence+custom.m */,
+				654CF67B2A373386001F8541 /* DDXMLElement+custom.h */,
+				654CF67C2A373386001F8541 /* DDXMLElement+custom.m */,
+				654CF67E2A384166001F8541 /* UIImage+custom.h */,
+				654CF67F2A384166001F8541 /* UIImage+custom.m */,
+				654CF6812A384312001F8541 /* XMPPJID+custom.h */,
+				654CF6822A384312001F8541 /* XMPPJID+custom.m */,
+				654CF68D2A388F71001F8541 /* UIAlertController+custom.h */,
+				654CF68E2A388F71001F8541 /* UIAlertController+custom.m */,
+				654CF6902A395DA0001F8541 /* UITextField+custom.h */,
+				654CF6912A395DA0001F8541 /* UITextField+custom.m */,
+				654CF6932A395E45001F8541 /* UITextView+custom.h */,
+				654CF6942A395E45001F8541 /* UITextView+custom.m */,
+				65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */,
+				65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */,
+				65B0C69E2A418962008B65AB /* NSArray+custom.h */,
+				65B0C69F2A418962008B65AB /* NSArray+custom.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		654CEB212A2F0BED001F8541 /* BaseConfig */ = {
+			isa = PBXGroup;
+			children = (
+				654CF67A2A37216D001F8541 /* FontDefine.h */,
+				654CEB242A2F0C10001F8541 /* globalDefine.h */,
+				654CF6702A36FCD8001F8541 /* NotificationDefine.h */,
+				654CEB232A2F0C10001F8541 /* HHDeviceTool.h */,
+				654CEB222A2F0C10001F8541 /* HHDeviceTool.m */,
+			);
+			path = BaseConfig;
+			sourceTree = "<group>";
+		};
+		654CEB312A30854C001F8541 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				654CEB322A308573001F8541 /* ConversationTableViewCell.h */,
+				654CEB332A308573001F8541 /* ConversationTableViewCell.m */,
+				654CF6712A371BB9001F8541 /* ContactTableViewCell.h */,
+				654CF6722A371BB9001F8541 /* ContactTableViewCell.m */,
+				654CF6772A371BFA001F8541 /* SubscriptionTableViewCell.h */,
+				654CF6782A371BFA001F8541 /* SubscriptionTableViewCell.m */,
+				654CF6842A384A51001F8541 /* FriendMenuTableViewCell.h */,
+				654CF6852A384A51001F8541 /* FriendMenuTableViewCell.m */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		654CEB352A316E44001F8541 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				654CEB362A316E5F001F8541 /* User.h */,
+				654CEB372A316E5F001F8541 /* User.m */,
+				654CF6872A385724001F8541 /* Subscription.h */,
+				654CF6882A385724001F8541 /* Subscription.m */,
+				65B0C6A12A42D80C008B65AB /* Room.h */,
+				65B0C6A22A42D80C008B65AB /* Room.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		654CEB392A3176D9001F8541 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				654CEAAF2A2D85E6001F8541 /* Main.storyboard */,
+				654CEAB22A2D85E8001F8541 /* Assets.xcassets */,
+				654CEB2C2A305D51001F8541 /* Normal.xcassets */,
+				654CEAB42A2D85E8001F8541 /* LaunchScreen.storyboard */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		654CEB3B2A3177BD001F8541 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				654CEB0E2A2ECC67001F8541 /* LXNavgationViewController.h */,
+				654CEB0F2A2ECC67001F8541 /* LXNavgationViewController.m */,
+				654CEB112A2ECCA8001F8541 /* LXTabbarViewController.h */,
+				654CEB122A2ECCA8001F8541 /* LXTabbarViewController.m */,
+				654CEB292A2F1A92001F8541 /* LXViewController.h */,
+				654CEB2A2A2F1A92001F8541 /* LXViewController.m */,
+				654CEAF62A2DB1C6001F8541 /* LXTableViewController.h */,
+				654CEAF72A2DB1C6001F8541 /* LXTableViewController.m */,
+				654CEAA62A2D85E6001F8541 /* AppDelegate.h */,
+				654CEAA72A2D85E6001F8541 /* AppDelegate.m */,
+				654CEAAC2A2D85E6001F8541 /* ViewController.h */,
+				654CEAAD2A2D85E6001F8541 /* ViewController.m */,
+				654CEAB82A2D85E8001F8541 /* main.m */,
+				654CEB3C2A3181D9001F8541 /* PrefixHeader.h */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		654CF69C2A3C3247001F8541 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				654CF69D2A3C5791001F8541 /* LXMessage.h */,
+				654CF69E2A3C5791001F8541 /* LXMessage.m */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		65AABE532A404F68000EBEA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65AABE542A404F77000EBEA6 /* TranscribeVoiceView.h */,
+				65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73CA0F2247DFFD1217603A72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8B5AD6FC7BC79F1024B3081 /* Pods-ChatXmppDemo.debug.xcconfig */,
+				B0E1AAD358244DEB42EA8CD6 /* Pods-ChatXmppDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F57FCB7000D5BA7613CFADFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +608,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 654CEAD22A2D85E8001F8541 /* Build configuration list for PBXNativeTarget "ChatXmppDemo" */;
 			buildPhases = (
+				509C07B58DBC966A54B49E2A /* [CP] Check Pods Manifest.lock */,
 				654CEA9F2A2D85E6001F8541 /* Sources */,
 				654CEAA02A2D85E6001F8541 /* Frameworks */,
 				654CEAA12A2D85E6001F8541 /* Resources */,
+				87EB7BC5461CC04197FCB1D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +659,44 @@
 			productReference = 654CEAC82A2D85E8001F8541 /* ChatXmppDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		65B0C7242A47D53F008B65AB /* ChatXmppDemoDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B0C75F2A47D53F008B65AB /* Build configuration list for PBXNativeTarget "ChatXmppDemoDev" */;
+			buildPhases = (
+				65B0C7252A47D53F008B65AB /* [CP] Check Pods Manifest.lock */,
+				65B0C7262A47D53F008B65AB /* Sources */,
+				65B0C7572A47D53F008B65AB /* Frameworks */,
+				65B0C7592A47D53F008B65AB /* Resources */,
+				65B0C75E2A47D53F008B65AB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatXmppDemoDev;
+			productName = ChatXmppDemo;
+			productReference = 65B0C7622A47D53F008B65AB /* ChatXmppDemoDev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65B0C7642A47D5D2008B65AB /* ChatXmppDemoDebug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B0C79F2A47D5D2008B65AB /* Build configuration list for PBXNativeTarget "ChatXmppDemoDebug" */;
+			buildPhases = (
+				65B0C7652A47D5D2008B65AB /* [CP] Check Pods Manifest.lock */,
+				65B0C7662A47D5D2008B65AB /* Sources */,
+				65B0C7972A47D5D2008B65AB /* Frameworks */,
+				65B0C7992A47D5D2008B65AB /* Resources */,
+				65B0C79E2A47D5D2008B65AB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatXmppDemoDebug;
+			productName = ChatXmppDemo;
+			productReference = 65B0C7A22A47D5D2008B65AB /* ChatXmppDemoDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,6 +735,8 @@
 				654CEAA22A2D85E6001F8541 /* ChatXmppDemo */,
 				654CEABD2A2D85E8001F8541 /* ChatXmppDemoTests */,
 				654CEAC72A2D85E8001F8541 /* ChatXmppDemoUITests */,
+				65B0C7242A47D53F008B65AB /* ChatXmppDemoDev */,
+				65B0C7642A47D5D2008B65AB /* ChatXmppDemoDebug */,
 			);
 		};
 /* End PBXProject section */
@@ -239,6 +746,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654CEB2D2A305D51001F8541 /* Normal.xcassets in Resources */,
 				654CEAB62A2D85E8001F8541 /* LaunchScreen.storyboard in Resources */,
 				654CEAB32A2D85E8001F8541 /* Assets.xcassets in Resources */,
 				654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */,
@@ -259,17 +767,203 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65B0C7592A47D53F008B65AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C75A2A47D53F008B65AB /* Normal.xcassets in Resources */,
+				65B0C75B2A47D53F008B65AB /* LaunchScreen.storyboard in Resources */,
+				65B0C75C2A47D53F008B65AB /* Assets.xcassets in Resources */,
+				65B0C75D2A47D53F008B65AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B0C7992A47D5D2008B65AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C79A2A47D5D2008B65AB /* Normal.xcassets in Resources */,
+				65B0C79B2A47D5D2008B65AB /* LaunchScreen.storyboard in Resources */,
+				65B0C79C2A47D5D2008B65AB /* Assets.xcassets in Resources */,
+				65B0C79D2A47D5D2008B65AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		509C07B58DBC966A54B49E2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatXmppDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65B0C7252A47D53F008B65AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatXmppDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65B0C75E2A47D53F008B65AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65B0C7652A47D5D2008B65AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatXmppDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65B0C79E2A47D5D2008B65AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87EB7BC5461CC04197FCB1D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatXmppDemo/Pods-ChatXmppDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		654CEA9F2A2D85E6001F8541 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654CEB342A308573001F8541 /* ConversationTableViewCell.m in Sources */,
+				654CEAFB2A2DB270001F8541 /* ChatViewController.m in Sources */,
+				654CF6732A371BB9001F8541 /* ContactTableViewCell.m in Sources */,
+				654CEB382A316E5F001F8541 /* User.m in Sources */,
+				654CEB0A2A2ECB23001F8541 /* ConversationViewController.m in Sources */,
+				654CEAF12A2D86D0001F8541 /* AuxiliaryManager.m in Sources */,
+				654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */,
+				65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */,
+				654CEB102A2ECC67001F8541 /* LXNavgationViewController.m in Sources */,
+				654CEB252A2F0C10001F8541 /* HHDeviceTool.m in Sources */,
+				654CF69F2A3C5791001F8541 /* LXMessage.m in Sources */,
 				654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */,
+				654CF6952A395E45001F8541 /* UITextView+custom.m in Sources */,
+				654CF6802A384166001F8541 /* UIImage+custom.m in Sources */,
+				654CEB3F2A31CC13001F8541 /* UIViewController+custom.m in Sources */,
+				654CEB132A2ECCA8001F8541 /* LXTabbarViewController.m in Sources */,
+				654CEB2B2A2F1A92001F8541 /* LXViewController.m in Sources */,
 				654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */,
+				65AABE522A403247000EBEA6 /* AudioManager.m in Sources */,
+				654CEADF2A2D8633001F8541 /* ChatManager.m in Sources */,
+				654CEAF82A2DB1C6001F8541 /* LXTableViewController.m in Sources */,
+				654CEB202A2F0AE9001F8541 /* UIImage+windowImage.m in Sources */,
+				654CF6982A399397001F8541 /* LoginViewController.m in Sources */,
+				654CF6922A395DA0001F8541 /* UITextField+custom.m in Sources */,
+				654CEAEB2A2D866E001F8541 /* MessageManager.m in Sources */,
+				654CF6832A384312001F8541 /* XMPPJID+custom.m in Sources */,
 				654CEAB92A2D85E8001F8541 /* main.m in Sources */,
-				654CEAAB2A2D85E6001F8541 /* SceneDelegate.m in Sources */,
+				65B0C6A02A418962008B65AB /* NSArray+custom.m in Sources */,
+				654CEB0D2A2ECBBE001F8541 /* FriendsViewController.m in Sources */,
+				654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */,
+				65B0C6A32A42D80C008B65AB /* Room.m in Sources */,
+				654CEAE82A2D865C001F8541 /* CardManager.m in Sources */,
+				654CEAEE2A2D86B1001F8541 /* FlieManager.m in Sources */,
+				654CEB172A2ED50A001F8541 /* UITabBarItem+custom.m in Sources */,
+				654CF6792A371BFA001F8541 /* SubscriptionTableViewCell.m in Sources */,
+				654CEB422A32CD6B001F8541 /* UserManager.m in Sources */,
+				654CF6862A384A51001F8541 /* FriendMenuTableViewCell.m in Sources */,
+				654CF67D2A373386001F8541 /* DDXMLElement+custom.m in Sources */,
+				654CEB452A32F53E001F8541 /* XMPPPresence+custom.m in Sources */,
+				654CEB012A2ECAA0001F8541 /* RoomViewController.m in Sources */,
+				65AABE562A404F77000EBEA6 /* TranscribeVoiceView.m in Sources */,
+				654CF68F2A388F71001F8541 /* UIAlertController+custom.m in Sources */,
+				654CEB302A307A64001F8541 /* UITableView+custom.m in Sources */,
+				654CEAE52A2D8649001F8541 /* RoomManager.m in Sources */,
+				654CF68C2A387003001F8541 /* SubscriptionViewController.m in Sources */,
+				654CEB042A2ECAAA001F8541 /* SettingViewController.m in Sources */,
+				654CF6892A385724001F8541 /* Subscription.m in Sources */,
+				654CEB282A2F0CA5001F8541 /* NSString+custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +981,116 @@
 			files = (
 				654CEACF2A2D85E8001F8541 /* ChatXmppDemoUITestsLaunchTests.m in Sources */,
 				654CEACD2A2D85E8001F8541 /* ChatXmppDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B0C7262A47D53F008B65AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C7272A47D53F008B65AB /* ConversationTableViewCell.m in Sources */,
+				65B0C7282A47D53F008B65AB /* ChatViewController.m in Sources */,
+				65B0C7292A47D53F008B65AB /* ContactTableViewCell.m in Sources */,
+				65B0C72A2A47D53F008B65AB /* User.m in Sources */,
+				65B0C72B2A47D53F008B65AB /* ConversationViewController.m in Sources */,
+				65B0C72C2A47D53F008B65AB /* AuxiliaryManager.m in Sources */,
+				65B0C72D2A47D53F008B65AB /* RosterManager.m in Sources */,
+				65B0C72E2A47D53F008B65AB /* UICollectionView+custom.m in Sources */,
+				65B0C72F2A47D53F008B65AB /* LXNavgationViewController.m in Sources */,
+				65B0C7302A47D53F008B65AB /* HHDeviceTool.m in Sources */,
+				65B0C7312A47D53F008B65AB /* LXMessage.m in Sources */,
+				65B0C7322A47D53F008B65AB /* ViewController.m in Sources */,
+				65B0C7332A47D53F008B65AB /* UITextView+custom.m in Sources */,
+				65B0C7342A47D53F008B65AB /* UIImage+custom.m in Sources */,
+				65B0C7352A47D53F008B65AB /* UIViewController+custom.m in Sources */,
+				65B0C7362A47D53F008B65AB /* LXTabbarViewController.m in Sources */,
+				65B0C7372A47D53F008B65AB /* LXViewController.m in Sources */,
+				65B0C7382A47D53F008B65AB /* AppDelegate.m in Sources */,
+				65B0C7392A47D53F008B65AB /* AudioManager.m in Sources */,
+				65B0C73A2A47D53F008B65AB /* ChatManager.m in Sources */,
+				65B0C73B2A47D53F008B65AB /* LXTableViewController.m in Sources */,
+				65B0C73C2A47D53F008B65AB /* UIImage+windowImage.m in Sources */,
+				65B0C73D2A47D53F008B65AB /* LoginViewController.m in Sources */,
+				65B0C73E2A47D53F008B65AB /* UITextField+custom.m in Sources */,
+				65B0C73F2A47D53F008B65AB /* MessageManager.m in Sources */,
+				65B0C7402A47D53F008B65AB /* XMPPJID+custom.m in Sources */,
+				65B0C7412A47D53F008B65AB /* main.m in Sources */,
+				65B0C7422A47D53F008B65AB /* NSArray+custom.m in Sources */,
+				65B0C7432A47D53F008B65AB /* FriendsViewController.m in Sources */,
+				65B0C7442A47D53F008B65AB /* RegisterViewController.m in Sources */,
+				65B0C7452A47D53F008B65AB /* Room.m in Sources */,
+				65B0C7462A47D53F008B65AB /* CardManager.m in Sources */,
+				65B0C7472A47D53F008B65AB /* FlieManager.m in Sources */,
+				65B0C7482A47D53F008B65AB /* UITabBarItem+custom.m in Sources */,
+				65B0C7492A47D53F008B65AB /* SubscriptionTableViewCell.m in Sources */,
+				65B0C74A2A47D53F008B65AB /* UserManager.m in Sources */,
+				65B0C74B2A47D53F008B65AB /* FriendMenuTableViewCell.m in Sources */,
+				65B0C74C2A47D53F008B65AB /* DDXMLElement+custom.m in Sources */,
+				65B0C74D2A47D53F008B65AB /* XMPPPresence+custom.m in Sources */,
+				65B0C74E2A47D53F008B65AB /* RoomViewController.m in Sources */,
+				65B0C74F2A47D53F008B65AB /* TranscribeVoiceView.m in Sources */,
+				65B0C7502A47D53F008B65AB /* UIAlertController+custom.m in Sources */,
+				65B0C7512A47D53F008B65AB /* UITableView+custom.m in Sources */,
+				65B0C7522A47D53F008B65AB /* RoomManager.m in Sources */,
+				65B0C7532A47D53F008B65AB /* SubscriptionViewController.m in Sources */,
+				65B0C7542A47D53F008B65AB /* SettingViewController.m in Sources */,
+				65B0C7552A47D53F008B65AB /* Subscription.m in Sources */,
+				65B0C7562A47D53F008B65AB /* NSString+custom.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B0C7662A47D5D2008B65AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B0C7672A47D5D2008B65AB /* ConversationTableViewCell.m in Sources */,
+				65B0C7682A47D5D2008B65AB /* ChatViewController.m in Sources */,
+				65B0C7692A47D5D2008B65AB /* ContactTableViewCell.m in Sources */,
+				65B0C76A2A47D5D2008B65AB /* User.m in Sources */,
+				65B0C76B2A47D5D2008B65AB /* ConversationViewController.m in Sources */,
+				65B0C76C2A47D5D2008B65AB /* AuxiliaryManager.m in Sources */,
+				65B0C76D2A47D5D2008B65AB /* RosterManager.m in Sources */,
+				65B0C76E2A47D5D2008B65AB /* UICollectionView+custom.m in Sources */,
+				65B0C76F2A47D5D2008B65AB /* LXNavgationViewController.m in Sources */,
+				65B0C7702A47D5D2008B65AB /* HHDeviceTool.m in Sources */,
+				65B0C7712A47D5D2008B65AB /* LXMessage.m in Sources */,
+				65B0C7722A47D5D2008B65AB /* ViewController.m in Sources */,
+				65B0C7732A47D5D2008B65AB /* UITextView+custom.m in Sources */,
+				65B0C7742A47D5D2008B65AB /* UIImage+custom.m in Sources */,
+				65B0C7752A47D5D2008B65AB /* UIViewController+custom.m in Sources */,
+				65B0C7762A47D5D2008B65AB /* LXTabbarViewController.m in Sources */,
+				65B0C7772A47D5D2008B65AB /* LXViewController.m in Sources */,
+				65B0C7782A47D5D2008B65AB /* AppDelegate.m in Sources */,
+				65B0C7792A47D5D2008B65AB /* AudioManager.m in Sources */,
+				65B0C77A2A47D5D2008B65AB /* ChatManager.m in Sources */,
+				65B0C77B2A47D5D2008B65AB /* LXTableViewController.m in Sources */,
+				65B0C77C2A47D5D2008B65AB /* UIImage+windowImage.m in Sources */,
+				65B0C77D2A47D5D2008B65AB /* LoginViewController.m in Sources */,
+				65B0C77E2A47D5D2008B65AB /* UITextField+custom.m in Sources */,
+				65B0C77F2A47D5D2008B65AB /* MessageManager.m in Sources */,
+				65B0C7802A47D5D2008B65AB /* XMPPJID+custom.m in Sources */,
+				65B0C7812A47D5D2008B65AB /* main.m in Sources */,
+				65B0C7822A47D5D2008B65AB /* NSArray+custom.m in Sources */,
+				65B0C7832A47D5D2008B65AB /* FriendsViewController.m in Sources */,
+				65B0C7842A47D5D2008B65AB /* RegisterViewController.m in Sources */,
+				65B0C7852A47D5D2008B65AB /* Room.m in Sources */,
+				65B0C7862A47D5D2008B65AB /* CardManager.m in Sources */,
+				65B0C7872A47D5D2008B65AB /* FlieManager.m in Sources */,
+				65B0C7882A47D5D2008B65AB /* UITabBarItem+custom.m in Sources */,
+				65B0C7892A47D5D2008B65AB /* SubscriptionTableViewCell.m in Sources */,
+				65B0C78A2A47D5D2008B65AB /* UserManager.m in Sources */,
+				65B0C78B2A47D5D2008B65AB /* FriendMenuTableViewCell.m in Sources */,
+				65B0C78C2A47D5D2008B65AB /* DDXMLElement+custom.m in Sources */,
+				65B0C78D2A47D5D2008B65AB /* XMPPPresence+custom.m in Sources */,
+				65B0C78E2A47D5D2008B65AB /* RoomViewController.m in Sources */,
+				65B0C78F2A47D5D2008B65AB /* TranscribeVoiceView.m in Sources */,
+				65B0C7902A47D5D2008B65AB /* UIAlertController+custom.m in Sources */,
+				65B0C7912A47D5D2008B65AB /* UITableView+custom.m in Sources */,
+				65B0C7922A47D5D2008B65AB /* RoomManager.m in Sources */,
+				65B0C7932A47D5D2008B65AB /* SubscriptionViewController.m in Sources */,
+				65B0C7942A47D5D2008B65AB /* SettingViewController.m in Sources */,
+				65B0C7952A47D5D2008B65AB /* Subscription.m in Sources */,
+				65B0C7962A47D5D2008B65AB /* NSString+custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,12 +1241,19 @@
 		};
 		654CEAD32A2D85E8001F8541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B5AD6FC7BC79F1024B3081 /* Pods-ChatXmppDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=0",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatXmppDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -450,26 +1261,35 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = K.ChatXmppDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		654CEAD42A2D85E8001F8541 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E1AAD358244DEB42EA8CD6 /* Pods-ChatXmppDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=0",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatXmppDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -477,15 +1297,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = K.ChatXmppDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -557,6 +1379,150 @@
 			};
 			name = Release;
 		};
+		65B0C7602A47D53F008B65AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B5AD6FC7BC79F1024B3081 /* Pods-ChatXmppDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatXmppDemoDev-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		65B0C7612A47D53F008B65AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E1AAD358244DEB42EA8CD6 /* Pods-ChatXmppDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatXmppDemoDev-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		65B0C7A02A47D5D2008B65AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B5AD6FC7BC79F1024B3081 /* Pods-ChatXmppDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=0",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatXmppDemoDebug-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		65B0C7A12A47D5D2008B65AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E1AAD358244DEB42EA8CD6 /* Pods-ChatXmppDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2MMH8L3KBU;
+				GCC_PREFIX_HEADER = $SRCROOT/ChatXmppDemo/Bases/PrefixHeader.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TARGETMODE=2",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatXmppDemoDebug-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -592,6 +1558,24 @@
 			buildConfigurations = (
 				654CEAD92A2D85E8001F8541 /* Debug */,
 				654CEADA2A2D85E8001F8541 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B0C75F2A47D53F008B65AB /* Build configuration list for PBXNativeTarget "ChatXmppDemoDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B0C7602A47D53F008B65AB /* Debug */,
+				65B0C7612A47D53F008B65AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B0C79F2A47D5D2008B65AB /* Build configuration list for PBXNativeTarget "ChatXmppDemoDebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B0C7A02A47D5D2008B65AB /* Debug */,
+				65B0C7A12A47D5D2008B65AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
