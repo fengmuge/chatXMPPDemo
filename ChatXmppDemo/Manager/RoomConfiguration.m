@@ -56,29 +56,42 @@
 
 - (void)sortFieldNode:(NSXMLElement *)item {
     NSString *var = item.attributesAsDictionary[@"var"];
-    NSString *type = item.attributesAsDictionary[@"type"];
-    
+    NSString *typeValue = item.attributesAsDictionary[@"type"];
+    LXFieldNodeType type = [self getFieldNodeTypeWith:typeValue];
     // 数据格式:
     //    <field var="FORM_TYPE" type="hidden"><value>http://jabber.org/protocol/muc#roomconfig</value></field>,
     if ([var isEqualToString:@"FORM_TYPE"]) {
         return;;
     }
-    if (!var && [type isEqualToString:@"fixed"]) {
-        NSLog(@"配置提示，fixed： %@", item.stringValue);
-        return;
-    }
-    
     LXRoomConfigurationType configType = [self getConfigurationTypeFrom:var];
-    if ([type isEqualToString:@"boolean"]) {
-        [self sortBooleanTypeFieldNode:configType value:item.stringValue];
-    } else if ([type isEqualToString:@"text-single"] || [type isEqualToString:@"text-private"]) {
-        [self sortTextTypeFieldNode:configType value:item.stringValue];
-    } else if ([type isEqualToString:@"jid-multi"]) {
-        [self sortJidMultiTypeFieldNode:configType children:item.children];
-    } else if ([type isEqualToString:@"list-multi"]) {
-        [self sortListMultiTypeFieldNode:configType children:item.children];
-    } else if ([type isEqualToString:@"list-single"]) {
-        [self sortListSingleTypeFieldNode:configType children:item.children];
+    
+    switch (type) {
+        case LXFieldNodeFixed:
+            NSLog(@"配置提示，fixed： %@", item.stringValue);
+            break;
+        case LXFieldNodeBoolean:
+            [self sortBooleanTypeFieldNode:configType
+                                     value:item.stringValue];
+            break;
+        case LXFieldNodeTextSingle:
+        case LXFieldNodeTextPrivate:
+            [self sortTextTypeFieldNode:configType
+                                  value:item.stringValue];
+            break;
+        case LXFieldNodeJIDMulti:
+            [self sortJidMultiTypeFieldNode:configType
+                                   children:item.children];
+            break;
+        case LXFieldNodeListMulti:
+            [self sortListMultiTypeFieldNode:configType
+                                    children:item.children];
+            break;
+        case LXFieldNodeListSingle:
+            [self sortListSingleTypeFieldNode:configType
+                                     children:item.children];
+            break;
+        default:
+            break;
     }
 }
 
@@ -354,15 +367,15 @@
 }
 
 // 设置jid多选配置数据
-- (NSXMLElement *)setJidMultiConfigureWith:(LXRoomConfigurationType)type multiData:(NSArray <XMPPJID *> *)datas {
+- (NSXMLElement *)setJidMultiConfigureWith:(LXRoomConfigurationType)type multiData:(NSArray <NSString *> *)datas {
     if ([NSArray isEmpty:datas]) {
         return nil;
     }
     NSString *typeValue = [self getConfigurationValueFrom:type];
     NSXMLElement *p = [NSXMLElement elementWithName:@"field" ];
     [p addAttributeWithName:@"var"stringValue:typeValue];
-    for (XMPPJID *jid in datas) {
-        [p addChild:[NSXMLElement elementWithName:@"value" stringValue:jid.bare]];
+    for (NSString *jid in datas) {
+        [p addChild:[NSXMLElement elementWithName:@"value" stringValue:jid]];
     }
     
     return p;
@@ -473,6 +486,47 @@
         return LXRoomConfigurationPM;
     }
     return LXRoomConfigurationUnknow;
+}
+
+    
+- (nullable NSString *)getFieldNodeTypeValue:(LXFieldNodeType)type {
+    switch (type) {
+        case LXFieldNodeBoolean:
+            return @"boolean";
+        case LXFieldNodeTextSingle:
+            return @"text-single";
+        case LXFieldNodeTextPrivate:
+            return @"text-private";
+        case LXFieldNodeJIDMulti:
+            return @"jid-multi";
+        case LXFieldNodeListMulti:
+            return @"list-multi";
+        case LXFieldNodeListSingle:
+            return @"list-single";
+        case LXFieldNodeFixed:
+            return @"fixed";
+        default:
+            return nil;
+    }
+}
+
+- (LXFieldNodeType)getFieldNodeTypeWith:(NSString *)value {
+    if ([value isEqualToString:@"boolean"]) {
+        return LXFieldNodeBoolean;
+    } else if ([value isEqualToString:@"text-single"]) {
+        return LXFieldNodeTextSingle;
+    } else if ([value isEqualToString:@"text-private"]) {
+        return LXFieldNodeTextPrivate;
+    } else if ([value isEqualToString:@"jid-multi"]) {
+        return LXFieldNodeJIDMulti;
+    } else if ([value isEqualToString:@"list-multi"]) {
+        return LXFieldNodeListMulti;
+    } else if ([value isEqualToString:@"list-single"]) {
+        return LXFieldNodeListSingle;
+    } else if ([value isEqualToString:@"fixed"]) {
+        return LXFieldNodeFixed;
+    }
+    return LXFieldNodeUnknow;
 }
 
 @end
