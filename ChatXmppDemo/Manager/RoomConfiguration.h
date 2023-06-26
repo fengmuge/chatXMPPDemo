@@ -31,6 +31,17 @@ typedef enum : NSUInteger {
     LXRoomConfigurationUnknow, // 未知类型，需要另作处理
 } LXRoomConfigurationType;
 
+typedef enum : NSUInteger {
+    LXFieldNodeBoolean,   // bool
+    LXFieldNodeTextSingle,  // 单选文本
+    LXFieldNodeTextPrivate, // 隐私文本
+    LXFieldNodeJIDMulti,   // 多选jid，实质是文本，XMPPJid.bare
+    LXFieldNodeListSingle, // 单选列表，从系统提供的选项中选一个，本质是文本
+    LXFieldNodeListMulti,  // 多选文本，从系统提供的选项中选多个，本质是文本
+    LXFieldNodeFixed,    // 提示信息，不必进行解析
+    LXFieldNodeUnknow, // 未知类型
+} LXFieldNodeType;
+
 NS_ASSUME_NONNULL_BEGIN
 // 具体描述和指令key在RoomConfiguration实现文件内
 @interface RoomConfiguration : NSObject
@@ -39,8 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *roomDesc; // 房间描述 类型: text-single
 @property (nonatomic, copy) NSString *roomSecret; // 房间密码 类型: text-private
 
-@property (nonatomic, strong) NSArray <NSString *> *roomadmins; // ? 房间管理员 类型: jid-multi 内容举例: 123@lxdev.cn,也就是jid.bare
-@property (nonatomic, strong) NSArray <NSString *> *roomowners; // ? 房间拥有者 类型: jid-multi
+@property (nonatomic, strong) NSArray <NSString *> *roomadmins; // 房间管理员 类型: jid-multi 内容举例: 123@lxdev.cn,也就是jid.bare
+@property (nonatomic, strong) NSArray <NSString *> *roomowners; // 房间拥有者 类型: jid-multi
 
 @property (nonatomic, assign) BOOL isPublic; // 完全开放（在目录中列出房间，任何人都可以看到） 类型: boolean
 @property (nonatomic, assign) BOOL isPersistent; // 持久性房间   类型: boolean
