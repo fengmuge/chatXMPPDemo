@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)formatCountNumber;
 
 // 从XMPPMessage中获取delay date
-- (NSDate *)getDelayDateFromMessageStamp;
+- (NSDate *)transformToDateForXmpp;
 
 @end
 
