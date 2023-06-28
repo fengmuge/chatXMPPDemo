@@ -236,7 +236,7 @@
 
 
 // 从XMPPMessage中获取delay date
-- (NSDate *)getDelayDateFromMessageStamp {
+- (NSDate *)transformToDateForXmpp {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
     NSArray *arr=[self componentsSeparatedByString:@"T"];
@@ -248,5 +248,6 @@
 
 //- (nonnull NSString *)sortOutStringWithContent:(nonnull NSString *)content Prefix:(nonnull NSString *)prefix suffix:(nonnull NSString *)suffix maxLine:(CGFloat)maxLineNumber font:(CGFloat)font width:(CGFloat)width {
 //}
+
 
 @end

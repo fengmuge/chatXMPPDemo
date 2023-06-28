@@ -177,7 +177,7 @@
             continue;
         }
         NSString *stamp = item.attributesAsDictionary[@"stamp"];
-        self.delayDate = [stamp getDelayDateFromMessageStamp];
+        self.delayDate = [stamp transformToDateForXmpp];
         break;
     }
 }

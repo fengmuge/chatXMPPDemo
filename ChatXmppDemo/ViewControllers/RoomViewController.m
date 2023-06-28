@@ -9,14 +9,16 @@
 #import "ChatViewController.h"
 #import "RoomManager.h"
 #import "UserManager.h"
+#import "RoomConfiguration.h"
 #import "Room.h"
 #import "User.h"
 
 @interface RoomViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *roomDatas;
-@property(nonatomic,strong) UITableView *roomList;//好友列表
+@property (nonatomic, strong) NSMutableArray <Room *> *roomDatas;
+@property (nonatomic, strong) UITableView *roomList;
 
+@property (nonatomic, strong) Room *selectedRoom;
 
 @end
 
@@ -88,6 +90,11 @@
                                              selector:@selector(fetchJoinedRoomResult:)
                                                  name:kXMPP_FETCHED_GROUPS
                                                object:nil];
+    // 获取到房间信息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didFetchRoomInformation:)
+                                                 name:kXMPP_FETCHED_GROUP_INFORMATION
+                                               object:nil];
     // 创建房间成功
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didCreateRoom:)
@@ -113,7 +120,27 @@
                                              selector:@selector(roomDestory:)
                                                  name:kXMPP_ROOM_DESTROY_RESULT
                                                object:nil];
-    //
+    // 收到错误信息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didFetchPresenceError:)
+                                                 name:kXMPP_PRESENCEERROR_OF_GROUP
+                                               object:nil];
+}
+
+- (void)didFetchPresenceError:(NSNotification *)notification {
+    [self hideHud:NO];
+    NSString *from = notification.userInfo[@"roomJid"];
+    NSString *message = notification.userInfo[@"message"];
+    if (from != nil && ![from isEqualToString:self.selectedRoom.roomJidvalue]) {
+        return;
+    }
+    
+    [self alertAutoDisappearWithTitle:message message:nil];
+}
+
+- (void)didFetchRoomInformation:(NSNotification *)notification {
+    self.roomDatas = [RoomManager sharedInstance].rooms;
+    [self.roomList reloadData];
 }
 
 - (void)didFetchConfigurationForm:(NSNotification *)notification {
@@ -135,13 +162,24 @@
 
 // 加入房间成功
 - (void)didJoinRoom:(NSNotification *)notification {
-    
+    [self hideHud:NO];
+    if (!self.selectedRoom) {
+        return;
+    }
+    XMPPRoom *room = (XMPPRoom *)[notification object];
+    if (![self.selectedRoom.roomJidvalue isEqualToString:room.roomJID.bare]) {
+        return;
+    }
+    [self.selectedRoom setRoom:room];
+    [self pushToChatViewControllerWith:self.selectedRoom];
+    self.selectedRoom = nil;
 }
 
 // 创建房间成功
 - (void)didCreateRoom:(NSNotification *)notification {
     
 }
+
 // 获取到群组列表
 - (void)fetchJoinedRoomResult:(NSNotification *)notification {
     [self hideHud:NO];
@@ -185,16 +223,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lxRoomListTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    DDXMLElement *item = self.roomDatas[indexPath.row];
-    NSString *roomName = [NSString stringWithFormat:@"%@", [item attributeForName:@"name"].stringValue];
-    cell.textLabel.text = roomName;
-    cell.detailTextLabel.text = [item attributeForName:@"jid"].stringValue;
-//    Room *item = self.roomDatas[indexPath.row];
-//    cell.textLabel.text = item.subject ?: item.roomName;
-//    cell.detailTextLabel.text = item.roomJid.bare;
+    Room *item = self.roomDatas[indexPath.row];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = item.roomJidvalue;
+    if (item.isFetchDetail) {
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    }
     return cell;
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0;
@@ -202,9 +238,48 @@
 
 //跳转到对应的页面中去
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Room *item = self.roomDatas[indexPath.row];
+    if (item.isFetchDetail) {
+        [self prepareForPushToChatViewControllerWith:item];
+    } else {
+        [[ChatManager sharedInstance] fetchInformationWith:item.roomJidvalue];
+    }
+
+}
+
+- (void)prepareForPushToChatViewControllerWith:(Room *)item {
+    self.selectedRoom = item;
+    if (!item.configuration.isPasswordProtected) {
+        [self verifyPasswordWithJid:item.roomJidvalue
+                           password:nil];
+        return;
+    }
+    __weak typeof(self) weakSelf = self;
+    [self inputAlertWithTitle:@"请输入邀请码" textFieldHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"邀请码";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    } actionHandler:^(bool result, UITextField * _Nullable textField) {
+        __strong typeof(self) strongSelf = weakSelf;
+        if (!result) {
+            strongSelf.selectedRoom = nil;
+            return;
+        }
+        [strongSelf verifyPasswordWithJid:item.roomJidvalue
+                                 password:textField.text];
+    }];
+}
+
+- (void)verifyPasswordWithJid:(NSString *)roomJid password:(NSString *)password {
+    [self showHud:YES];
+    NSString *nickName = [UserManager sharedInstance].user.name;
+    [[ChatManager sharedInstance] makeRoom:roomJid
+                             usingNickname:nickName
+                                  password:password];
+}
+
+- (void)pushToChatViewControllerWith:(Room *)item {
     ChatViewController *chatVC = [[ChatViewController alloc] init];
     chatVC.hidesBottomBarWhenPushed = YES;
-    DDXMLElement *item = self.roomDatas[indexPath.row];
     chatVC.room = item;
     [self.navigationController pushViewController:chatVC animated:YES];
 }

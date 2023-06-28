@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)transformCurrentDate;
 
+- (NSString *)transformWithFormat:(nullable NSString *)format;
+
 @end
 
 NS_ASSUME_NONNULL_END

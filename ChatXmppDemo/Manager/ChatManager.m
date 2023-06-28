@@ -155,7 +155,15 @@ static ChatManager *_sharedInstance;
 
 // 加入房间，如果房间不存在，那么新建房间
 - (void)makeRoom:(NSString *)roomId usingNickname:(NSString *)nickname {
-    
+    [self makeRoom:roomId
+     usingNickname:nickname
+          password:nil];
+}
+
+- (void)makeRoom:(NSString *)roomId
+   usingNickname:(NSString *)nickname
+        password:(NSString *)password
+{
     XMPPJID *roomJid = [XMPPJID jidWithString:roomId];
     
     self.roomCoreDataStorage = [XMPPRoomCoreDataStorage sharedInstance];
@@ -170,7 +178,7 @@ static ChatManager *_sharedInstance;
     // 加入房间
     [self.room joinRoomUsingNickname:nickname
                              history: nil
-                            password:nil];
+                            password:password];
 }
 
 #pragma mark -- selector
@@ -225,6 +233,20 @@ static ChatManager *_sharedInstance;
     if (error) {
         NSLog(@"%@", [NSString stringWithFormat:@"connectToServer error %@", [error localizedDescription]]);
     }
+}
+
+// 根据jid获取群、联系人信息
+- (void)fetchInformationWith:(NSString *)jid {
+    NSString *myJid = [UserManager sharedInstance].jid.bare;
+    XMPPIQ *iq = [XMPPIQ iqWithType:@"get"];
+    [iq addAttributeWithName:@"from" stringValue: myJid];
+    [iq addAttributeWithName:@"id" stringValue:@"disco-1"];
+    [iq addAttributeWithName:@"to" stringValue:jid];
+    
+    NSXMLElement* element = [NSXMLElement elementWithName:@"query" xmlns:@"http://jabber.org/protocol/disco#info"];
+    [iq addChild:element];
+    
+    [self.stream sendElement:iq];
 }
 
 #pragma mark -- XMPPStreamDelegate --
@@ -290,6 +312,7 @@ static ChatManager *_sharedInstance;
 
 }
 
+#warning mark --有多个状态数据未进行处理
 // 收到presence(联系人状态等信息)
 // 这个方法不能用来获取好友列表，只能获取到线上好友信息，如果好友没上线，这个方法就无法获取这个好友的信息，
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
@@ -306,6 +329,9 @@ static ChatManager *_sharedInstance;
         case LXPresenceTypeUnsubscribe:
             // 从我本地通讯录中将它删除
             [self.roster removeUser:presence.from];
+            break;
+        case LXPresenceTypeError:
+            [presence sortPresenceError];
             break;
         default:
             break;
@@ -342,10 +368,11 @@ static ChatManager *_sharedInstance;
     ];
 }
 
+// 会收到各种信息，包括房间列表、房间信息、用户信息等等
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
     NSLog(@"%s  iq: %@",__func__, iq);
     // 处理获取到的消息
-    [[RoomManager sharedInstance] sortJoinedRoonFetchedResult:iq];
+    [[RoomManager sharedInstance] sortIqForRoom:iq];
     return YES;
 }
 

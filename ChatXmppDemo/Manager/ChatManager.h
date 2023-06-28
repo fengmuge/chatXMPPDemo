@@ -63,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setCardTempModuleWithUsername:(NSString *)username;
 // 加入房间，如果房间不存在，那么创建房间  nickname 加入房间使用的昵称,默认为用户昵称
 - (void)makeRoom:(NSString *)roomId usingNickname:(NSString *)nickname;
+- (void)makeRoom:(NSString *)roomId usingNickname:(NSString *)nickname password:(nullable NSString *)password;
+// 根据jid获取群、联系人信息
+- (void)fetchInformationWith:(NSString *)jid;
 
 @end
 

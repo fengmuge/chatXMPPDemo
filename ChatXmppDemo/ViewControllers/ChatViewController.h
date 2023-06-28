@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatViewController : JSQMessagesViewController
 
-@property (nonatomic, strong) DDXMLElement *room;
+@property (nonatomic, strong) Room *room;
 @property (nonatomic, strong) User *contact;
 
 - (void)addNotification;

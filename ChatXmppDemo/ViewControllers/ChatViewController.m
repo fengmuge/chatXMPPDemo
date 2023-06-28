@@ -8,6 +8,7 @@
 #import "ChatViewController.h"
 #import "User.h"
 #import "Room.h"
+#import "RoomManager.h"
 #import "AudioManager.h"
 #import "MessageManager.h"
 #import "LXMessage.h"
@@ -47,6 +48,10 @@
     [[AudioManager sharedInstance] setAudioSession];
 }
 
+- (void)dealloc {
+    [self.room removeRoom];
+}
+
 - (User *)sender {
     return [UserManager sharedInstance].user;
 }
@@ -57,7 +62,7 @@
 
 - (void)setNavgationControllerTitle {
     if (self.room) {
-        self.title = @"群聊";
+        self.title = self.room.name;
         return;
     }
     if (!self.contact) {
@@ -163,7 +168,7 @@
 
 // 获取历史聊天数据
 - (void)getHistoryMessage {
-    NSString *roomJidStr = [self.room attributeForName:@"jid"].stringValue;
+    NSString *roomJidStr = self.room.roomJidvalue;
     XMPPJID *roomJid = [XMPPJID jidWithString:roomJidStr];
     self.messages = [[MessageManager getHistoryMessageWith:self.contact.jid
                                                   orRoomId:roomJid] mutableCopy];
@@ -177,7 +182,7 @@
     if (!self.room) {
         return;
     }
-    NSString *roomJid = [self.room attributeForName:@"jid"].stringValue;
+    NSString *roomJid = self.room.roomJidvalue;
     [[ChatManager sharedInstance] makeRoom:roomJid usingNickname:self.sender.name];
 }
 
@@ -186,7 +191,7 @@
 - (XMPPMessage *)makeBaseMessage {
     XMPPMessage *message;
     if (self.room) {
-        NSString *roomJidStr = [self.room attributeForName:@"jid"].stringValue;
+        NSString *roomJidStr = self.room.roomJidvalue;
         XMPPJID *roomJid = [XMPPJID jidWithString:roomJidStr];
         message = [XMPPMessage messageWithType:@"groupchat" to:roomJid]; // [[XMPPMessage alloc] initWithType:@"groupchat" to:self.room];
     } else {
@@ -382,18 +387,24 @@
 }
 // 定义cellTopLabel的attributedString
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath {
-    // 测试代码
-    return [[NSAttributedString alloc] initWithString:@"cellTopLabel = 顶部label内容"];
+//    // 测试代码
+//    return [[NSAttributedString alloc] initWithString:@"cellTopLabel = 顶部label内容"];
+    LXMessage *msg = self.messages[indexPath.row];
+    return [[NSAttributedString alloc] initWithString: [msg.showDate transformWithFormat: nil]];
 }
 // 定义每一行气泡的topLabel的attributedString
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath {
     // 测试代码
-    return [[NSAttributedString alloc] initWithString:@"messageBubbleTopLabel = 气泡顶部label内容"];
+//    return [[NSAttributedString alloc] initWithString:@"messageBubbleTopLabel = 气泡顶部label内容"];
+    
+    return nil;
 }
 // 定义cellBottomLabel的attributedString
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath {
     // 测试代码
-    return [[NSAttributedString alloc] initWithString:@"cellBottomLabel = 底部label内容"];
+//    return [[NSAttributedString alloc] initWithString:@"cellBottomLabel = 底部label内容"];
+    
+    return nil;
 }
 
 #pragma mark --UICollectionViewDataSource--
