@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652443D82A553C4800871283 /* LRUCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443D72A553C4800871283 /* LRUCacheModel.m */; };
+		652443DB2A554BAA00871283 /* RoomCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DA2A554BAA00871283 /* RoomCacheModel.m */; };
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
@@ -169,6 +171,7 @@
 		65B0C7A72A4813FC008B65AB /* LXRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7A62A4813FC008B65AB /* LXRefresh.m */; };
 		65B0C7AA2A481BEE008B65AB /* NSDate+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7A92A481BEE008B65AB /* NSDate+custom.m */; };
 		65B0C7AD2A4844A7008B65AB /* RoomConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */; };
+		65B363AC2A5410E200B62616 /* RoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B363AB2A5410E200B62616 /* RoomSettingViewController.m */; };
 		65CD73B62A4AC31B00507D52 /* XMPPIQ+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */; };
 		65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B82A4AC3A100507D52 /* XMPPMessage+custom.m */; };
 		8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
@@ -194,6 +197,10 @@
 
 /* Begin PBXFileReference section */
 		22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatXmppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		652443D62A553C4800871283 /* LRUCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRUCacheModel.h; sourceTree = "<group>"; };
+		652443D72A553C4800871283 /* LRUCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRUCacheModel.m; sourceTree = "<group>"; };
+		652443D92A554BAA00871283 /* RoomCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomCacheModel.h; sourceTree = "<group>"; };
+		652443DA2A554BAA00871283 /* RoomCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomCacheModel.m; sourceTree = "<group>"; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -314,6 +321,8 @@
 		65B0C7A92A481BEE008B65AB /* NSDate+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+custom.m"; sourceTree = "<group>"; };
 		65B0C7AB2A4844A7008B65AB /* RoomConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomConfiguration.h; sourceTree = "<group>"; };
 		65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomConfiguration.m; sourceTree = "<group>"; };
+		65B363AA2A5410E200B62616 /* RoomSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomSettingViewController.h; sourceTree = "<group>"; };
+		65B363AB2A5410E200B62616 /* RoomSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomSettingViewController.m; sourceTree = "<group>"; };
 		65CD73B42A4AC31B00507D52 /* XMPPIQ+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPIQ+custom.h"; sourceTree = "<group>"; };
 		65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPIQ+custom.m"; sourceTree = "<group>"; };
 		65CD73B72A4AC3A100507D52 /* XMPPMessage+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPMessage+custom.h"; sourceTree = "<group>"; };
@@ -363,6 +372,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652443D52A553C3000871283 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				652443D62A553C4800871283 /* LRUCacheModel.h */,
+				652443D72A553C4800871283 /* LRUCacheModel.m */,
+				652443D92A554BAA00871283 /* RoomCacheModel.h */,
+				652443DA2A554BAA00871283 /* RoomCacheModel.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		654CEA9A2A2D85E6001F8541 = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +412,7 @@
 		654CEAA52A2D85E6001F8541 /* ChatXmppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				652443D52A553C3000871283 /* Cache */,
 				654CEB3B2A3177BD001F8541 /* Bases */,
 				654CEB142A2ED4B1001F8541 /* Extensions */,
 				654CEB352A316E44001F8541 /* Models */,
@@ -470,6 +491,8 @@
 				654CF6972A399397001F8541 /* LoginViewController.m */,
 				654CF6992A399422001F8541 /* RegisterViewController.h */,
 				654CF69A2A399422001F8541 /* RegisterViewController.m */,
+				65B363AA2A5410E200B62616 /* RoomSettingViewController.h */,
+				65B363AB2A5410E200B62616 /* RoomSettingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -857,6 +880,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B363AC2A5410E200B62616 /* RoomSettingViewController.m in Sources */,
 				654CEB342A308573001F8541 /* ConversationTableViewCell.m in Sources */,
 				654CEAFB2A2DB270001F8541 /* ChatViewController.m in Sources */,
 				65B0C7AD2A4844A7008B65AB /* RoomConfiguration.m in Sources */,
@@ -893,11 +917,13 @@
 				654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */,
 				65B0C6A32A42D80C008B65AB /* Room.m in Sources */,
 				654CEAE82A2D865C001F8541 /* CardManager.m in Sources */,
+				652443DB2A554BAA00871283 /* RoomCacheModel.m in Sources */,
 				654CEAEE2A2D86B1001F8541 /* FlieManager.m in Sources */,
 				654CEB172A2ED50A001F8541 /* UITabBarItem+custom.m in Sources */,
 				654CF6792A371BFA001F8541 /* SubscriptionTableViewCell.m in Sources */,
 				654CEB422A32CD6B001F8541 /* UserManager.m in Sources */,
 				654CF6862A384A51001F8541 /* FriendMenuTableViewCell.m in Sources */,
+				652443D82A553C4800871283 /* LRUCacheModel.m in Sources */,
 				654CF67D2A373386001F8541 /* DDXMLElement+custom.m in Sources */,
 				654CEB452A32F53E001F8541 /* XMPPPresence+custom.m in Sources */,
 				654CEB012A2ECAA0001F8541 /* RoomViewController.m in Sources */,
