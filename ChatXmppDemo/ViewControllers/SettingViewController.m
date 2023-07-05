@@ -9,6 +9,10 @@
 
 @interface SettingViewController ()
 
+@property (nonatomic, strong) UIImageView *avatarImgView; // 头像，可点击
+@property (nonatomic, strong) UITextField *nicknameTF;   // 姓名
+@property (nonatomic, strong) UIButton *loginOutButton;  // 登出按钮
+
 @end
 
 @implementation SettingViewController
@@ -19,3 +23,7 @@
 }
 
 @end
+
+/**
+   计划是至少: 有头像、昵称修改，状态变更和退出登录
+ */

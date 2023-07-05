@@ -6,6 +6,7 @@
 //
 
 #import "ChatViewController.h"
+#import "RoomSettingViewController.h"
 #import "User.h"
 #import "Room.h"
 #import "RoomManager.h"
@@ -40,6 +41,7 @@
     [self setNavgationControllerTitle];
     self.view.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.75];
     [self setLeftNavgationBarItem];
+    [self setRightNavgationBar];
     [self configureInputbar];
     [self makeMessageBubble];
     [self addNotification];
@@ -75,6 +77,23 @@
     } else {
         self.title = self.contact.jid.user;
     }
+}
+
+- (void)setRightNavgationBar {
+    if (!self.room) {
+        return;
+    }
+    
+    [self setRightNavgationBarItemWithTarget:self
+                                    selector:@selector(rightNavgationbarClicked)
+                                       title:@"群设置"
+                                  titleColor:nil];
+}
+
+- (void)rightNavgationbarClicked {
+    RoomSettingViewController *settingVC = [[RoomSettingViewController alloc] init];
+    settingVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:settingVC animated:YES];
 }
 
 - (void)configureInputbar {

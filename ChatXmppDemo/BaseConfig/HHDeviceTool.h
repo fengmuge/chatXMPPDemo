@@ -59,5 +59,6 @@
 + (CGFloat)tabbarHeight;
 /**亮度模式*/
 + (UIUserInterfaceStyle)currentTraitCollectionStyle;
+
 @end
 
