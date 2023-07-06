@@ -10,6 +10,12 @@
 		652443D82A553C4800871283 /* LRUCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443D72A553C4800871283 /* LRUCacheModel.m */; };
 		652443DB2A554BAA00871283 /* LXCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DA2A554BAA00871283 /* LXCacheModel.m */; };
 		652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DD2A564FC700871283 /* RoomCacheModel.m */; };
+		652443E72A56B04F00871283 /* ImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443E62A56B04F00871283 /* ImagePickerManager.m */; };
+		652443EA2A56B19200871283 /* PermissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443E92A56B19200871283 /* PermissionsManager.m */; };
+		652443EC2A56B5F500871283 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443EB2A56B5F500871283 /* Contacts.framework */; };
+		652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443ED2A56B5FC00871283 /* AVFoundation.framework */; };
+		652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443EF2A56B60600871283 /* CoreLocation.framework */; };
+		652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443F12A56B60D00871283 /* UserNotifications.framework */; };
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
@@ -204,6 +210,14 @@
 		652443DA2A554BAA00871283 /* LXCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXCacheModel.m; sourceTree = "<group>"; };
 		652443DC2A564FC700871283 /* RoomCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomCacheModel.h; sourceTree = "<group>"; };
 		652443DD2A564FC700871283 /* RoomCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomCacheModel.m; sourceTree = "<group>"; };
+		652443E52A56B04F00871283 /* ImagePickerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerManager.h; sourceTree = "<group>"; };
+		652443E62A56B04F00871283 /* ImagePickerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerManager.m; sourceTree = "<group>"; };
+		652443E82A56B19200871283 /* PermissionsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionsManager.h; sourceTree = "<group>"; };
+		652443E92A56B19200871283 /* PermissionsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionsManager.m; sourceTree = "<group>"; };
+		652443EB2A56B5F500871283 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		652443ED2A56B5FC00871283 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		652443EF2A56B60600871283 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		652443F12A56B60D00871283 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -339,6 +353,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
+				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
+				652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */,
+				652443EC2A56B5F500871283 /* Contacts.framework in Frameworks */,
 				8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */,
 				FB7BBD24E37BA88813BDD031 /* Pods_ChatXmppDemo.framework in Frameworks */,
 			);
@@ -473,6 +491,10 @@
 				654CEAE42A2D8649001F8541 /* RoomManager.m */,
 				65B0C7AB2A4844A7008B65AB /* RoomConfiguration.h */,
 				65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */,
+				652443E52A56B04F00871283 /* ImagePickerManager.h */,
+				652443E62A56B04F00871283 /* ImagePickerManager.m */,
+				652443E82A56B19200871283 /* PermissionsManager.h */,
+				652443E92A56B19200871283 /* PermissionsManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -647,6 +669,10 @@
 		F57FCB7000D5BA7613CFADFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				652443F12A56B60D00871283 /* UserNotifications.framework */,
+				652443EF2A56B60600871283 /* CoreLocation.framework */,
+				652443ED2A56B5FC00871283 /* AVFoundation.framework */,
+				652443EB2A56B5F500871283 /* Contacts.framework */,
 				22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */,
 			);
 			name = Frameworks;
@@ -896,6 +922,7 @@
 				654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */,
 				652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */,
 				65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */,
+				652443E72A56B04F00871283 /* ImagePickerManager.m in Sources */,
 				65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */,
 				654CEB102A2ECC67001F8541 /* LXNavgationViewController.m in Sources */,
 				654CEB252A2F0C10001F8541 /* HHDeviceTool.m in Sources */,
@@ -911,6 +938,7 @@
 				654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */,
 				65AABE522A403247000EBEA6 /* AudioManager.m in Sources */,
 				654CEADF2A2D8633001F8541 /* ChatManager.m in Sources */,
+				652443EA2A56B19200871283 /* PermissionsManager.m in Sources */,
 				654CEAF82A2DB1C6001F8541 /* LXTableViewController.m in Sources */,
 				654CEB202A2F0AE9001F8541 /* UIImage+windowImage.m in Sources */,
 				654CF6982A399397001F8541 /* LoginViewController.m in Sources */,

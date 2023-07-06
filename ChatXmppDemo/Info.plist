@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>需要访问你的麦克风权限</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要访问你的相册权限</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要访问你的相册权限</string>
+	<key>NSCameraUsageDescription</key>
+	<string>需要访问你的相机权限</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>需要访问你的媒体库权限以获取音乐，不允许则无法添加音乐</string>
+</dict>
 </plist>

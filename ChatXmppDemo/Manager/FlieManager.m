@@ -85,7 +85,9 @@ static FlieManager *_sharedInstance;
     
     [message addBody:path.lastPathComponent];
     
-    [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message outgoing:NO xmppStream:self.stream];
+    [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message
+                                                               outgoing:NO
+                                                             xmppStream:[ChatManager sharedInstance].stream];
 }
 
 @end
