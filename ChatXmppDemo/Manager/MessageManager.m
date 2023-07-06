@@ -6,7 +6,15 @@
 //
 
 #import "MessageManager.h"
+#import "ChatManager.h"
 #import "LXMessage.h"
+
+@interface MessageManager () <
+XMPPMessageArchivingStorage
+>
+
+@end
+
 @implementation MessageManager
 
 static MessageManager *_sharedInstance;
@@ -81,5 +89,14 @@ static MessageManager *_sharedInstance;
     
     return [sortResultes copy];
 }
+
+#pragma mark --XMPPMessageArchivingStorage--
+- (void)archiveMessage:(XMPPMessage *)message outgoing:(BOOL)isOutgoing xmppStream:(XMPPStream *)stream {
+}
+
+- (BOOL)configureWithParent:(XMPPMessageArchiving *)aParent queue:(dispatch_queue_t)queue {
+    return YES;
+}
+
 
 @end

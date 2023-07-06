@@ -7,20 +7,16 @@
 
 #import "ChatManager.h"
 #import "RoomManager.h"
+#import "CardManager.h"
+#import "FlieManager.h"
+#import "RosterManager.h"
+#import "MessageManager.h"
+#import "AuxiliaryManager.h"
 #import "UIViewController+custom.h"
 
 @interface ChatManager() <NSCopying,
 NSMutableCopying,
-XMPPStreamDelegate,
-XMPPMessageArchivingStorage,
-XMPPRosterDelegate,
-XMPPRosterMemoryStorageDelegate,
-//XMPPRosterStorage,
-XMPPvCardAvatarStorage,
-XMPPvCardTempModuleDelegate,
-XMPPIncomingFileTransferDelegate,
-XMPPReconnectDelegate,
-XMPPvCardAvatarDelegate
+XMPPStreamDelegate
 > {
     
 }
@@ -91,7 +87,7 @@ static ChatManager *_sharedInstance;
     //激活roster
     [self.roster activate:self.stream];
     // 设置roster代理
-    [self.roster addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.roster addDelegate:[RosterManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
     // 手动禁用自动获取名单
     self.roster.autoFetchRoster = NO;    
 }
@@ -101,7 +97,7 @@ static ChatManager *_sharedInstance;
     // 激活reconnect
     [self.reconnect activate:self.stream];
     [self.reconnect setAutoReconnect:YES];
-    [self.reconnect addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.reconnect addDelegate:[AuxiliaryManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
 }
 
 - (void)makePing {
@@ -113,6 +109,7 @@ static ChatManager *_sharedInstance;
 //    [self.autoPing setPingInterval:1000];
 //    [self.autoPing setPingTimeout:6000];
     
+    [self.autoPing addDelegate:[AuxiliaryManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
     // 不仅仅是服务器来的响应，如果是普通用户，也会响应
     [self.autoPing setRespondsToQueries:YES];
 }
@@ -123,12 +120,12 @@ static ChatManager *_sharedInstance;
     self.cardTempModule = [[XMPPvCardTempModule alloc] initWithvCardStorage:self.cardCoreDataStorage];
     // 激活card
     [self.cardTempModule activate:self.stream];
-    [self.cardTempModule addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.cardTempModule addDelegate:[CardManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
     
     self.cardAvatarModule = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:self.cardTempModule];
     // 激活avatarmodule
     [self.cardAvatarModule activate:self.stream];
-    [self.cardAvatarModule addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.cardAvatarModule addDelegate:[CardManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
 }
 
 - (void)makeMessage {
@@ -139,7 +136,7 @@ static ChatManager *_sharedInstance;
     // 激活管理对象
     [self.messageArchiving activate:self.stream];
     // 设置代理
-    [self.messageArchiving addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.messageArchiving addDelegate:[MessageManager sharedInstance] delegateQueue:dispatch_get_main_queue()];
     
     self.messageContext = self.messageCoreDataStorage.mainThreadManagedObjectContext;
 //    // 允许后台socket运行
@@ -149,7 +146,7 @@ static ChatManager *_sharedInstance;
 - (void)makeFileTransfer {
     self.incomingFileTransfer = [[XMPPIncomingFileTransfer alloc] initWithDispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)];
     [self.incomingFileTransfer activate:self.stream];
-    [self.incomingFileTransfer addDelegate:self delegateQueue: dispatch_get_main_queue()];
+    [self.incomingFileTransfer addDelegate:[FlieManager sharedInstance] delegateQueue: dispatch_get_main_queue()];
     [self.incomingFileTransfer setAutoAcceptFileTransfers:YES];
 }
 
@@ -391,219 +388,5 @@ static ChatManager *_sharedInstance;
                                                         object:message
                                                       userInfo:@{@"error": error}];
 }
-
-#pragma mark --XMPPReconnectDelegate--
-
-// xmpp意外断开连接
-- (void)xmppReconnect:(XMPPReconnect *)sender didDetectAccidentalDisconnect:(SCNetworkConnectionFlags)connectionFlags {
-    if (connectionFlags == kSCNetworkFlagsConnectionRequired) {
-        NSLog(@"xmpp意外断开连接");
-    }
-    XMPPJID *myJid = [[UserManager sharedInstance].jid copy];
-    // 清空本地用户数据
-    [[UserManager sharedInstance] clearAll];
-    
-    [self connectToServerWithJID:myJid pasword:self.password type:LXConnectTypeLogin];
-//    // 重新进行认证
-//    NSError *error;
-//    [[ChatManager sharedInstance].stream authenticateWithPassword:[UserManager sharedInstance].password error:&error];
-//    if (error) {
-//        NSLog(@"%s \n authenticateWithPassword:error: %@", __func__, [error localizedDescription]);
-//    }
-}
-
-#pragma mark --XMPPRosterDelegate--
-// 收到订阅请求
-- (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence {
-    [[UserManager sharedInstance] addSubscribesWith:presence.from];
-    
-//    //示例代码，接受或拒绝好友请求
-//    // 添加好友一定会订阅对方，但是接受订阅不一定要添加对方为好友
-//    UIViewController *currentVC = [UIViewController currentVC];
-//    [currentVC alertWithTitle: [NSString stringWithFormat:@"%@申请成为你的好友", presence.from.bare]
-//                      message:nil
-//                actionHandler:^(bool allow) {
-//        if (allow) {
-//            // 接收并添加到联系人
-//            [self.roster acceptPresenceSubscriptionRequestFrom:presence.from andAddToRoster:YES];
-//        } else {
-//            // 拒绝
-//            [self.roster rejectPresenceSubscriptionRequestFrom:presence.from];
-//        }
-//    }];
-}
-
-//// 开始同步服务器发送过来的自己的好友列表
-//- (void)xmppRosterDidBeginPopulating:(XMPPRoster *)sender withVersion:(NSString *)version {
-//}
-
-// 获取好友列表
-- (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
-}
-
-// 获取到一个好友节点（如果有多个好友，会多次回调）
-- (void)xmppRoster:(XMPPRoster *)sender didReceiveRosterItem:(DDXMLElement *)item {
-    NSLog(@"%s: %@", __func__, item);
-    
-    NSString *jidStr = [[item attributeForName:@"jid"] stringValue];
-    XMPPJID *jid = [XMPPJID jidWithString:jidStr];
-    // 好友，被订阅，订阅了对方
-    if (item.subscriptionType & LXSubscriptionBoth ||
-        item.subscriptionType & LXSubscriptionFrom ||
-        item.subscriptionType & LXSubscriptionTo) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDRECEIVE_ROSTERITEM
-                                                            object:nil
-                                                          userInfo:@{@"isRemove": [NSNumber numberWithBool:NO],
-                                                                     @"jid": jid}];
-    }
-    if (item.subscriptionType == LXSubscriptionRemove) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDRECEIVE_ROSTERITEM
-                                                            object:nil
-                                                          userInfo:@{@"isRemove": [NSNumber numberWithBool:YES],
-                                                                     @"jid": jid}];
-    } 
-}
-
-// 因为使用了XMPPRosterCoreDataStorage而非XMPPRosterMemoryStorage，所以XMPPRosterMemoryStorageDelegate目前是无效的
-#pragma mark --XMPPRosterMemoryStorageDelegate--
-// 如果不是初试化同步来的roster，自动存入我的好友存储器
-- (void)xmppRosterDidChange:(XMPPRosterMemoryStorage *)sender {
-    
-}
-
-- (void)xmppRosterDidPopulate:(XMPPRosterMemoryStorage *)sender {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didAddUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didUpdateUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didRemoveUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didAddResource:(XMPPResourceMemoryStorageObject *)resource withUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didUpdateResource:(XMPPResourceMemoryStorageObject *)resource withUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-- (void)xmppRoster:(XMPPRosterMemoryStorage *)sender didRemoveResource:(XMPPResourceMemoryStorageObject *)resource withUser:(XMPPUserMemoryStorageObject *)user {
-    
-}
-
-#pragma mark --XMPPIncomingFileTransferDelegate--
-// 是否同意对方发文件给我
-- (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didReceiveSIOffer:(XMPPIQ *)offer {
-    NSLog(@"%s", __func__);
-}
-
-// 文件传输失败
-- (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didFailWithError:(NSError *)error {
-    NSLog(@"%s", __func__);
-    if (!error) {
-        return;
-    }
-//    [[NSNotificationCenter defaultCenter] postNotificationName:<#(nonnull NSNotificationName)#> object:<#(nullable id)#>];
-}
-
-// 接收文件成功
-- (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didSucceedWithData:(NSData *)data named:(NSString *)name {
-    XMPPJID *jid = [sender.senderJID copy];
-    NSLog(@"%s", __func__);
-    //在这个方法里面，我们通过带外来传输的文件 （带外 ？？？）
-    //因此我们的消息同步器，不会帮我们自动生成Message,因此我们需要手动存储message
-    //根据文件后缀名，判断文件我们是否能够处理，如果不能处理则直接显示。
-    //图片 音频 （.wav,.mp3,.mp4)
-    NSString *extension = [name pathExtension];
-    if (![extension isEqualToString:@"wav"]) {
-        return;
-    }
-    // 创建一个XMPPMessage对象，message必须要有from
-    XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:jid];
-    // 将这个文件的发送着添加到message的from
-    [message addAttributeWithName:@"from" stringValue:sender.senderJID.bare];
-    [message addSubject:@"audio"];
-    
-    NSString *path = [NSString filePathWithComponent:[XMPPStream generateUUID] extension:nil];
-    [data writeToFile:path atomically:YES];
-    
-    [message addBody:path.lastPathComponent];
-    
-    [self.messageCoreDataStorage archiveMessage:message outgoing:NO xmppStream:self.stream];
-}
-
-#pragma mark --XMPPvCardTempModuleDelegate--
-// 获取到一个联系人的名片信息(如果存在多个，也会多次回调)
-- (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule didReceivevCardTemp:(XMPPvCardTemp *)vCardTemp forJID:(XMPPJID *)jid {
-    // 打印用户信息
-    XMPPvCardTemp *temp = [self.cardCoreDataStorage vCardTempForJID:jid xmppStream:self.stream];
-    NSLog(@"xmppvCardTempModule:didReceivevCardTemp:  cardTemp: %@", temp);
-    
-    [[UserManager sharedInstance] didReceivevCardTemp:vCardTemp
-                                               forJID:jid];
-}
-
-// 获取card信息失败
-- (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule failedToFetchvCardForJID:(XMPPJID *)jid error:(DDXMLElement *)error {
-    NSLog(@"%s error: %@", __func__, [error description]);
-    if (!error) {
-        return;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_VCARDTEMPMODULE_DIDRECEIVE_VCARDTEMP
-                                                        object:[NSNumber numberWithBool:NO]];
-}
-
-// 名片信息更新成功
-- (void)xmppvCardTempModuleDidUpdateMyvCard:(XMPPvCardTempModule *)vCardTempModule {
-    NSLog(@"%s", __func__);
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_VCARDTEMPMODULE_DIDUPDATE_MY_VCARD
-                                                        object:[NSNumber numberWithBool:YES]];
-}
-
-// 更新名片信息失败
-- (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule failedToUpdateMyvCard:(DDXMLElement *)error {
-    NSLog(@"%s", __func__);
-    if (!error) {
-        return;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_VCARDTEMPMODULE_DIDUPDATE_MY_VCARD
-                                                        object:[NSNumber numberWithBool:NO]];
-}
-
-#pragma mark --XMPPvCardAvatarDelegate--
-// 收到新的头像信息
-- (void)xmppvCardAvatarModule:(XMPPvCardAvatarModule *)vCardTempModule didReceivePhoto:(UIImage *)photo forJID:(XMPPJID *)jid {
-    [[UserManager sharedInstance] didReceivePhoto:photo forJID:jid];
-}
-
-//- (void)archiveMessage:(XMPPMessage *)message outgoing:(BOOL)isOutgoing xmppStream:(XMPPStream *)stream {
-//
-//}
-//
-//- (BOOL)configureWithParent:(XMPPMessageArchiving *)aParent queue:(dispatch_queue_t)queue {
-//
-//}
-//
-//- (void)clearvCardTempForJID:(nonnull XMPPJID *)jid xmppStream:(nonnull XMPPStream *)stream {
-//
-//}
-//
-//- (nullable NSData *)photoDataForJID:(nonnull XMPPJID *)jid xmppStream:(nonnull XMPPStream *)stream {
-//
-//}
-//
-//- (nullable NSString *)photoHashForJID:(nonnull XMPPJID *)jid xmppStream:(nonnull XMPPStream *)stream {
-//}
-
 
 @end
