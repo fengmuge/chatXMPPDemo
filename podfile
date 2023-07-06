@@ -16,6 +16,7 @@ target 'ChatXmppDemo' do
   pod 'Masonry'
   pod 'XMPPFramework'
   pod 'MJRefresh'
+  pod 'TZImagePickerController'
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|
