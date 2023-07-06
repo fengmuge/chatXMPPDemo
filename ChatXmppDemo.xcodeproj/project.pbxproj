@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		652443D82A553C4800871283 /* LRUCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443D72A553C4800871283 /* LRUCacheModel.m */; };
-		652443DB2A554BAA00871283 /* RoomCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DA2A554BAA00871283 /* RoomCacheModel.m */; };
+		652443DB2A554BAA00871283 /* LXCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DA2A554BAA00871283 /* LXCacheModel.m */; };
+		652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652443DD2A564FC700871283 /* RoomCacheModel.m */; };
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
@@ -199,8 +200,10 @@
 		22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatXmppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		652443D62A553C4800871283 /* LRUCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRUCacheModel.h; sourceTree = "<group>"; };
 		652443D72A553C4800871283 /* LRUCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRUCacheModel.m; sourceTree = "<group>"; };
-		652443D92A554BAA00871283 /* RoomCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomCacheModel.h; sourceTree = "<group>"; };
-		652443DA2A554BAA00871283 /* RoomCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomCacheModel.m; sourceTree = "<group>"; };
+		652443D92A554BAA00871283 /* LXCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXCacheModel.h; sourceTree = "<group>"; };
+		652443DA2A554BAA00871283 /* LXCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXCacheModel.m; sourceTree = "<group>"; };
+		652443DC2A564FC700871283 /* RoomCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomCacheModel.h; sourceTree = "<group>"; };
+		652443DD2A564FC700871283 /* RoomCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomCacheModel.m; sourceTree = "<group>"; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -377,8 +380,10 @@
 			children = (
 				652443D62A553C4800871283 /* LRUCacheModel.h */,
 				652443D72A553C4800871283 /* LRUCacheModel.m */,
-				652443D92A554BAA00871283 /* RoomCacheModel.h */,
-				652443DA2A554BAA00871283 /* RoomCacheModel.m */,
+				652443D92A554BAA00871283 /* LXCacheModel.h */,
+				652443DA2A554BAA00871283 /* LXCacheModel.m */,
+				652443DC2A564FC700871283 /* RoomCacheModel.h */,
+				652443DD2A564FC700871283 /* RoomCacheModel.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -889,6 +894,7 @@
 				654CEB0A2A2ECB23001F8541 /* ConversationViewController.m in Sources */,
 				654CEAF12A2D86D0001F8541 /* AuxiliaryManager.m in Sources */,
 				654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */,
+				652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */,
 				65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */,
 				65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */,
 				654CEB102A2ECC67001F8541 /* LXNavgationViewController.m in Sources */,
@@ -917,7 +923,7 @@
 				654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */,
 				65B0C6A32A42D80C008B65AB /* Room.m in Sources */,
 				654CEAE82A2D865C001F8541 /* CardManager.m in Sources */,
-				652443DB2A554BAA00871283 /* RoomCacheModel.m in Sources */,
+				652443DB2A554BAA00871283 /* LXCacheModel.m in Sources */,
 				654CEAEE2A2D86B1001F8541 /* FlieManager.m in Sources */,
 				654CEB172A2ED50A001F8541 /* UITabBarItem+custom.m in Sources */,
 				654CF6792A371BFA001F8541 /* SubscriptionTableViewCell.m in Sources */,
