@@ -347,7 +347,6 @@
     return options;
 }
 
-
 // 设置text-single类型数据，不知道text-private类型数据是否需要添加其他参数
 - (NSXMLElement *)setTextConfigureWith:(LXRoomConfigurationType)type value:(NSString *)value {
     if ([NSString isNone:value]) {
@@ -488,7 +487,6 @@
     return LXRoomConfigurationUnknow;
 }
 
-    
 - (nullable NSString *)getFieldNodeTypeValue:(LXFieldNodeType)type {
     switch (type) {
         case LXFieldNodeBoolean:

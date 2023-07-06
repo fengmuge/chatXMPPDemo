@@ -22,8 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithKey:(NSString *)key andValue:(id)value;
 - (instancetype)initWithKey:(NSString *)key andValue:(id)value next:(LRUNode *)next prev:(LRUNode *)prev;
 
-- (void)clear;
-
 @end
 
 @interface LRUCacheModel : NSObject
@@ -33,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithMaxSize:(NSInteger)maxSize;
 
 - (nullable id)getValueWith:(nonnull NSString *)key;
+
+- (NSArray *)getAllValue;
 
 - (void)putValue:(id)value withKey:(nonnull NSString *)key;
 

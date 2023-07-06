@@ -27,12 +27,6 @@
     return self;
 }
 
-//- (void)clear {
-//    self.key = nil;
-//    self.value = nil;
-//    self.next = nil;
-//    self.prev = nil;
-//}
 
 @end
 
@@ -63,6 +57,16 @@
         [self moveToHead:node];
     }
     return node.value;
+}
+
+- (NSArray *)getAllValue {
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+    LRUNode *temp = self.header;
+    while (temp) {
+        [values addObject:temp.value];
+        temp = temp.next;
+    }
+    return [values copy];
 }
 
 - (void)putValue:(id)value withKey:(NSString *)key {
@@ -153,6 +157,7 @@
 }
 
 - (void)transformFrom:(NSDictionary *)dict {
+    [self clear];
     NSArray <NSString *> *allKeys = dict.allKeys;
     for (NSString *key in allKeys) {
         LRUNode *temp = [[LRUNode alloc] initWithKey:key andValue:dict[key]];
@@ -164,7 +169,7 @@
 // 其实我在想，需不需要将链表内的节点依次释放，毕竟，虽然ARC会将引用计数为0的对象自动释放，但是并不是立即释放。
 // 如果链表内存储的节点数量太大，也是会导致部分内存浪费的
 - (void)clear {
-    self.maxSize = 0;
+//    self.maxSize = 0;
     [self.caches removeAllObjects];
     self.header = nil;
     self.tail = nil;

@@ -2,70 +2,149 @@
 //  RoomCacheModel.m
 //  ChatXmppDemo
 //
-//  Created by 苗培根 on 2023/7/5.
+//  Created by 苗培根 on 2023/7/6.
 //
-// room数据管理，目标是设置一个上限，比如10，超过10使用LRU方式进行管理，低于20则使用数组/字典的方式进行管理
-// 其实可以效仿YYCache和SDCache,以缓存的数量和大小做为维度，增加一个disk缓存
+
+#import "Room.h"
+#import "LXCacheModel.h"
 #import "RoomCacheModel.h"
-#import "LRUCacheModel.h"
+#import "RoomConfiguration.h"
 
 @interface RoomCacheModel ()
 
-@property (nonatomic, assign) BOOL isLRU; // 是否使用LRU算法保存数据
-
-@property (nonatomic, strong) LRUCacheModel *lruCache; // lru model
-
-@property (nonatomic, strong) NSMutableDictionary <NSString *, id> *caches; // 数量为达到上限时候的缓存
+@property (nonatomic, strong) LXCacheModel *banCache;
+@property (nonatomic, strong) LXCacheModel *adminCache;
+@property (nonatomic, strong) LXCacheModel *ownerCache;
+@property (nonatomic, strong) LXCacheModel *memberCache;
+@property (nonatomic, strong) LXCacheModel *moderatorCache;
+@property (nonatomic, strong) LXCacheModel *configureCache;
+@property (nonatomic, strong) LXCacheModel *roomCache;
 
 @end
 
 @implementation RoomCacheModel
 
-- (nullable id)getValueWith:(nonnull NSString *)key {
-    if (self.isLRU) {
-        return [self.lruCache getValueWith:key];
+- (NSMutableArray<Room *> *)rooms {
+    if (self.roomCache.curSize == 0) {
+        return nil;
     }
-    return self.caches[key];
+    return [self.roomCache getAllValue].mutableCopy;
 }
 
-- (void)putValue:(id)value withKey:(nonnull NSString *)key {
-    if (self.isLRU) {
-        [self.lruCache putValue:value withKey:key];
-        return;
-    }
-    self.caches[key] = value;
-    if (self.caches.count <= 10) {
-        return;
-    }
-    [self.lruCache transformFrom:self.caches];
-    [self.caches removeAllObjects];
+#pragma mark --本地数据--
+- (Room *)getRoomWith:(NSString *)roomJid {
+    return (Room *)[self.roomCache getValueWith:roomJid];
 }
 
-- (void)removeValueWith:(NSString *)key {
-    if (!self.isLRU) {
-        [self.caches removeObjectForKey:key];
-        return;
-    }
-    [self.lruCache removeValueWith:key];
-    if (self.lruCache.curSize > 10) {
-        return;
-    }
-    self.caches = [self.lruCache transformToDict].mutableCopy;
-    self.lruCache = nil;
+- (void)setRoomWith:(Room *)room {
+    [self.roomCache putValue:room withKey:room.roomJidvalue];
 }
 
-- (NSMutableDictionary<NSString *,id> *)caches {
-    if (!_caches) {
-        _caches = [[NSMutableDictionary alloc] init];
+- (void)setRoomsWith:(NSArray<Room *> *)rooms {
+    [self.roomCache clear];
+    for (Room *item in rooms) {
+        [self.roomCache putValue:item withKey:item.roomJidvalue];
     }
-    return _caches;
 }
 
-- (LRUCacheModel *)lruCache {
-    if (!_lruCache) {
-        _lruCache = [[LRUCacheModel alloc] initWithMaxSize:100];
+- (void)removeRoom:(Room *)room {
+    [self.roomCache removeValueWith:room.roomJidvalue];
+}
+
+- (RoomConfiguration *)getConfigurationWith:(NSString *)roomJid {
+    return (RoomConfiguration *)[self.configureCache getValueWith:roomJid];
+}
+
+- (void)setConfigurationCache:(RoomConfiguration *)configuration toRoom:(NSString *)roomJid {
+    [self.configureCache putValue:configuration withKey:roomJid];
+}
+
+- (void)removeConfigurationFromRoom:(NSString *)roomJid {
+    [self.configureCache removeValueWith:roomJid];
+}
+
+- (NSArray <XMPPJID *> *)getRoomCacheWith:(NSString *)roomJid type:(LXRoomCachesType)type {
+    LXCacheModel *cacheModel = [self fliterCaches:type];
+    return [(NSMutableArray *)[cacheModel getValueWith:roomJid] copy];
+}
+
+- (void)setRoomCachesWith:(NSString *)roomJid items:(NSArray *)items type:(LXRoomCachesType)type {
+    LXCacheModel *cacheModel = [self fliterCaches:type];
+    [cacheModel putValue:[items mutableCopy] withKey:roomJid];
+}
+
+- (void)removeRoomCacheWith:(NSString *)roomJid type:(LXRoomCachesType)type {
+    LXCacheModel *cacheModel = [self fliterCaches:type];
+    [cacheModel removeValueWith:roomJid];
+}
+
+// 添加，如果已经存在，那么更新
+- (void)addCacheToRoom:(NSString *)roomJid item:(XMPPJID *)item type:(LXRoomCachesType)type {
+    LXCacheModel *cacheModel = [self fliterCaches:type];
+    NSMutableArray *cacheItems = (NSMutableArray *)[cacheModel getValueWith:roomJid]; // [self fliterCacheItemsForRoom:roomJid inCache:caches];
+    XMPPJID *localItem = [self fliterJid:item inCaches:cacheItems];
+    if (!localItem) {
+        [cacheItems addObject:item];
+    } else {
+        NSInteger index = [cacheItems indexOfObject:localItem];
+        [cacheItems insertObject:item atIndex:index];
+        [cacheItems removeObject:localItem];
     }
-    return _lruCache;
+}
+
+- (void)removeCacheFromRoom:(NSString *)roomJid item:(XMPPJID *)item type:(LXRoomCachesType)type {
+    LXCacheModel *cacheModel = [self fliterCaches:type];
+    NSMutableArray *caches = (NSMutableArray *)[cacheModel getValueWith:roomJid];
+    XMPPJID *localItem = [self fliterJid:item inCaches:caches];
+    if (!localItem) {
+        return;
+    }
+    [caches removeObject:localItem];
+    
+    if (![NSArray isEmpty:caches]) {
+        return;
+    }
+    [cacheModel removeValueWith:roomJid];
+}
+
+- (LXCacheModel *)fliterCaches:(LXRoomCachesType)type {
+    switch (type) {
+        case LXRoomCachesBan:
+            return self.banCache;
+        case LXRoomCachesAdmin:
+            return self.adminCache;
+        case LXRoomCachesOwner:
+            return self.ownerCache;
+        case LXRoomCachesMember:
+            return self.memberCache;
+        case LXRoomCachesModerator:
+            return self.moderatorCache;
+        case LXRoomCachesConfigure:
+            return self.configureCache;
+        default:
+            return self.roomCache;
+    }
+}
+
+- (NSMutableArray *)fliterCacheItemsForRoom:(NSString *)roomJid inCache:(NSMutableDictionary *)caches {
+    if (caches[roomJid] != nil) {
+        return caches[roomJid];
+    }
+    NSMutableArray *cacheItems = [[NSMutableArray alloc] init];
+    caches[roomJid] = cacheItems;
+    return cacheItems;
+}
+
+// 从缓存的数据中找到目标用户
+- (XMPPJID *)fliterJid:(XMPPJID *)jid inCaches:(NSMutableArray *)cacheItems {
+    for (XMPPJID *item in cacheItems) {
+        if (![jid.user isEqualToString:item.user] ||
+            ![jid.domain isEqualToString:item.domain]) {
+            continue;
+        }
+        return item;
+    }
+    return nil;
 }
 
 @end

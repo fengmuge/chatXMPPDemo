@@ -5,21 +5,15 @@
 //  Created by 苗培根 on 2023/6/5.
 //
 
-#import "RoomManager.h"
-#import "RoomConfiguration.h"
 #import "Room.h"
+#import "RoomManager.h"
 #import "XMPPIQ+custom.h"
+#import "RoomCacheModel.h"
+#import "RoomConfiguration.h"
 
 @interface RoomManager () <XMPPRoomDelegate, XMPPRoomStorage>
-// 以下，以room.bare为key,保存不同用户的数据
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *bans;
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *admins;
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *owners;
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *members;
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *Moderators;
-// 其实，我想着要不要以LRU算法来管理 configuration和room。或者忽略时间的简化版LRU也不错
-@property (nonatomic, strong) NSMutableDictionary <NSString *, RoomConfiguration *> *configures;
-@property (nonatomic, strong, readwrite) NSMutableArray <Room *> *rooms;
+
+@property (nonatomic, strong, readwrite) RoomCacheModel *cacheMode;
 
 @end
 
@@ -46,7 +40,6 @@ static RoomManager *_sharedInstance;
     return _sharedInstance;
 }
 
-
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
     return _sharedInstance;
 }
@@ -55,135 +48,15 @@ static RoomManager *_sharedInstance;
     return _sharedInstance;
 }
 
-#pragma mark --本地数据--
-- (Room *)getRoomWith:(NSString *)roomJid {
-    for (Room *item in self.rooms) {
-        if (![item.roomJidvalue isEqualToString:roomJid]) {
-            continue;
-        }
-        return item;
-    }
-    return nil;
+- (NSMutableArray<Room *> *)rooms {
+    return self.cacheMode.rooms;
 }
 
-- (void)setRoomWith:(Room *)room {
-    Room *item = [self getRoomWith:room.roomJidvalue];
-    if (!item) {
-        [self.rooms addObject:room];
+- (RoomCacheModel *)cacheMode {
+    if (!_cacheMode) {
+        _cacheMode = [[RoomCacheModel alloc] init];
     }
-    if ([item isEqual:room]) {
-        return;
-    }
-    NSInteger index = [self.rooms indexOfObject:item];
-    [self.rooms insertObject:room atIndex:index];
-    [self.rooms removeObject:item];
-}
-
-- (void)removeRoom:(Room *)room {
-    Room *item = [self getRoomWith:room.roomJidvalue];
-    if (!item) {
-        return;
-    }
-    [self.rooms removeObject:item];
-}
-
-- (RoomConfiguration *)getConfigurationWith:(NSString *)roomJid {
-    if (!self.configures[roomJid]) {
-        return nil;
-    }
-    return self.configures[roomJid];
-}
-
-- (void)setConfigurationCache:(RoomConfiguration *)configuration toRoom:(NSString *)roomJid {
-    self.configures[roomJid] = configuration;
-}
-
-- (void)removeConfigurationFromRoom:(NSString *)roomJid {
-    if (!self.configures[roomJid]) {
-        return;
-    }
-    [self.configures removeObjectForKey:roomJid];
-}
-
-- (NSArray <XMPPJID *> *)getRoomCacheWith:(NSString *)roomJid type:(LXRoomCachesType)type {
-    NSMutableDictionary *caches = [self fliterCaches:type];
-    if (!caches[roomJid]) {
-        return nil;
-    }
-    return [caches[roomJid] copy];
-}
-
-- (void)setRoomCachesWith:(NSString *)roomJid items:(NSArray *)items type:(LXRoomCachesType)type {
-    NSMutableDictionary *caches = [self fliterCaches:type];
-    caches[roomJid] = [items mutableCopy];
-}
-
-- (void)removeRoomCacheWith:(NSString *)roomJid type:(LXRoomCachesType)type {
-    NSMutableDictionary *caches = [self fliterCaches:type];
-    [caches removeObjectForKey:roomJid];
-}
-
-// 添加，如果已经存在，那么更新
-- (void)addCacheToRoom:(NSString *)roomJid item:(XMPPJID *)item type:(LXRoomCachesType)type {
-    NSMutableDictionary *caches = [self fliterCaches:type];
-    NSMutableArray *cacheItems = [self fliterCacheItemsForRoom:roomJid inCache:caches];
-    XMPPJID *localItem = [self fliterJid:item inCaches:cacheItems];
-    if (!localItem) {
-        [cacheItems addObject:item];
-    } else {
-        NSInteger index = [cacheItems indexOfObject:localItem];
-        [cacheItems insertObject:item atIndex:index];
-        [cacheItems removeObject:localItem];
-    }
-}
-
-- (void)removeCacheFromRoom:(NSString *)roomJid item:(XMPPJID *)item type:(LXRoomCachesType)type {
-    NSMutableDictionary *caches = [self fliterCaches:type];
-    if (caches[roomJid] == nil) {
-        return;
-    }
-    NSMutableArray *cacheItems = caches[roomJid];
-    XMPPJID *localItem = [self fliterJid:item inCaches:cacheItems];
-    if (!localItem) {
-        return;
-    }
-    [cacheItems removeObject:localItem];
-}
-
-- (NSMutableDictionary *)fliterCaches:(LXRoomCachesType)type {
-    switch (type) {
-        case LXRoomCachesBan:
-            return self.bans;
-        case LXRoomCachesAdmin:
-            return self.admins;
-        case LXRoomCachesOwner:
-            return self.owners;
-        case LXRoomCachesMember:
-            return self.members;
-        default:
-            return self.Moderators;
-    }
-}
-
-- (NSMutableArray *)fliterCacheItemsForRoom:(NSString *)roomJid inCache:(NSMutableDictionary *)caches {
-    if (caches[roomJid] != nil) {
-        return caches[roomJid];
-    }
-    NSMutableArray *cacheItems = [[NSMutableArray alloc] init];
-    caches[roomJid] = cacheItems;
-    return cacheItems;
-}
-
-// 从缓存的数据中找到目标用户
-- (XMPPJID *)fliterJid:(XMPPJID *)jid inCaches:(NSMutableArray *)cacheItems {
-    for (XMPPJID *item in cacheItems) {
-        if (![jid.user isEqualToString:item.user] ||
-            ![jid.domain isEqualToString:item.domain]) {
-            continue;
-        }
-        return item;
-    }
-    return nil;
+    return _cacheMode;
 }
 
 // 获取加入过的群组和公开的群组
@@ -236,7 +109,7 @@ static RoomManager *_sharedInstance;
             }
         }
     }
-    self.rooms = array;
+    [self.cacheMode setRoomsWith:array];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_FETCHED_GROUPS
                                                         object:[array copy]];
 }
@@ -244,12 +117,12 @@ static RoomManager *_sharedInstance;
 // 整理获取到的房间信息
 - (void)sortRoomInformationFetchedResult:(XMPPIQ *)iq {
     NSString *roomJid = iq.attributesAsDictionary[@"from"];
-    Room *item = [self getRoomWith:roomJid];
+    Room *item = [self.cacheMode getRoomWith:roomJid];
     if (!item) {
         item = [[Room alloc] init];
     }
     [item setIq:iq];
-    [self setRoomWith:item];
+    [self.cacheMode setRoomWith:item];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_FETCHED_GROUP_INFORMATION
                                                         object:item];
 }
@@ -324,7 +197,7 @@ static RoomManager *_sharedInstance;
     // 直接用RoomConfiguration对象进行解析，并发送到房间聊天页面缓存，和进行相关UI配置
     RoomConfiguration *configuration = [[RoomConfiguration alloc] initWithXMLElement:configForm];
     // 将房间的配置信息添加到缓存
-    [self setConfigurationCache:configuration
+    [self.cacheMode setConfigurationCache:configuration
                          toRoom:sender.roomJID.bare];
     // 将配置信息发送到聊天页面
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_DIDFETCH_CONFIGURATIONFORM
@@ -389,7 +262,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender occupantDidJoin:(XMPPJID *)occupantJID withPresence:(XMPPPresence *)presence {
     NSLog(@"%s 成员: %@加入房间成功,获取到信息: %@", __func__, occupantJID, presence);
-    [self addCacheToRoom:sender.roomJID.bare
+    [self.cacheMode addCacheToRoom:sender.roomJID.bare
                     item:occupantJID
                     type:LXRoomCachesMember];
     // 发送消息，暂定为这样，具体业务逻辑还没想好
@@ -398,7 +271,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender occupantDidLeave:(XMPPJID *)occupantJID withPresence:(XMPPPresence *)presence {
     NSLog(@"%s 成员: %@离开房间成功,获取到信息: %@", __func__, occupantJID, presence);
-    [self removeCacheFromRoom:sender.roomJID.bare
+    [self.cacheMode removeCacheFromRoom:sender.roomJID.bare
                          item:occupantJID
                          type:LXRoomCachesMember];
     // 发送消息，暂定为这样，具体业务逻辑还没想好
@@ -407,7 +280,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender occupantDidUpdate:(XMPPJID *)occupantJID withPresence:(XMPPPresence *)presence {
     NSLog(@"%s 成员: %@信息更新, 获取到信息: %@", __func__, occupantJID, presence);
-    [self addCacheToRoom:sender.roomJID.bare
+    [self.cacheMode addCacheToRoom:sender.roomJID.bare
                     item:occupantJID
                     type:LXRoomCachesMember];
     // 发送消息，暂定为这样，具体业务逻辑还没想好
@@ -425,7 +298,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender didFetchBanList:(NSArray *)items {
     NSLog(@"%s 获取到被禁群成员列表: %@", __func__, items);
-    [self setRoomCachesWith:sender.roomJID.bare
+    [self.cacheMode setRoomCachesWith:sender.roomJID.bare
                       items:items
                        type:LXRoomCachesBan];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHBANLIST_RESULT
@@ -439,7 +312,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender didFetchMembersList:(NSArray *)items {
     NSLog(@"%s 获取到群成员列表: %@", __func__, items);
-    [self setRoomCachesWith:sender.roomJID.bare
+    [self.cacheMode setRoomCachesWith:sender.roomJID.bare
                       items:items
                        type:LXRoomCachesMember];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHMEMBERSLIST_RESULT
@@ -455,7 +328,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender didFetchAdminsList:(NSArray *)items {
     NSLog(@"%s 获取到管理员列表: %@", __func__, items);
-    [self setRoomCachesWith:sender.roomJID.bare
+    [self.cacheMode setRoomCachesWith:sender.roomJID.bare
                       items:items
                        type:LXRoomCachesAdmin];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHADMINSLIST_RESULT
@@ -469,7 +342,7 @@ static RoomManager *_sharedInstance;
 
 - (void)xmppRoom:(XMPPRoom *)sender didFetchOwnersList:(NSArray *)items {
     NSLog(@"%s 获取到群拥有者列表: %@", __func__, items);
-    [self setRoomCachesWith:sender.roomJID.bare
+    [self.cacheMode setRoomCachesWith:sender.roomJID.bare
                       items:items
                        type:LXRoomCachesOwner];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHOWNERSLIST_RESULT
@@ -484,7 +357,7 @@ static RoomManager *_sharedInstance;
 // 房间可以设置为需要审核才能加入
 - (void)xmppRoom:(XMPPRoom *)sender didFetchModeratorsList:(NSArray *)items {
     NSLog(@"%s 获取到审核员列表: %@", __func__, items);
-    [self setRoomCachesWith:sender.roomJID.bare
+    [self.cacheMode setRoomCachesWith:sender.roomJID.bare
                       items:items
                        type:LXRoomCachesModerator];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHMODERATORSLIST_RESULT

@@ -7,6 +7,7 @@
 
 #import "Room.h"
 #import "RoomManager.h"
+#import "RoomCacheModel.h"
 #import "RoomConfiguration.h"
 
 //@interface RoomField ()
@@ -99,10 +100,10 @@
     if (_configuration) {
         return _configuration;
     }
-    RoomConfiguration *config = [[RoomManager sharedInstance] getConfigurationWith:self.roomJidvalue];
+    RoomConfiguration *config = [[RoomManager sharedInstance].cacheMode getConfigurationWith:self.roomJidvalue];
     if (!config) {
         config = [[RoomConfiguration alloc] init];
-        [[RoomManager sharedInstance] setConfigurationCache:config
+        [[RoomManager sharedInstance].cacheMode setConfigurationCache:config
                                                      toRoom:self.roomJidvalue];
     }
     _configuration = config;
