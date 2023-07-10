@@ -306,7 +306,7 @@ static ChatManager *_sharedInstance;
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_LOGIN_SUCCESS object:nil];
     // 认证成功 ---- 与登录成功仅需一个
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_DID_AUTHENTICATE object:nil];
-
+    
 }
 
 #warning mark --有多个状态数据未进行处理

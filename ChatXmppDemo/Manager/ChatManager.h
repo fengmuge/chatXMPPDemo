@@ -42,9 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XMPPRoomCoreDataStorage *roomCoreDataStorage;
 
 // 电子名片相关
-@property (nonatomic, strong) XMPPvCardTempModule *cardTempModule;
-@property (nonatomic, strong) XMPPvCardCoreDataStorage *cardCoreDataStorage;
-@property (nonatomic, strong) XMPPvCardAvatarModule *cardAvatarModule;
+//@property (nonatomic, strong) XMPPvCardTemp *cardTemp; // 电子名片
+@property (nonatomic, strong) XMPPvCardTempModule *cardTempModule; // 电子名片的读取和存储
+@property (nonatomic, strong) XMPPvCardCoreDataStorage *cardCoreDataStorage;  // 电子名片的本地存储
+@property (nonatomic, strong) XMPPvCardAvatarModule *cardAvatarModule;   // 头像模块的存储和读取
 
 // 文件接收
 @property (nonatomic, strong) XMPPIncomingFileTransfer *incomingFileTransfer;

@@ -8,6 +8,7 @@
 #ifndef NotificationDefine_h
 #define NotificationDefine_h
 
+#define kAPP_LOGIN_OUT @"kAPP_LOGIN_OUT"
 // 联系人同步完成
 #define kXMPP_ROSTER_DIDEND_POPULATING @"kXMPP_ROSTER_DIDEND_POPULATING"
 // 获取好友信息
