@@ -147,4 +147,55 @@
     return nil;
 }
 
+#pragma mark --setter/getter--
+
+- (LXCacheModel *)banCache {
+    if (!_banCache) {
+        _banCache = [[LXCacheModel alloc] init];
+    }
+    return _banCache;
+}
+
+- (LXCacheModel *)adminCache {
+    if (!_adminCache) {
+        _adminCache = [[LXCacheModel alloc] init];
+    }
+    return _adminCache;
+}
+
+- (LXCacheModel *)ownerCache {
+    if (!_ownerCache) {
+        _ownerCache = [[LXCacheModel alloc] init];
+    }
+    return _ownerCache;
+}
+
+- (LXCacheModel *)memberCache {
+    if (!_memberCache) {
+        _memberCache = [[LXCacheModel alloc] init];
+    }
+    return _memberCache;
+}
+
+- (LXCacheModel *)moderatorCache {
+    if (!_moderatorCache) {
+        _moderatorCache = [[LXCacheModel alloc] init];
+    }
+    return _moderatorCache;
+}
+
+- (LXCacheModel *)configureCache {
+    if (!_configureCache) {
+        _configureCache = [[LXCacheModel alloc] init];
+    }
+    return _configureCache;
+}
+
+- (LXCacheModel *)roomCache {
+    if (!_roomCache) {
+        _roomCache = [[LXCacheModel alloc] init];
+    }
+    return _roomCache;
+}
+
 @end
