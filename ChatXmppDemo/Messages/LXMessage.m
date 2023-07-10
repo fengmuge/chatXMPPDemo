@@ -8,6 +8,8 @@
 #import "LXMessage.h"
 #import "User.h"
 
+#import "XMPPMessage+custom.h"
+
 @interface LXMessage ()
 
 @property (nonatomic, strong) NSDate *timeDate;
@@ -154,19 +156,27 @@
 
 // 例子，处理多媒体线信息(通过二进制进行传递，临时使用body作为type判断，正式项目不可以这样搞)
 - (void)makeMediaWith:(XMPPMessage *)message {
-    if (![self.body isEqualToString:@"voice"]) {
+//    if (![self.body isEqualToString:@"voice"]) {
+//        return;
+//    }
+//    self.contentType = LXMessageContentAudio;
+//    for (NSXMLElement *element in message.children) {
+//        if (![element.name isEqualToString:@"attachment"]) {
+//            continue;
+//        }
+//        NSString *base64Str = element.stringValue;
+//        NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Str options:0];
+//        self.audioData = data;
+//        break;
+//    }
+    
+    if (message.bodyType != LXMessageBodyAudio) {
         return;
     }
-    self.contentType = LXMessageContentAudio;
-    for (NSXMLElement *element in message.children) {
-        if (![element.name isEqualToString:@"attachment"]) {
-            continue;
-        }
-        NSString *base64Str = element.stringValue;
-        NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Str options:0];
-        self.audioData = data;
-        break;
-    }
+    
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:message.body options:0];
+    self.audioData = data;
+    
     NSString *duringTimeValue = message.attributesAsDictionary[@"duringTime"];
     self.audioDuringTime = [duringTimeValue doubleValue];
 }

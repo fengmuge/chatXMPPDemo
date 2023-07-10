@@ -28,4 +28,38 @@
     return NO;
 }
 
+- (LXMessageBodyType)bodyType {
+    NSString *bodyTypeValue = self.attributesAsDictionary[@"bodyType"];
+    if ([bodyTypeValue isEqualToString:@"text"]) {
+        return LXMessageBodyText;
+    } else if ([bodyTypeValue isEqualToString:@"audio"]) {
+        return LXMessageBodyAudio;
+    } else if ([bodyTypeValue isEqualToString:@"video"]) {
+        return LXMessageBodyVideo;
+    } else if ([bodyTypeValue isEqualToString:@"image"]) {
+        return LXMessageBodyImage;
+    }
+    return LXMessageBodyCard;
+}
+
+- (void)setBodyType:(LXMessageBodyType)bodyType {
+    NSString *bodyTypeValue = [self bodyTypeValueWith:bodyType];
+    [self addAttributeWithName:@"bodyType" stringValue:bodyTypeValue];
+}
+
+- (NSString *)bodyTypeValueWith:(LXMessageBodyType)bodyType {
+    switch (bodyType) {
+        case LXMessageBodyText:
+            return @"text";
+        case LXMessageBodyAudio:
+            return @"audio";
+        case LXMessageBodyVideo:
+            return @"video";
+        case LXMessageBodyImage:
+            return @"image";
+        default:
+            return @"card";
+    }
+}
+
 @end
