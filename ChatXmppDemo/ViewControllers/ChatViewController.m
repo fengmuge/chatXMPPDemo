@@ -14,6 +14,7 @@
 #import "MessageManager.h"
 #import "LXMessage.h"
 #import "TranscribeVoiceView.h"
+#import "XMPPMessage+custom.h"
 
 @interface ChatViewController ()
 
@@ -244,6 +245,8 @@
 
 - (void)sendTextMessageWith:(NSString *)content {
     XMPPMessage *message = [self makeBaseMessage];
+//    [message addAttributeWithName:@"bodyType" stringValue:@"text"];
+    message.bodyType = LXMessageBodyText;
     [message addBody:content];
     [self sendMessage:message];
 }
@@ -275,12 +278,15 @@
 
 - (void)sendAudioMessageWith:(NSData *)audioData duringTime:(NSTimeInterval)time {
     XMPPMessage *message = [self makeBaseMessage];
-    [message addBody:@"voice"];
+//    [message addBody:@"voice"];
+//    [message addAttributeWithName:@"bodyType" stringValue:@"voice"];
+    message.bodyType = LXMessageBodyAudio;
     NSString *timeValue = [NSString stringWithFormat:@"%f", time];
     [message addAttributeWithName:@"duringTime" stringValue:timeValue];
     NSString *audioDataValue = [audioData base64EncodedStringWithOptions:0];
-    XMPPElement *element = [XMPPElement elementWithName:@"attachment" stringValue:audioDataValue];
-    [message addChild:element];
+//    XMPPElement *element = [XMPPElement elementWithName:@"attachment" stringValue:audioDataValue];
+//    [message addChild:element];
+    [message addBody:audioDataValue];
     
     [self sendMessage:message];
 }

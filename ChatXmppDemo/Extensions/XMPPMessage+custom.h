@@ -7,9 +7,19 @@
 
 #import <XMPPFramework/XMPPFramework.h>
 
+typedef enum : NSUInteger {
+    LXMessageBodyText,
+    LXMessageBodyAudio,
+    LXMessageBodyVideo,
+    LXMessageBodyImage,
+    LXMessageBodyCard
+} LXMessageBodyType;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XMPPMessage (custom)
+
+@property (nonatomic, assign) LXMessageBodyType bodyType;
 
 // 是否是来自房间的邀请
 - (BOOL)isRoomInvite;

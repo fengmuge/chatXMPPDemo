@@ -73,6 +73,11 @@ static RosterManager *_sharedInstance;
 //- (void)xmppRosterDidBeginPopulating:(XMPPRoster *)sender withVersion:(NSString *)version {
 //}
 
+// 自己主动添加好友，被动同意添加好友或者自己被好友删除时候会收到推送
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveRosterPush:(XMPPIQ *)iq {
+    
+}
+
 // 好友信息获取完毕
 - (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
