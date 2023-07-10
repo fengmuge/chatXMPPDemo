@@ -244,7 +244,6 @@
     } else {
         [[ChatManager sharedInstance] fetchInformationWith:item.roomJidvalue];
     }
-
 }
 
 - (void)prepareForPushToChatViewControllerWith:(Room *)item {
