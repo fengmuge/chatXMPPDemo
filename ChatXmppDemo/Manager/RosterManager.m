@@ -73,7 +73,7 @@ static RosterManager *_sharedInstance;
 //- (void)xmppRosterDidBeginPopulating:(XMPPRoster *)sender withVersion:(NSString *)version {
 //}
 
-// 获取好友列表
+// 好友信息获取完毕
 - (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
 }

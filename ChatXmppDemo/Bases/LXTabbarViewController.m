@@ -44,6 +44,8 @@
     
     [self setViewControllers:[self makeViewControllers]];
     self.tabBarController.delegate = self;
+    
+    [self addNotification];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -67,6 +69,7 @@
     }
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     LXNavgationViewController *loginNav = [[LXNavgationViewController alloc] initWithRootViewController:loginVC];
+    loginNav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:loginNav animated:NO completion:nil];
 }
 
@@ -80,6 +83,15 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return [self.selectedViewController supportedInterfaceOrientations];
+}
+
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLoginOut) name:kAPP_LOGIN_OUT object:nil];
+}
+
+- (void)appLoginOut {
+    self.selectedIndex = 1;
+    [self presentLoginViewController];
 }
 
 #pragma mark -- UITabBarControllerDelegate
