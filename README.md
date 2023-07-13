@@ -29,3 +29,10 @@
      1 在群组长时间未活动，会导致自动离开群组 
      
      2 长时间未活动，再发送消息会导致异常断开socket连接 
+
+记录 —— 2023-07-13
+
+1 添加WebRTC
+
+2 由于libWebRTC.a文件过大，所以保存在了百度网盘
+       链接: https://pan.baidu.com/s/1KEwDMtZc4s50faKAgzKeKQ  密码: eu7m
