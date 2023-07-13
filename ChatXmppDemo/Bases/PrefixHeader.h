@@ -18,6 +18,7 @@
 #import "NSDate+custom.h"
 #import "UIImage+custom.h"
 #import "UITableView+custom.h"
+#import "UITableViewCell+custom.h"
 #import "UICollectionView+custom.h"
 #import "UITextField+custom.h"
 #import "UIAlertController+custom.h"
@@ -25,7 +26,6 @@
 #import "XMPPPresence+custom.h"
 #import "DDXMLElement+custom.h"
 #import "XMPPJID+custom.h"
-
 
 #import "FontDefine.h"
 #import "globalDefine.h"

@@ -304,6 +304,7 @@ static RoomManager *_sharedInstance;
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHBANLIST_RESULT
                                                         object:[NSNumber numberWithBool:YES]];
 }
+
 - (void)xmppRoom:(XMPPRoom *)sender didNotFetchBanList:(XMPPIQ *)iqError {
     NSLog(@"%s 获取被禁群成员列表失败: %@", __func__, iqError);
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHBANLIST_RESULT
@@ -317,7 +318,6 @@ static RoomManager *_sharedInstance;
                        type:LXRoomCachesMember];
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHMEMBERSLIST_RESULT
                                                         object:[NSNumber numberWithBool:YES]];
-    
 }
 
 - (void)xmppRoom:(XMPPRoom *)sender didNotFetchMembersList:(XMPPIQ *)iqError {
@@ -348,6 +348,7 @@ static RoomManager *_sharedInstance;
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHOWNERSLIST_RESULT
                                                         object:[NSNumber numberWithBool:YES]];
 }
+
 - (void)xmppRoom:(XMPPRoom *)sender didNotFetchOwnersList:(XMPPIQ *)iqError {
     NSLog(@"%s 获取拥有者列表失败: %@", __func__, iqError);
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROOM_FETCHOWNERSLIST_RESULT

@@ -148,6 +148,10 @@ static ChatManager *_sharedInstance;
     [self.incomingFileTransfer activate:self.stream];
     [self.incomingFileTransfer addDelegate:[FlieManager sharedInstance] delegateQueue: dispatch_get_main_queue()];
     [self.incomingFileTransfer setAutoAcceptFileTransfers:YES];
+    
+    self.outgoingFileTransfer = [[XMPPOutgoingFileTransfer alloc] initWithDispatchQueue:dispatch_get_global_queue(0, 0)];
+    [self.outgoingFileTransfer activate:self.stream];
+    [self.outgoingFileTransfer addDelegate:[FlieManager sharedInstance] delegateQueue:dispatch_get_global_queue(0, 0)];
 }
 
 // 加入房间，如果房间不存在，那么新建房间
@@ -203,6 +207,7 @@ static ChatManager *_sharedInstance;
     [self.roster deactivate];
     [self.messageArchiving deactivate];
     [self.incomingFileTransfer deactivate];
+    [self.outgoingFileTransfer deactivate];
     [self.cardAvatarModule deactivate];
     [self.cardTempModule deactivate];
     [self.room deactivate];

@@ -42,6 +42,9 @@
     //初始化好友数组
     self.indexArray = [NSMutableArray arrayWithCapacity:16];
     [self.indexArray addObject:@""];
+    
+//    XMPPUserMemoryStorageObject *object = [ChatManager sharedInstance].rosterMemoryStorage.unsortedUsers[0];
+//    [object isOnline];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -233,8 +236,12 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    [self.contactsList lxRegisterClass:[FriendMenuTableViewCell class]];
-    [self.contactsList lxRegisterClass:[ContactTableViewCell class]];
+//    [self.contactsList lxRegisterClass:[FriendMenuTableViewCell class]];
+//    [self.contactsList lxRegisterClass:[ContactTableViewCell class]];
+    
+    [FriendMenuTableViewCell lxRegisterCellWith:self.contactsList];
+    [ContactTableViewCell lxRegisterCellWith:self.contactsList];
+    
     [self.view addSubview:self.contactsList];
 }
 
@@ -255,15 +262,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        FriendMenuTableViewCell *cell = (FriendMenuTableViewCell *)[tableView lxdequeueReusableCellWithClass:[FriendMenuTableViewCell class]
-                                                                                                    forIndexPath:indexPath];
+        FriendMenuTableViewCell *cell = [FriendMenuTableViewCell lxdequeueReusableCellWith:tableView forIndexPath:indexPath];
+        // (FriendMenuTableViewCell *)[tableView lxdequeueReusableCellWithClass:[FriendMenuTableViewCell class]
+//    forIndexPath:indexPath];
         [cell reloadWithImage:@"新的朋友"
                         title:@"新的朋友"
                  messageCount:[UserManager sharedInstance].subscribes.count];
          return cell;
     }else{
-        ContactTableViewCell *cell = (ContactTableViewCell *)[tableView lxdequeueReusableCellWithClass:[ContactTableViewCell class]
-                                                                                          forIndexPath:indexPath];
+        ContactTableViewCell *cell = [ContactTableViewCell lxdequeueReusableCellWith:tableView forIndexPath:indexPath];
+        //(ContactTableViewCell *)[tableView lxdequeueReusableCellWithClass:[ContactTableViewCell class]
+                                       //                                                   forIndexPath:indexPath];
         NSArray *contactSource = self.contactsPinyinDic[self.indexArray[indexPath.section]];
         User *item = contactSource[indexPath.row];
         [cell reload:item];

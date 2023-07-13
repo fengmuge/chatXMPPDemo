@@ -13,6 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (FlieManager *)sharedInstance;
 
+// 发送文件，recipient 接收人
+- (void)lxSendData:(NSData *)data
+             named:(NSString *)name
+       toRecipient:(XMPPJID *)recipient
+       description:(NSString *)description
+             error:(NSError *__autoreleasing *)errPtr;
+
 @end
 
 NS_ASSUME_NONNULL_END

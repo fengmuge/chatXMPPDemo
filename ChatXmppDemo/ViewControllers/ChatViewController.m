@@ -217,6 +217,7 @@
     } else {
         message = [XMPPMessage messageWithType:@"chat" to:self.contact.jid]; // [[XMPPMessage alloc] initWithType:@"chat" to:self.contact.jid];
     }
+    // 添加回执，并且在didReceivedMessage回调中对回执进行组装和发送，方便我们知道消息是否发送成功
     NSXMLElement *receipt = [NSXMLElement elementWithName:@"request" xmlns:@"urn:xmpp:receipts"];
     [message addChild:receipt];
     

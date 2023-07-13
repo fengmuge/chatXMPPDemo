@@ -49,7 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 文件接收
 @property (nonatomic, strong) XMPPIncomingFileTransfer *incomingFileTransfer;
-
+// 文件发送
+@property (nonatomic, strong) XMPPOutgoingFileTransfer *outgoingFileTransfer;
 
 @property (nonatomic, assign) bool needRegister;
 @property (nonatomic, assign, readonly) LXConnectType connectType;

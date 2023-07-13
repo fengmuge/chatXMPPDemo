@@ -7,9 +7,11 @@
 
 #import "FlieManager.h"
 #import "ChatManager.h"
+#import "XMPPMessage+custom.h"
 
 @interface FlieManager () <
-XMPPIncomingFileTransferDelegate
+XMPPIncomingFileTransferDelegate,
+XMPPOutgoingFileTransferDelegate
 >
 
 @end
@@ -47,10 +49,31 @@ static FlieManager *_sharedInstance;
     return _sharedInstance;
 }
 
+- (void)lxSendData:(NSData *)data
+             named:(NSString *)name
+       toRecipient:(XMPPJID *)recipient
+       description:(NSString *)description
+             error:(NSError *__autoreleasing  _Nullable *)errPtr {
+    NSError *error;
+    BOOL isFinish = [[ChatManager sharedInstance].outgoingFileTransfer sendData:data
+                                                                          named:name
+                                                                    toRecipient:recipient
+                                                                    description:description
+                                                                          error:&error];
+    if (!error && isFinish) {
+        return;
+    }
+    NSLog(@"发送文件失败 error = %@", [error localizedDescription]);
+}
+
 #pragma mark --XMPPIncomingFileTransferDelegate--
 // 是否同意对方发文件给我
 - (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didReceiveSIOffer:(XMPPIQ *)offer {
     NSLog(@"%s", __func__);
+    // 可以设置弹窗给用户，选择是否接收文件
+    
+    // 这里直接接收
+    [[ChatManager sharedInstance].incomingFileTransfer acceptSIOffer:offer];
 }
 
 // 文件传输失败
@@ -76,18 +99,67 @@ static FlieManager *_sharedInstance;
     }
     // 创建一个XMPPMessage对象，message必须要有from
     XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:jid];
-    // 将这个文件的发送着添加到message的from
+    // 将这个文件的发送者添加到message的from
     [message addAttributeWithName:@"from" stringValue:sender.senderJID.bare];
+    // 这个感觉可以写入attribute，使用我们对xmppMessage的扩展 例如 message.bodyType = LXMessageBodyAudio;
     [message addSubject:@"audio"];
-    
+    // 文件写入本地
     NSString *path = [NSString filePathWithComponent:[XMPPStream generateUUID] extension:nil];
     [data writeToFile:path atomically:YES];
+    
+    [message addBody:path.lastPathComponent];
+    // 将消息保存到本地
+    //archiveMessage:outgoing:xmppStream: 执行完毕会发送通知，然后更新相应的历史消息
+    [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message
+                                                               outgoing:NO
+                                                             xmppStream:[ChatManager sharedInstance].stream];
+}
+
+/**
+ XMPP发送文件的功能依赖于对方客户端，在XMPPStream建立连接之后会询问对方客户端的特性，然后根据返回的特性，判断对方是否能够接收某一种类型的文件。
+
+ 而XMPP支持的特性有：
+
+  <query xmlns="http://jabber.org/protocol/disco#info">
+ *     <identity category="client" type="phone"/>
+ *       <feature var="http://jabber.org/protocol/si"/>
+ *       <feature var="http://jabber.org/protocol/si/profile/file-transfer"/>
+ *       <feature var="http://jabber.org/protocol/bytestreams"/>
+ *       <feature var="http://jabber.org/protocol/ibb"/>
+ *   </query>
+ */
+#pragma mark --XMPPOutgoingFileTransferDelegate--
+
+- (void)xmppOutgoingFileTransfer:(XMPPOutgoingFileTransfer *)sender
+                didFailWithError:(NSError *)error {
+    NSLog(@"文件发送失败 %s, 失败原因 %@", __func__, [error localizedDescription]);
+}
+
+
+- (void)xmppOutgoingFileTransferDidSucceed:(XMPPOutgoingFileTransfer *)sender {
+    NSLog(@"文件发送成功 %s", __func__);
+    
+    XMPPMessage *message = [XMPPMessage messageWithType:@"caht"
+                                                     to:[sender.recipientJID copy]];
+    // 将文件的发送者添加到message from
+    [message addAttributeWithName:@"from"
+                      stringValue:[UserManager sharedInstance].jid.bare];
+    // 这一步可以写入attribute，使用我们对xmppMessage的扩展 例如 message.bodyType = LXMessageBodyAudio;
+    [message addSubject:@"audio"];
+    // 文件写入
+    NSString *path = [NSString filePathWithComponent:sender.outgoingFileName
+                                           extension:nil];
     
     [message addBody:path.lastPathComponent];
     
     [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message
                                                                outgoing:NO
                                                              xmppStream:[ChatManager sharedInstance].stream];
+}
+
+
+- (void)xmppOutgoingFileTransferIBBClosed:(XMPPOutgoingFileTransfer *)sender {
+    
 }
 
 @end

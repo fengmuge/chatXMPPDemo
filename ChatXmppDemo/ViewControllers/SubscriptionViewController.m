@@ -112,7 +112,8 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    [self.subscriptionList lxRegisterClass:[SubscriptionTableViewCell class]];
+//    [self.subscriptionList lxRegisterClass:[SubscriptionTableViewCell class]];
+    [SubscriptionTableViewCell lxRegisterCellWith:self.subscriptionList];
     
     [self.view addSubview:self.subscriptionList];
     
@@ -128,8 +129,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SubscriptionTableViewCell *cell = (SubscriptionTableViewCell *)[tableView lxdequeueReusableCellWithClass:[SubscriptionTableViewCell class]
-                                                                                                forIndexPath:indexPath];
+    SubscriptionTableViewCell *cell = [SubscriptionTableViewCell lxdequeueReusableCellWith:tableView forIndexPath:indexPath];
+    //(SubscriptionTableViewCell *)[tableView lxdequeueReusableCellWithClass:[SubscriptionTableViewCell class] forIndexPath:indexPath];
     cell.delegate = self;
     [cell reload:self.subscribes[indexPath.row]];
     return cell;

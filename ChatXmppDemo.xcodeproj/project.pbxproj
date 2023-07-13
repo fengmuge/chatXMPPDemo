@@ -66,6 +66,10 @@
 		654CF6982A399397001F8541 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF6972A399397001F8541 /* LoginViewController.m */; };
 		654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69A2A399422001F8541 /* RegisterViewController.m */; };
 		654CF69F2A3C5791001F8541 /* LXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69E2A3C5791001F8541 /* LXMessage.m */; };
+		6575E2B72A5E576C00DA5768 /* UITableViewCell+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */; };
+		6575E2D92A5E94F400DA5768 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575E2D82A5E94F400DA5768 /* libWebRTC.a */; };
+		658AA3732A5D2B7E007E69DC /* LXGroupAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */; };
+		658AA3762A5D48BD007E69DC /* LXUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 658AA3752A5D48BD007E69DC /* LXUserDefaults.m */; };
 		65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */; };
 		65AABE522A403247000EBEA6 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE512A403247000EBEA6 /* AudioManager.m */; };
 		65AABE562A404F77000EBEA6 /* TranscribeVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE552A404F77000EBEA6 /* TranscribeVoiceView.m */; };
@@ -179,6 +183,14 @@
 		65B0C7AA2A481BEE008B65AB /* NSDate+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7A92A481BEE008B65AB /* NSDate+custom.m */; };
 		65B0C7AD2A4844A7008B65AB /* RoomConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */; };
 		65B363AC2A5410E200B62616 /* RoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B363AB2A5410E200B62616 /* RoomSettingViewController.m */; };
+		65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */; };
+		65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */; };
+		65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */; };
+		65C528C22A5EAA2D004EB3C3 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C12A5EAA2D004EB3C3 /* GLKit.framework */; };
+		65C528C42A5EAA3D004EB3C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C32A5EAA3D004EB3C3 /* libresolv.tbd */; };
+		65C528C62A5EAA49004EB3C3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C52A5EAA49004EB3C3 /* libc++.tbd */; };
+		65C528C82A5EAA54004EB3C3 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C72A5EAA54004EB3C3 /* libicucore.tbd */; };
+		65C528CA2A5EAA5D004EB3C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C92A5EAA5D004EB3C3 /* UIKit.framework */; };
 		65CD73B62A4AC31B00507D52 /* XMPPIQ+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */; };
 		65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B82A4AC3A100507D52 /* XMPPMessage+custom.m */; };
 		8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
@@ -318,6 +330,43 @@
 		654CF69A2A399422001F8541 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		654CF69D2A3C5791001F8541 /* LXMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMessage.h; sourceTree = "<group>"; };
 		654CF69E2A3C5791001F8541 /* LXMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMessage.m; sourceTree = "<group>"; };
+		6575E2B52A5E576C00DA5768 /* UITableViewCell+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+custom.h"; sourceTree = "<group>"; };
+		6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+custom.m"; sourceTree = "<group>"; };
+		6575E2BA2A5E94F400DA5768 /* RTCPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPair.h; sourceTree = "<group>"; };
+		6575E2BB2A5E94F400DA5768 /* RTCAVFoundationVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAVFoundationVideoSource.h; sourceTree = "<group>"; };
+		6575E2BC2A5E94F400DA5768 /* RTCStatsReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsReport.h; sourceTree = "<group>"; };
+		6575E2BD2A5E94F400DA5768 /* RTCPeerConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionDelegate.h; sourceTree = "<group>"; };
+		6575E2BE2A5E94F400DA5768 /* RTCSessionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescription.h; sourceTree = "<group>"; };
+		6575E2BF2A5E94F400DA5768 /* RTCVideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoCapturer.h; sourceTree = "<group>"; };
+		6575E2C02A5E94F400DA5768 /* RTCVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoSource.h; sourceTree = "<group>"; };
+		6575E2C12A5E94F400DA5768 /* RTCICEServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICEServer.h; sourceTree = "<group>"; };
+		6575E2C22A5E94F400DA5768 /* RTCMediaConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaConstraints.h; sourceTree = "<group>"; };
+		6575E2C32A5E94F400DA5768 /* RTCMediaStreamTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStreamTrack.h; sourceTree = "<group>"; };
+		6575E2C42A5E94F400DA5768 /* RTCVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
+		6575E2C52A5E94F400DA5768 /* RTCVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoRenderer.h; sourceTree = "<group>"; };
+		6575E2C62A5E94F400DA5768 /* RTCEAGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCEAGLVideoView.h; sourceTree = "<group>"; };
+		6575E2C72A5E94F400DA5768 /* RTCNSGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCNSGLVideoView.h; sourceTree = "<group>"; };
+		6575E2C82A5E94F400DA5768 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
+		6575E2C92A5E94F400DA5768 /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
+		6575E2CA2A5E94F400DA5768 /* RTCI420Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCI420Frame.h; sourceTree = "<group>"; };
+		6575E2CB2A5E94F400DA5768 /* RTCSessionDescriptionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescriptionDelegate.h; sourceTree = "<group>"; };
+		6575E2CC2A5E94F400DA5768 /* RTCFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCFileLogger.h; sourceTree = "<group>"; };
+		6575E2CD2A5E94F400DA5768 /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
+		6575E2CE2A5E94F400DA5768 /* RTCPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnection.h; sourceTree = "<group>"; };
+		6575E2CF2A5E94F400DA5768 /* RTCPeerConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionFactory.h; sourceTree = "<group>"; };
+		6575E2D02A5E94F400DA5768 /* RTCMediaStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStream.h; sourceTree = "<group>"; };
+		6575E2D12A5E94F400DA5768 /* RTCLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCLogging.h; sourceTree = "<group>"; };
+		6575E2D22A5E94F400DA5768 /* RTCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCTypes.h; sourceTree = "<group>"; };
+		6575E2D32A5E94F400DA5768 /* RTCICECandidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICECandidate.h; sourceTree = "<group>"; };
+		6575E2D42A5E94F400DA5768 /* RTCMediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaSource.h; sourceTree = "<group>"; };
+		6575E2D52A5E94F400DA5768 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
+		6575E2D62A5E94F400DA5768 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
+		6575E2D72A5E94F400DA5768 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
+		6575E2D82A5E94F400DA5768 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
+		658AA3712A5D2B7E007E69DC /* LXGroupAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXGroupAvatar.h; sourceTree = "<group>"; };
+		658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXGroupAvatar.m; sourceTree = "<group>"; };
+		658AA3742A5D48BD007E69DC /* LXUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXUserDefaults.h; sourceTree = "<group>"; };
+		658AA3752A5D48BD007E69DC /* LXUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXUserDefaults.m; sourceTree = "<group>"; };
 		65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+custom.h"; sourceTree = "<group>"; };
 		65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+custom.m"; sourceTree = "<group>"; };
 		65AABE502A403247000EBEA6 /* AudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
@@ -340,6 +389,15 @@
 		65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomConfiguration.m; sourceTree = "<group>"; };
 		65B363AA2A5410E200B62616 /* RoomSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomSettingViewController.h; sourceTree = "<group>"; };
 		65B363AB2A5410E200B62616 /* RoomSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomSettingViewController.m; sourceTree = "<group>"; };
+		65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		65C528C12A5EAA2D004EB3C3 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		65C528C32A5EAA3D004EB3C3 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		65C528C52A5EAA49004EB3C3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		65C528C72A5EAA54004EB3C3 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		65C528C92A5EAA5D004EB3C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65C528CB2A5EAA72004EB3C3 /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CD73B42A4AC31B00507D52 /* XMPPIQ+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPIQ+custom.h"; sourceTree = "<group>"; };
 		65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPIQ+custom.m"; sourceTree = "<group>"; };
 		65CD73B72A4AC3A100507D52 /* XMPPMessage+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPMessage+custom.h"; sourceTree = "<group>"; };
@@ -353,6 +411,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C528CA2A5EAA5D004EB3C3 /* UIKit.framework in Frameworks */,
+				65C528C82A5EAA54004EB3C3 /* libicucore.tbd in Frameworks */,
+				65C528C62A5EAA49004EB3C3 /* libc++.tbd in Frameworks */,
+				65C528C42A5EAA3D004EB3C3 /* libresolv.tbd in Frameworks */,
+				65C528C22A5EAA2D004EB3C3 /* GLKit.framework in Frameworks */,
+				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
+				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
+				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
+				6575E2D92A5E94F400DA5768 /* libWebRTC.a in Frameworks */,
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
 				652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */,
@@ -435,6 +502,8 @@
 		654CEAA52A2D85E6001F8541 /* ChatXmppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				658AA3782A5D5132007E69DC /* Custom */,
+				658AA3702A5D2B63007E69DC /* Core */,
 				652443D52A553C3000871283 /* Cache */,
 				654CEB3B2A3177BD001F8541 /* Bases */,
 				654CEB142A2ED4B1001F8541 /* Extensions */,
@@ -447,6 +516,7 @@
 				654CEB212A2F0BED001F8541 /* BaseConfig */,
 				654CEAF52A2DB1A8001F8541 /* ViewControllers */,
 				654CEAB72A2D85E8001F8541 /* Info.plist */,
+				6575E2B82A5E94F400DA5768 /* WebRTC */,
 			);
 			path = ChatXmppDemo;
 			sourceTree = "<group>";
@@ -541,6 +611,8 @@
 				654CF6942A395E45001F8541 /* UITextView+custom.m */,
 				654CEB2E2A307A64001F8541 /* UITableView+custom.h */,
 				654CEB2F2A307A64001F8541 /* UITableView+custom.m */,
+				6575E2B52A5E576C00DA5768 /* UITableViewCell+custom.h */,
+				6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */,
 				654CEB3D2A31CC13001F8541 /* UIViewController+custom.h */,
 				654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */,
 				65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */,
@@ -648,6 +720,70 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
+		6575E2B82A5E94F400DA5768 /* WebRTC */ = {
+			isa = PBXGroup;
+			children = (
+				6575E2B92A5E94F400DA5768 /* include */,
+				6575E2D82A5E94F400DA5768 /* libWebRTC.a */,
+			);
+			path = WebRTC;
+			sourceTree = "<group>";
+		};
+		6575E2B92A5E94F400DA5768 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6575E2BA2A5E94F400DA5768 /* RTCPair.h */,
+				6575E2BB2A5E94F400DA5768 /* RTCAVFoundationVideoSource.h */,
+				6575E2BC2A5E94F400DA5768 /* RTCStatsReport.h */,
+				6575E2BD2A5E94F400DA5768 /* RTCPeerConnectionDelegate.h */,
+				6575E2BE2A5E94F400DA5768 /* RTCSessionDescription.h */,
+				6575E2BF2A5E94F400DA5768 /* RTCVideoCapturer.h */,
+				6575E2C02A5E94F400DA5768 /* RTCVideoSource.h */,
+				6575E2C12A5E94F400DA5768 /* RTCICEServer.h */,
+				6575E2C22A5E94F400DA5768 /* RTCMediaConstraints.h */,
+				6575E2C32A5E94F400DA5768 /* RTCMediaStreamTrack.h */,
+				6575E2C42A5E94F400DA5768 /* RTCVideoTrack.h */,
+				6575E2C52A5E94F400DA5768 /* RTCVideoRenderer.h */,
+				6575E2C62A5E94F400DA5768 /* RTCEAGLVideoView.h */,
+				6575E2C72A5E94F400DA5768 /* RTCNSGLVideoView.h */,
+				6575E2C82A5E94F400DA5768 /* RTCAudioTrack.h */,
+				6575E2C92A5E94F400DA5768 /* RTCDataChannel.h */,
+				6575E2CA2A5E94F400DA5768 /* RTCI420Frame.h */,
+				6575E2CB2A5E94F400DA5768 /* RTCSessionDescriptionDelegate.h */,
+				6575E2CC2A5E94F400DA5768 /* RTCFileLogger.h */,
+				6575E2CD2A5E94F400DA5768 /* RTCAudioSource.h */,
+				6575E2CE2A5E94F400DA5768 /* RTCPeerConnection.h */,
+				6575E2CF2A5E94F400DA5768 /* RTCPeerConnectionFactory.h */,
+				6575E2D02A5E94F400DA5768 /* RTCMediaStream.h */,
+				6575E2D12A5E94F400DA5768 /* RTCLogging.h */,
+				6575E2D22A5E94F400DA5768 /* RTCTypes.h */,
+				6575E2D32A5E94F400DA5768 /* RTCICECandidate.h */,
+				6575E2D42A5E94F400DA5768 /* RTCMediaSource.h */,
+				6575E2D52A5E94F400DA5768 /* RTCStatsDelegate.h */,
+				6575E2D62A5E94F400DA5768 /* RTCPeerConnectionInterface.h */,
+				6575E2D72A5E94F400DA5768 /* RTCOpenGLVideoRenderer.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		658AA3702A5D2B63007E69DC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				658AA3712A5D2B7E007E69DC /* LXGroupAvatar.h */,
+				658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */,
+				658AA3742A5D48BD007E69DC /* LXUserDefaults.h */,
+				658AA3752A5D48BD007E69DC /* LXUserDefaults.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		658AA3782A5D5132007E69DC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		65AABE532A404F68000EBEA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +805,15 @@
 		F57FCB7000D5BA7613CFADFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65C528CB2A5EAA72004EB3C3 /* libidn.framework */,
+				65C528C92A5EAA5D004EB3C3 /* UIKit.framework */,
+				65C528C72A5EAA54004EB3C3 /* libicucore.tbd */,
+				65C528C52A5EAA49004EB3C3 /* libc++.tbd */,
+				65C528C32A5EAA3D004EB3C3 /* libresolv.tbd */,
+				65C528C12A5EAA2D004EB3C3 /* GLKit.framework */,
+				65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */,
+				65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */,
+				65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */,
 				652443F12A56B60D00871283 /* UserNotifications.framework */,
 				652443EF2A56B60600871283 /* CoreLocation.framework */,
 				652443ED2A56B5FC00871283 /* AVFoundation.framework */,
@@ -941,14 +1086,17 @@
 				652443EA2A56B19200871283 /* PermissionsManager.m in Sources */,
 				654CEAF82A2DB1C6001F8541 /* LXTableViewController.m in Sources */,
 				654CEB202A2F0AE9001F8541 /* UIImage+windowImage.m in Sources */,
+				658AA3732A5D2B7E007E69DC /* LXGroupAvatar.m in Sources */,
 				654CF6982A399397001F8541 /* LoginViewController.m in Sources */,
 				654CF6922A395DA0001F8541 /* UITextField+custom.m in Sources */,
+				658AA3762A5D48BD007E69DC /* LXUserDefaults.m in Sources */,
 				654CEAEB2A2D866E001F8541 /* MessageManager.m in Sources */,
 				654CF6832A384312001F8541 /* XMPPJID+custom.m in Sources */,
 				654CEAB92A2D85E8001F8541 /* main.m in Sources */,
 				65B0C6A02A418962008B65AB /* NSArray+custom.m in Sources */,
 				654CEB0D2A2ECBBE001F8541 /* FriendsViewController.m in Sources */,
 				654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */,
+				6575E2B72A5E576C00DA5768 /* UITableViewCell+custom.m in Sources */,
 				65B0C6A32A42D80C008B65AB /* Room.m in Sources */,
 				654CEAE82A2D865C001F8541 /* CardManager.m in Sources */,
 				652443DB2A554BAA00871283 /* LXCacheModel.m in Sources */,
@@ -1272,6 +1420,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatXmppDemo/WebRTC",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1307,6 +1459,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatXmppDemo/WebRTC",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lingxi.chain;

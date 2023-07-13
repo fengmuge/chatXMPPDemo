@@ -23,7 +23,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView lxRegisterClass:[ConversationTableViewCell class]];
+//    [self.tableView lxRegisterClass:[ConversationTableViewCell class]];
+    [ConversationTableViewCell lxRegisterCellWith:self.tableView];
 }
 
 #pragma mark - Table view data source
@@ -37,7 +38,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ConversationTableViewCell *cell = (ConversationTableViewCell *)[tableView lxdequeueReusableCellWithClass:[ConversationTableViewCell class] forIndexPath:indexPath];
+    ConversationTableViewCell *cell = [ConversationTableViewCell lxdequeueReusableCellWith:tableView forIndexPath:indexPath];
+    //(ConversationTableViewCell *)[tableView lxdequeueReusableCellWithClass:[ConversationTableViewCell class] forIndexPath:indexPath];
     
     NSLog(@"jajda");
     

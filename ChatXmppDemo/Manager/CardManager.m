@@ -49,7 +49,6 @@ static CardManager *_sharedInstance;
     return _sharedInstance;
 }
 
-
 #pragma mark --XMPPvCardTempModuleDelegate--
 // 获取到一个联系人的名片信息(如果存在多个，也会多次回调)
 - (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule didReceivevCardTemp:(XMPPvCardTemp *)vCardTemp forJID:(XMPPJID *)jid {
@@ -92,6 +91,7 @@ static CardManager *_sharedInstance;
 #pragma mark --XMPPvCardAvatarDelegate--
 // 收到新的头像信息
 - (void)xmppvCardAvatarModule:(XMPPvCardAvatarModule *)vCardTempModule didReceivePhoto:(UIImage *)photo forJID:(XMPPJID *)jid {
+    NSLog(@"%s 用户头像获取成功 头像信息: %@, 用户jid: %@", __func__, photo, jid);
     [[UserManager sharedInstance] didReceivePhoto:photo forJID:jid];
 }
 

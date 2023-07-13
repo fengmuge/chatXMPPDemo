@@ -48,6 +48,36 @@ static RosterManager *_sharedInstance;
     return _sharedInstance;
 }
 
+- (NSArray *)fetchUsers {
+    return [ChatManager sharedInstance].rosterMemoryStorage.sortedUsersByAvailabilityName;
+}
+
+- (void)addUser:(NSString *)username reason:(NSString *)reason {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:username];
+    // withNickname optional的string字段，可以理解为备注
+    [[ChatManager sharedInstance].roster addUser:jid withNickname:nil];
+}
+
+- (void)acceptAddRequestFrom:(NSString *)username addAddRoster:(BOOL)flag {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:username];
+    [[ChatManager sharedInstance].roster acceptPresenceSubscriptionRequestFrom:jid andAddToRoster:flag];
+}
+
+- (void)rejectAddRequestFrom:(NSString *)username {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:username];
+    [[ChatManager sharedInstance].roster rejectPresenceSubscriptionRequestFrom:jid];
+}
+
+- (void)removeUser:(NSString *)username {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:username];
+    [[ChatManager sharedInstance].roster removeUser:jid];
+}
+
+- (void)setNickname:(NSString *)nickname forUser:(NSString *)username; {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:username];
+    [[ChatManager sharedInstance].roster setNickname:nickname forUser:jid];
+}
+
 #pragma mark --XMPPRosterDelegate--
 // 收到订阅请求
 - (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence {
@@ -78,7 +108,7 @@ static RosterManager *_sharedInstance;
     
 }
 
-// 好友信息获取完毕
+// 好友信息获取完毕,收到好友列表IQ会进入的方法，并且已经存到我的存储器
 - (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
 }
