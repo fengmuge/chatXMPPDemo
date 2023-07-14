@@ -140,7 +140,7 @@ static RosterManager *_sharedInstance;
 #pragma mark --XMPPRosterMemoryStorageDelegate--
 // 如果不是初试化同步来的roster，自动存入我的好友存储器
 - (void)xmppRosterDidChange:(XMPPRosterMemoryStorage *)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
 }
 
 - (void)xmppRosterDidPopulate:(XMPPRosterMemoryStorage *)sender {

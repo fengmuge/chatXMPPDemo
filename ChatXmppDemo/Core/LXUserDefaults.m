@@ -43,14 +43,6 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:objData];
 }
 
-+ (Class)getObject:(NSString *)key class:(Class)class {
-    id object = [LXUserDefaults getObject:key];
-    if ([object isMemberOfClass:class]) {
-        return object;
-    }
-    return nil;
-}
-
 + (void)removeValue:(NSString *)key {
     if ([NSString isNone:key]) {
         return;

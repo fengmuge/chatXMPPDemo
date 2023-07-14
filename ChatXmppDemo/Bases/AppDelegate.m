@@ -8,7 +8,6 @@
 #import "AppDelegate.h"
 #import "LXNavgationViewController.h"
 #import "LXTabbarViewController.h"
-
 @interface AppDelegate ()
 
 

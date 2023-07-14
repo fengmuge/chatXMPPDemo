@@ -249,5 +249,10 @@
 //- (nonnull NSString *)sortOutStringWithContent:(nonnull NSString *)content Prefix:(nonnull NSString *)prefix suffix:(nonnull NSString *)suffix maxLine:(CGFloat)maxLineNumber font:(CGFloat)font width:(CGFloat)width {
 //}
 
++ (NSString *)random {
+    unsigned int random = arc4random_uniform(1000000001);
+    
+    return [NSString stringWithFormat:@"%06u", random];
+}
 
 @end

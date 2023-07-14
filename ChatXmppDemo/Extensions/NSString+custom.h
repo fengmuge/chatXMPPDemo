@@ -46,9 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getSubstring:(NSRange)range;
 // 整理数字
 - (NSString *)formatCountNumber;
-
 // 从XMPPMessage中获取delay date
 - (NSDate *)transformToDateForXmpp;
+// 获取随机数
++ (NSString *)random;
+
 
 @end
 
