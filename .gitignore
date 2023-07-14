@@ -52,6 +52,6 @@ Pods
 Podfile.lock
 /.DS_Store
 /Podfile.lock
- 
+/WebRTC/libWebRTC.a
 # End of https://www.gitignore.io/api/cocoapods
  

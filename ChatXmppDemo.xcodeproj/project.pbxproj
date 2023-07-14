@@ -67,7 +67,6 @@
 		654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69A2A399422001F8541 /* RegisterViewController.m */; };
 		654CF69F2A3C5791001F8541 /* LXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CF69E2A3C5791001F8541 /* LXMessage.m */; };
 		6575E2B72A5E576C00DA5768 /* UITableViewCell+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */; };
-		6575E2D92A5E94F400DA5768 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575E2D82A5E94F400DA5768 /* libWebRTC.a */; };
 		658AA3732A5D2B7E007E69DC /* LXGroupAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */; };
 		658AA3762A5D48BD007E69DC /* LXUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 658AA3752A5D48BD007E69DC /* LXUserDefaults.m */; };
 		65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */; };
@@ -364,7 +363,6 @@
 		6575E2D52A5E94F400DA5768 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
 		6575E2D62A5E94F400DA5768 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
 		6575E2D72A5E94F400DA5768 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
-		6575E2D82A5E94F400DA5768 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
 		658AA3712A5D2B7E007E69DC /* LXGroupAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXGroupAvatar.h; sourceTree = "<group>"; };
 		658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXGroupAvatar.m; sourceTree = "<group>"; };
 		658AA3742A5D48BD007E69DC /* LXUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXUserDefaults.h; sourceTree = "<group>"; };
@@ -474,7 +472,6 @@
 				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
 				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
 				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
-				6575E2D92A5E94F400DA5768 /* libWebRTC.a in Frameworks */,
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
 				652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */,
@@ -782,7 +779,6 @@
 			isa = PBXGroup;
 			children = (
 				6575E2B92A5E94F400DA5768 /* include */,
-				6575E2D82A5E94F400DA5768 /* libWebRTC.a */,
 			);
 			path = WebRTC;
 			sourceTree = "<group>";
