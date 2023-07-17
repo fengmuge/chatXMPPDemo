@@ -48,7 +48,6 @@ static RosterManager *_sharedInstance;
     return _sharedInstance;
 }
 
-<<<<<<< HEAD
 - (NSArray *)fetchUsers {
     return [ChatManager sharedInstance].rosterMemoryStorage.sortedUsersByAvailabilityName;
 }
@@ -79,8 +78,6 @@ static RosterManager *_sharedInstance;
     [[ChatManager sharedInstance].roster setNickname:nickname forUser:jid];
 }
 
-=======
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 #pragma mark --XMPPRosterDelegate--
 // 收到订阅请求
 - (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence {
@@ -111,11 +108,8 @@ static RosterManager *_sharedInstance;
     
 }
 
-<<<<<<< HEAD
 // 好友信息获取完毕,收到好友列表IQ会进入的方法，并且已经存到我的存储器
-=======
-// 好友信息获取完毕
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
+
 - (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
 }
@@ -147,11 +141,7 @@ static RosterManager *_sharedInstance;
 #pragma mark --XMPPRosterMemoryStorageDelegate--
 // 如果不是初试化同步来的roster，自动存入我的好友存储器
 - (void)xmppRosterDidChange:(XMPPRosterMemoryStorage *)sender {
-<<<<<<< HEAD
     [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_ROSTER_DIDEND_POPULATING object:nil];
-=======
-    
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 }
 
 - (void)xmppRosterDidPopulate:(XMPPRosterMemoryStorage *)sender {

@@ -32,16 +32,13 @@
 #define kResource @"ios"
 //
 #define kSubdomain @"conference"
-<<<<<<< HEAD
 // rct room server url
 #define kRTCRoomServer @""
 // stun 服务器url
 #define kRTCSTUNServer @""
 // turn 服务器url
 #define kRTCTURNServer @""
-=======
 
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 
 #pragma mark ---------------------打印----------------------------
 #ifdef DEBUG // 调试状态, 打开LOG功能

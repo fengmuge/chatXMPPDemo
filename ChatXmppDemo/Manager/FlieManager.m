@@ -7,17 +7,11 @@
 
 #import "FlieManager.h"
 #import "ChatManager.h"
-<<<<<<< HEAD
 #import "XMPPMessage+custom.h"
 
 @interface FlieManager () <
 XMPPIncomingFileTransferDelegate,
 XMPPOutgoingFileTransferDelegate
-=======
-
-@interface FlieManager () <
-XMPPIncomingFileTransferDelegate
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 >
 
 @end
@@ -55,7 +49,6 @@ static FlieManager *_sharedInstance;
     return _sharedInstance;
 }
 
-<<<<<<< HEAD
 - (void)lxSendData:(NSData *)data
              named:(NSString *)name
        toRecipient:(XMPPJID *)recipient
@@ -73,19 +66,14 @@ static FlieManager *_sharedInstance;
     NSLog(@"发送文件失败 error = %@", [error localizedDescription]);
 }
 
-=======
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 #pragma mark --XMPPIncomingFileTransferDelegate--
 // 是否同意对方发文件给我
 - (void)xmppIncomingFileTransfer:(XMPPIncomingFileTransfer *)sender didReceiveSIOffer:(XMPPIQ *)offer {
     NSLog(@"%s", __func__);
-<<<<<<< HEAD
     // 可以设置弹窗给用户，选择是否接收文件
-    
     // 这里直接接收
     [[ChatManager sharedInstance].incomingFileTransfer acceptSIOffer:offer];
-=======
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
+
 }
 
 // 文件传输失败
@@ -111,23 +99,15 @@ static FlieManager *_sharedInstance;
     }
     // 创建一个XMPPMessage对象，message必须要有from
     XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:jid];
-<<<<<<< HEAD
     // 将这个文件的发送者添加到message的from
     [message addAttributeWithName:@"from" stringValue:sender.senderJID.bare];
     // 这个感觉可以写入attribute，使用我们对xmppMessage的扩展 例如 message.bodyType = LXMessageBodyAudio;
     [message addSubject:@"audio"];
     // 文件写入本地
-=======
-    // 将这个文件的发送着添加到message的from
-    [message addAttributeWithName:@"from" stringValue:sender.senderJID.bare];
-    [message addSubject:@"audio"];
-    
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
     NSString *path = [NSString filePathWithComponent:[XMPPStream generateUUID] extension:nil];
     [data writeToFile:path atomically:YES];
     
     [message addBody:path.lastPathComponent];
-<<<<<<< HEAD
     // 将消息保存到本地
     //archiveMessage:outgoing:xmppStream: 执行完毕会发送通知，然后更新相应的历史消息
     [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message
@@ -171,20 +151,15 @@ static FlieManager *_sharedInstance;
                                            extension:nil];
     
     [message addBody:path.lastPathComponent];
-=======
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
     
     [[ChatManager sharedInstance].messageCoreDataStorage archiveMessage:message
                                                                outgoing:NO
                                                              xmppStream:[ChatManager sharedInstance].stream];
 }
 
-<<<<<<< HEAD
 
 - (void)xmppOutgoingFileTransferIBBClosed:(XMPPOutgoingFileTransfer *)sender {
     
 }
 
-=======
->>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 @end
