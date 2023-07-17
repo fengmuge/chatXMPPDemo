@@ -11,7 +11,7 @@
 #import "RTCView.h"
 #import "RTCButton.h"
 
-#import "WebRTCClient.h"
+#import "WebRTCManager.h"
 
 //NSString *const kHangUpNotification = @"kHangUpNotification";
 //
@@ -400,7 +400,7 @@
 //            self.ownImageView.frame = CGRectMake(kRTCWidth - kMicVideoW - 5 , kRTCHeight - kContainerH - kMicVideoH - 5, kMicVideoW, kMicVideoH);
             [self updateFrameOfLocalView:CGRectMake(kRTCWidth - kMicVideoW - 5 , kRTCHeight - kContainerH - kMicVideoH - 5, kMicVideoW, kMicVideoH)];
         } completion:^(BOOL finished) {
-            [[WebRTCClient sharedInstance] resizeViews];
+            [[WebRTCManager sharedInstance] resizeViews];
         }];
     } else {
         self.cameraBtn.enabled = YES;
@@ -649,7 +649,7 @@
             }];
         }
         
-        [[WebRTCClient sharedInstance] resizeViews];
+        [[WebRTCManager sharedInstance] resizeViews];
     }
 }
 
@@ -788,7 +788,7 @@
                 self.swichBtn.transform = CGAffineTransformIdentity;
                 self.btnContainerView.transform = CGAffineTransformIdentity;
                 
-                [[WebRTCClient sharedInstance] resizeViews];
+                [[WebRTCManager sharedInstance] resizeViews];
             }];
         }];
     } else {
@@ -802,7 +802,7 @@
                 self.swichBtn.transform = CGAffineTransformIdentity;
                 self.btnContainerView.transform = CGAffineTransformIdentity;
                 
-                [[WebRTCClient sharedInstance] resizeViews];
+                [[WebRTCManager sharedInstance] resizeViews];
             }];
         }];
     }

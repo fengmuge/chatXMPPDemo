@@ -182,6 +182,53 @@
 		65B0C7AA2A481BEE008B65AB /* NSDate+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7A92A481BEE008B65AB /* NSDate+custom.m */; };
 		65B0C7AD2A4844A7008B65AB /* RoomConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */; };
 		65B363AC2A5410E200B62616 /* RoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B363AB2A5410E200B62616 /* RoomSettingViewController.m */; };
+		65BE2BCB2A64D7EC00F18440 /* WebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2BC92A64D7EC00F18440 /* WebRTCManager.m */; };
+		65BE2BFF2A64D92900F18440 /* RTCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2BCE2A64D92900F18440 /* RTCView.m */; };
+		65BE2C002A64D92900F18440 /* icon_avp_video_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD02A64D92900F18440 /* icon_avp_video_white@2x.png */; };
+		65BE2C012A64D92900F18440 /* icon_av_audio_micro_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD12A64D92900F18440 /* icon_av_audio_micro_normal@2x.png */; };
+		65BE2C022A64D92900F18440 /* icon_avp_mute_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD22A64D92900F18440 /* icon_avp_mute_white@2x.png */; };
+		65BE2C032A64D92900F18440 /* icon_avp_mute_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD32A64D92900F18440 /* icon_avp_mute_gray@2x.png */; };
+		65BE2C042A64D92900F18440 /* icon_call_reject_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD42A64D92900F18440 /* icon_call_reject_normal@2x.png */; };
+		65BE2C052A64D92900F18440 /* icon_avp_loudspeaker_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD52A64D92900F18440 /* icon_avp_loudspeaker_gray@2x.png */; };
+		65BE2C062A64D92900F18440 /* portrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD62A64D92900F18440 /* portrait.jpg */; };
+		65BE2C072A64D92900F18440 /* im_skin_icon_audiocall_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD72A64D92900F18440 /* im_skin_icon_audiocall_bg.jpg */; };
+		65BE2C082A64D92900F18440 /* icon_avp_reduce_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD82A64D92900F18440 /* icon_avp_reduce_blue@2x.png */; };
+		65BE2C092A64D92900F18440 /* icon_avp_loudspeaker_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD92A64D92900F18440 /* icon_avp_loudspeaker_black@2x.png */; };
+		65BE2C0A2A64D92900F18440 /* icon_av_reply_message_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDA2A64D92900F18440 /* icon_av_reply_message_normal@2x.png */; };
+		65BE2C0B2A64D92900F18440 /* icon_avp_reduce_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDB2A64D92900F18440 /* icon_avp_reduce_white@2x.png */; };
+		65BE2C0C2A64D92900F18440 /* icon_avp_invite_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDC2A64D92900F18440 /* icon_avp_invite_white@2x.png */; };
+		65BE2C0D2A64D92900F18440 /* icon_avp_invite_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDD2A64D92900F18440 /* icon_avp_invite_gray@2x.png */; };
+		65BE2C0E2A64D92900F18440 /* icon_avp_video_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDE2A64D92900F18440 /* icon_avp_video_blue@2x.png */; };
+		65BE2C0F2A64D92900F18440 /* icon_avp_mute_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BDF2A64D92900F18440 /* icon_avp_mute_black@2x.png */; };
+		65BE2C102A64D92900F18440 /* icon_av_audio_receive_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE02A64D92900F18440 /* icon_av_audio_receive_normal@2x.png */; };
+		65BE2C112A64D92900F18440 /* portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE12A64D92900F18440 /* portrait@2x.png */; };
+		65BE2C122A64D92900F18440 /* icon_avp_video_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE22A64D92900F18440 /* icon_avp_video_black@2x.png */; };
+		65BE2C132A64D92900F18440 /* 123.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE32A64D92900F18440 /* 123.png */; };
+		65BE2C142A64D92900F18440 /* icon_audio_receive_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE42A64D92900F18440 /* icon_audio_receive_normal@2x.png */; };
+		65BE2C152A64D92900F18440 /* icon_avp_mute_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE52A64D92900F18440 /* icon_avp_mute_blue@2x.png */; };
+		65BE2C162A64D92900F18440 /* 456.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE62A64D92900F18440 /* 456.png */; };
+		65BE2C172A64D92900F18440 /* icon_avp_loudspeaker_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE72A64D92900F18440 /* icon_avp_loudspeaker_blue@2x.png */; };
+		65BE2C182A64D92900F18440 /* call_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE82A64D92900F18440 /* call_bg@2x.png */; };
+		65BE2C192A64D92900F18440 /* view_audio_reply_message_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BE92A64D92900F18440 /* view_audio_reply_message_bg@2x.png */; };
+		65BE2C1A2A64D92900F18440 /* icon_call_reject_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BEA2A64D92900F18440 /* icon_call_reject_press@2x.png */; };
+		65BE2C1B2A64D92900F18440 /* icon_audio_receive_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BEB2A64D92900F18440 /* icon_audio_receive_press@2x.png */; };
+		65BE2C1C2A64D92900F18440 /* icon_avp_reduce_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BEC2A64D92900F18440 /* icon_avp_reduce_gray@2x.png */; };
+		65BE2C1D2A64D92900F18440 /* icon_av_reply_message_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BED2A64D92900F18440 /* icon_av_reply_message_press@2x.png */; };
+		65BE2C1E2A64D92900F18440 /* icon_avp_camera_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BEE2A64D92900F18440 /* icon_avp_camera_white@2x.png */; };
+		65BE2C1F2A64D92900F18440 /* icon_av_audio_receive_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BEF2A64D92900F18440 /* icon_av_audio_receive_press@2x.png */; };
+		65BE2C202A64D92900F18440 /* icon_avp_loudspeaker_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF02A64D92900F18440 /* icon_avp_loudspeaker_white@2x.png */; };
+		65BE2C212A64D92900F18440 /* icon_avp_invite_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF12A64D92900F18440 /* icon_avp_invite_black@2x.png */; };
+		65BE2C222A64D92900F18440 /* icon_avp_reduce_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF22A64D92900F18440 /* icon_avp_reduce_black@2x.png */; };
+		65BE2C232A64D92900F18440 /* icon_avp_invite_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF32A64D92900F18440 /* icon_avp_invite_blue@2x.png */; };
+		65BE2C242A64D92900F18440 /* icon_avp_video_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF42A64D92900F18440 /* icon_avp_video_gray@2x.png */; };
+		65BE2C252A64D92900F18440 /* icon_av_audio_micro_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF52A64D92900F18440 /* icon_av_audio_micro_press@2x.png */; };
+		65BE2C262A64D92900F18440 /* RTCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2BF72A64D92900F18440 /* RTCButton.m */; };
+		65BE2C272A64D92900F18440 /* incomingRing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BF92A64D92900F18440 /* incomingRing.wav */; };
+		65BE2C282A64D92900F18440 /* AVChat_incoming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFA2A64D92900F18440 /* AVChat_incoming.mp3 */; };
+		65BE2C292A64D92900F18440 /* AVChat_busy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFB2A64D92900F18440 /* AVChat_busy.mp3 */; };
+		65BE2C2A2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFC2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 */; };
+		65BE2C2B2A64D92900F18440 /* Message_system.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFD2A64D92900F18440 /* Message_system.mp3 */; };
+		65BE2C2C2A64D92900F18440 /* AVChat_endCall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFE2A64D92900F18440 /* AVChat_endCall.mp3 */; };
 		65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */; };
 		65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */; };
 		65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */; };
@@ -190,7 +237,6 @@
 		65C528C62A5EAA49004EB3C3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C52A5EAA49004EB3C3 /* libc++.tbd */; };
 		65C528C82A5EAA54004EB3C3 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C72A5EAA54004EB3C3 /* libicucore.tbd */; };
 		65C528CA2A5EAA5D004EB3C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C92A5EAA5D004EB3C3 /* UIKit.framework */; };
-		65C529022A5F9E60004EB3C3 /* WebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C529012A5F9E60004EB3C3 /* WebRTCManager.m */; };
 		65C529052A5FA0DA004EB3C3 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C529042A5FA0DA004EB3C3 /* CallKit.framework */; };
 		65CD73B62A4AC31B00507D52 /* XMPPIQ+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */; };
 		65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B82A4AC3A100507D52 /* XMPPMessage+custom.m */; };
@@ -333,36 +379,6 @@
 		654CF69E2A3C5791001F8541 /* LXMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMessage.m; sourceTree = "<group>"; };
 		6575E2B52A5E576C00DA5768 /* UITableViewCell+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+custom.h"; sourceTree = "<group>"; };
 		6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+custom.m"; sourceTree = "<group>"; };
-		6575E2BA2A5E94F400DA5768 /* RTCPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPair.h; sourceTree = "<group>"; };
-		6575E2BB2A5E94F400DA5768 /* RTCAVFoundationVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAVFoundationVideoSource.h; sourceTree = "<group>"; };
-		6575E2BC2A5E94F400DA5768 /* RTCStatsReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsReport.h; sourceTree = "<group>"; };
-		6575E2BD2A5E94F400DA5768 /* RTCPeerConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionDelegate.h; sourceTree = "<group>"; };
-		6575E2BE2A5E94F400DA5768 /* RTCSessionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescription.h; sourceTree = "<group>"; };
-		6575E2BF2A5E94F400DA5768 /* RTCVideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoCapturer.h; sourceTree = "<group>"; };
-		6575E2C02A5E94F400DA5768 /* RTCVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoSource.h; sourceTree = "<group>"; };
-		6575E2C12A5E94F400DA5768 /* RTCICEServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICEServer.h; sourceTree = "<group>"; };
-		6575E2C22A5E94F400DA5768 /* RTCMediaConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaConstraints.h; sourceTree = "<group>"; };
-		6575E2C32A5E94F400DA5768 /* RTCMediaStreamTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStreamTrack.h; sourceTree = "<group>"; };
-		6575E2C42A5E94F400DA5768 /* RTCVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
-		6575E2C52A5E94F400DA5768 /* RTCVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoRenderer.h; sourceTree = "<group>"; };
-		6575E2C62A5E94F400DA5768 /* RTCEAGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCEAGLVideoView.h; sourceTree = "<group>"; };
-		6575E2C72A5E94F400DA5768 /* RTCNSGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCNSGLVideoView.h; sourceTree = "<group>"; };
-		6575E2C82A5E94F400DA5768 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
-		6575E2C92A5E94F400DA5768 /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
-		6575E2CA2A5E94F400DA5768 /* RTCI420Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCI420Frame.h; sourceTree = "<group>"; };
-		6575E2CB2A5E94F400DA5768 /* RTCSessionDescriptionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescriptionDelegate.h; sourceTree = "<group>"; };
-		6575E2CC2A5E94F400DA5768 /* RTCFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCFileLogger.h; sourceTree = "<group>"; };
-		6575E2CD2A5E94F400DA5768 /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
-		6575E2CE2A5E94F400DA5768 /* RTCPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnection.h; sourceTree = "<group>"; };
-		6575E2CF2A5E94F400DA5768 /* RTCPeerConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionFactory.h; sourceTree = "<group>"; };
-		6575E2D02A5E94F400DA5768 /* RTCMediaStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStream.h; sourceTree = "<group>"; };
-		6575E2D12A5E94F400DA5768 /* RTCLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCLogging.h; sourceTree = "<group>"; };
-		6575E2D22A5E94F400DA5768 /* RTCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCTypes.h; sourceTree = "<group>"; };
-		6575E2D32A5E94F400DA5768 /* RTCICECandidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICECandidate.h; sourceTree = "<group>"; };
-		6575E2D42A5E94F400DA5768 /* RTCMediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaSource.h; sourceTree = "<group>"; };
-		6575E2D52A5E94F400DA5768 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
-		6575E2D62A5E94F400DA5768 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
-		6575E2D72A5E94F400DA5768 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
 		658AA3712A5D2B7E007E69DC /* LXGroupAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXGroupAvatar.h; sourceTree = "<group>"; };
 		658AA3722A5D2B7E007E69DC /* LXGroupAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXGroupAvatar.m; sourceTree = "<group>"; };
 		658AA3742A5D48BD007E69DC /* LXUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXUserDefaults.h; sourceTree = "<group>"; };
@@ -389,6 +405,87 @@
 		65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomConfiguration.m; sourceTree = "<group>"; };
 		65B363AA2A5410E200B62616 /* RoomSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomSettingViewController.h; sourceTree = "<group>"; };
 		65B363AB2A5410E200B62616 /* RoomSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomSettingViewController.m; sourceTree = "<group>"; };
+		65BE2BC92A64D7EC00F18440 /* WebRTCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebRTCManager.m; sourceTree = "<group>"; };
+		65BE2BCA2A64D7EC00F18440 /* WebRTCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebRTCManager.h; sourceTree = "<group>"; };
+		65BE2BCD2A64D92900F18440 /* RTCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCButton.h; sourceTree = "<group>"; };
+		65BE2BCE2A64D92900F18440 /* RTCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCView.m; sourceTree = "<group>"; };
+		65BE2BD02A64D92900F18440 /* icon_avp_video_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BD12A64D92900F18440 /* icon_av_audio_micro_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_micro_normal@2x.png"; sourceTree = "<group>"; };
+		65BE2BD22A64D92900F18440 /* icon_avp_mute_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BD32A64D92900F18440 /* icon_avp_mute_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_gray@2x.png"; sourceTree = "<group>"; };
+		65BE2BD42A64D92900F18440 /* icon_call_reject_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_call_reject_normal@2x.png"; sourceTree = "<group>"; };
+		65BE2BD52A64D92900F18440 /* icon_avp_loudspeaker_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_gray@2x.png"; sourceTree = "<group>"; };
+		65BE2BD62A64D92900F18440 /* portrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = portrait.jpg; sourceTree = "<group>"; };
+		65BE2BD72A64D92900F18440 /* im_skin_icon_audiocall_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = im_skin_icon_audiocall_bg.jpg; sourceTree = "<group>"; };
+		65BE2BD82A64D92900F18440 /* icon_avp_reduce_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_blue@2x.png"; sourceTree = "<group>"; };
+		65BE2BD92A64D92900F18440 /* icon_avp_loudspeaker_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_black@2x.png"; sourceTree = "<group>"; };
+		65BE2BDA2A64D92900F18440 /* icon_av_reply_message_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_reply_message_normal@2x.png"; sourceTree = "<group>"; };
+		65BE2BDB2A64D92900F18440 /* icon_avp_reduce_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BDC2A64D92900F18440 /* icon_avp_invite_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BDD2A64D92900F18440 /* icon_avp_invite_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_gray@2x.png"; sourceTree = "<group>"; };
+		65BE2BDE2A64D92900F18440 /* icon_avp_video_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_blue@2x.png"; sourceTree = "<group>"; };
+		65BE2BDF2A64D92900F18440 /* icon_avp_mute_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_black@2x.png"; sourceTree = "<group>"; };
+		65BE2BE02A64D92900F18440 /* icon_av_audio_receive_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_receive_normal@2x.png"; sourceTree = "<group>"; };
+		65BE2BE12A64D92900F18440 /* portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "portrait@2x.png"; sourceTree = "<group>"; };
+		65BE2BE22A64D92900F18440 /* icon_avp_video_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_black@2x.png"; sourceTree = "<group>"; };
+		65BE2BE32A64D92900F18440 /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
+		65BE2BE42A64D92900F18440 /* icon_audio_receive_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_audio_receive_normal@2x.png"; sourceTree = "<group>"; };
+		65BE2BE52A64D92900F18440 /* icon_avp_mute_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_blue@2x.png"; sourceTree = "<group>"; };
+		65BE2BE62A64D92900F18440 /* 456.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 456.png; sourceTree = "<group>"; };
+		65BE2BE72A64D92900F18440 /* icon_avp_loudspeaker_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_blue@2x.png"; sourceTree = "<group>"; };
+		65BE2BE82A64D92900F18440 /* call_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call_bg@2x.png"; sourceTree = "<group>"; };
+		65BE2BE92A64D92900F18440 /* view_audio_reply_message_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view_audio_reply_message_bg@2x.png"; sourceTree = "<group>"; };
+		65BE2BEA2A64D92900F18440 /* icon_call_reject_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_call_reject_press@2x.png"; sourceTree = "<group>"; };
+		65BE2BEB2A64D92900F18440 /* icon_audio_receive_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_audio_receive_press@2x.png"; sourceTree = "<group>"; };
+		65BE2BEC2A64D92900F18440 /* icon_avp_reduce_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_gray@2x.png"; sourceTree = "<group>"; };
+		65BE2BED2A64D92900F18440 /* icon_av_reply_message_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_reply_message_press@2x.png"; sourceTree = "<group>"; };
+		65BE2BEE2A64D92900F18440 /* icon_avp_camera_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_camera_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BEF2A64D92900F18440 /* icon_av_audio_receive_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_receive_press@2x.png"; sourceTree = "<group>"; };
+		65BE2BF02A64D92900F18440 /* icon_avp_loudspeaker_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_white@2x.png"; sourceTree = "<group>"; };
+		65BE2BF12A64D92900F18440 /* icon_avp_invite_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_black@2x.png"; sourceTree = "<group>"; };
+		65BE2BF22A64D92900F18440 /* icon_avp_reduce_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_black@2x.png"; sourceTree = "<group>"; };
+		65BE2BF32A64D92900F18440 /* icon_avp_invite_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_blue@2x.png"; sourceTree = "<group>"; };
+		65BE2BF42A64D92900F18440 /* icon_avp_video_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_gray@2x.png"; sourceTree = "<group>"; };
+		65BE2BF52A64D92900F18440 /* icon_av_audio_micro_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_micro_press@2x.png"; sourceTree = "<group>"; };
+		65BE2BF62A64D92900F18440 /* RTCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCView.h; sourceTree = "<group>"; };
+		65BE2BF72A64D92900F18440 /* RTCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCButton.m; sourceTree = "<group>"; };
+		65BE2BF92A64D92900F18440 /* incomingRing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incomingRing.wav; sourceTree = "<group>"; };
+		65BE2BFA2A64D92900F18440 /* AVChat_incoming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_incoming.mp3; sourceTree = "<group>"; };
+		65BE2BFB2A64D92900F18440 /* AVChat_busy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_busy.mp3; sourceTree = "<group>"; };
+		65BE2BFC2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_waitingForAnswer.mp3; sourceTree = "<group>"; };
+		65BE2BFD2A64D92900F18440 /* Message_system.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Message_system.mp3; sourceTree = "<group>"; };
+		65BE2BFE2A64D92900F18440 /* AVChat_endCall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_endCall.mp3; sourceTree = "<group>"; };
+		65BE2C2F2A64D94300F18440 /* RTCPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPair.h; sourceTree = "<group>"; };
+		65BE2C302A64D94300F18440 /* RTCAVFoundationVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAVFoundationVideoSource.h; sourceTree = "<group>"; };
+		65BE2C312A64D94300F18440 /* RTCStatsReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsReport.h; sourceTree = "<group>"; };
+		65BE2C322A64D94300F18440 /* RTCPeerConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionDelegate.h; sourceTree = "<group>"; };
+		65BE2C332A64D94300F18440 /* RTCSessionDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescription.h; sourceTree = "<group>"; };
+		65BE2C342A64D94300F18440 /* RTCVideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoCapturer.h; sourceTree = "<group>"; };
+		65BE2C352A64D94300F18440 /* RTCVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoSource.h; sourceTree = "<group>"; };
+		65BE2C362A64D94300F18440 /* RTCICEServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICEServer.h; sourceTree = "<group>"; };
+		65BE2C372A64D94300F18440 /* RTCMediaConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaConstraints.h; sourceTree = "<group>"; };
+		65BE2C382A64D94300F18440 /* RTCMediaStreamTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStreamTrack.h; sourceTree = "<group>"; };
+		65BE2C392A64D94300F18440 /* RTCVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
+		65BE2C3A2A64D94300F18440 /* RTCVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoRenderer.h; sourceTree = "<group>"; };
+		65BE2C3B2A64D94300F18440 /* RTCEAGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCEAGLVideoView.h; sourceTree = "<group>"; };
+		65BE2C3C2A64D94300F18440 /* RTCNSGLVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCNSGLVideoView.h; sourceTree = "<group>"; };
+		65BE2C3D2A64D94300F18440 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
+		65BE2C3E2A64D94300F18440 /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
+		65BE2C3F2A64D94300F18440 /* RTCI420Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCI420Frame.h; sourceTree = "<group>"; };
+		65BE2C402A64D94300F18440 /* RTCSessionDescriptionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCSessionDescriptionDelegate.h; sourceTree = "<group>"; };
+		65BE2C412A64D94300F18440 /* RTCFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCFileLogger.h; sourceTree = "<group>"; };
+		65BE2C422A64D94300F18440 /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
+		65BE2C432A64D94300F18440 /* RTCPeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnection.h; sourceTree = "<group>"; };
+		65BE2C442A64D94300F18440 /* RTCPeerConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionFactory.h; sourceTree = "<group>"; };
+		65BE2C452A64D94300F18440 /* RTCMediaStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaStream.h; sourceTree = "<group>"; };
+		65BE2C462A64D94300F18440 /* RTCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCHeader.h; sourceTree = "<group>"; };
+		65BE2C472A64D94300F18440 /* RTCLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCLogging.h; sourceTree = "<group>"; };
+		65BE2C482A64D94300F18440 /* RTCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCTypes.h; sourceTree = "<group>"; };
+		65BE2C492A64D94300F18440 /* RTCICECandidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCICECandidate.h; sourceTree = "<group>"; };
+		65BE2C4A2A64D94300F18440 /* RTCMediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCMediaSource.h; sourceTree = "<group>"; };
+		65BE2C4B2A64D94300F18440 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
+		65BE2C4C2A64D94300F18440 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
+		65BE2C4D2A64D94300F18440 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
 		65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -398,57 +495,6 @@
 		65C528C72A5EAA54004EB3C3 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		65C528C92A5EAA5D004EB3C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65C528CB2A5EAA72004EB3C3 /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65C528CE2A5F94FA004EB3C3 /* RTCButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCButton.h; sourceTree = "<group>"; };
-		65C528CF2A5F94FA004EB3C3 /* RTCView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTCView.m; sourceTree = "<group>"; };
-		65C528D12A5F94FA004EB3C3 /* icon_avp_video_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_white@2x.png"; sourceTree = "<group>"; };
-		65C528D22A5F94FA004EB3C3 /* icon_av_audio_micro_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_micro_normal@2x.png"; sourceTree = "<group>"; };
-		65C528D32A5F94FA004EB3C3 /* icon_avp_mute_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_white@2x.png"; sourceTree = "<group>"; };
-		65C528D42A5F94FA004EB3C3 /* icon_avp_mute_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_gray@2x.png"; sourceTree = "<group>"; };
-		65C528D52A5F94FA004EB3C3 /* icon_call_reject_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_call_reject_normal@2x.png"; sourceTree = "<group>"; };
-		65C528D62A5F94FA004EB3C3 /* icon_avp_loudspeaker_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_gray@2x.png"; sourceTree = "<group>"; };
-		65C528D72A5F94FA004EB3C3 /* portrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = portrait.jpg; sourceTree = "<group>"; };
-		65C528D82A5F94FA004EB3C3 /* im_skin_icon_audiocall_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = im_skin_icon_audiocall_bg.jpg; sourceTree = "<group>"; };
-		65C528D92A5F94FA004EB3C3 /* icon_avp_reduce_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_blue@2x.png"; sourceTree = "<group>"; };
-		65C528DA2A5F94FA004EB3C3 /* icon_avp_loudspeaker_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_black@2x.png"; sourceTree = "<group>"; };
-		65C528DB2A5F94FA004EB3C3 /* icon_av_reply_message_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_reply_message_normal@2x.png"; sourceTree = "<group>"; };
-		65C528DC2A5F94FA004EB3C3 /* icon_avp_reduce_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_white@2x.png"; sourceTree = "<group>"; };
-		65C528DD2A5F94FA004EB3C3 /* icon_avp_invite_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_white@2x.png"; sourceTree = "<group>"; };
-		65C528DE2A5F94FA004EB3C3 /* icon_avp_invite_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_gray@2x.png"; sourceTree = "<group>"; };
-		65C528DF2A5F94FA004EB3C3 /* icon_avp_video_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_blue@2x.png"; sourceTree = "<group>"; };
-		65C528E02A5F94FA004EB3C3 /* icon_avp_mute_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_black@2x.png"; sourceTree = "<group>"; };
-		65C528E12A5F94FA004EB3C3 /* icon_av_audio_receive_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_receive_normal@2x.png"; sourceTree = "<group>"; };
-		65C528E22A5F94FA004EB3C3 /* portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "portrait@2x.png"; sourceTree = "<group>"; };
-		65C528E32A5F94FA004EB3C3 /* icon_avp_video_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_black@2x.png"; sourceTree = "<group>"; };
-		65C528E42A5F94FA004EB3C3 /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
-		65C528E52A5F94FA004EB3C3 /* icon_audio_receive_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_audio_receive_normal@2x.png"; sourceTree = "<group>"; };
-		65C528E62A5F94FA004EB3C3 /* icon_avp_mute_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_mute_blue@2x.png"; sourceTree = "<group>"; };
-		65C528E72A5F94FA004EB3C3 /* 456.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 456.png; sourceTree = "<group>"; };
-		65C528E82A5F94FA004EB3C3 /* icon_avp_loudspeaker_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_blue@2x.png"; sourceTree = "<group>"; };
-		65C528E92A5F94FA004EB3C3 /* call_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call_bg@2x.png"; sourceTree = "<group>"; };
-		65C528EA2A5F94FA004EB3C3 /* view_audio_reply_message_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view_audio_reply_message_bg@2x.png"; sourceTree = "<group>"; };
-		65C528EB2A5F94FA004EB3C3 /* icon_call_reject_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_call_reject_press@2x.png"; sourceTree = "<group>"; };
-		65C528EC2A5F94FA004EB3C3 /* icon_audio_receive_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_audio_receive_press@2x.png"; sourceTree = "<group>"; };
-		65C528ED2A5F94FA004EB3C3 /* icon_avp_reduce_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_gray@2x.png"; sourceTree = "<group>"; };
-		65C528EE2A5F94FA004EB3C3 /* icon_av_reply_message_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_reply_message_press@2x.png"; sourceTree = "<group>"; };
-		65C528EF2A5F94FA004EB3C3 /* icon_avp_camera_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_camera_white@2x.png"; sourceTree = "<group>"; };
-		65C528F02A5F94FA004EB3C3 /* icon_av_audio_receive_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_receive_press@2x.png"; sourceTree = "<group>"; };
-		65C528F12A5F94FA004EB3C3 /* icon_avp_loudspeaker_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_loudspeaker_white@2x.png"; sourceTree = "<group>"; };
-		65C528F22A5F94FA004EB3C3 /* icon_avp_invite_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_black@2x.png"; sourceTree = "<group>"; };
-		65C528F32A5F94FA004EB3C3 /* icon_avp_reduce_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_reduce_black@2x.png"; sourceTree = "<group>"; };
-		65C528F42A5F94FA004EB3C3 /* icon_avp_invite_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_invite_blue@2x.png"; sourceTree = "<group>"; };
-		65C528F52A5F94FA004EB3C3 /* icon_avp_video_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_avp_video_gray@2x.png"; sourceTree = "<group>"; };
-		65C528F62A5F94FA004EB3C3 /* icon_av_audio_micro_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_av_audio_micro_press@2x.png"; sourceTree = "<group>"; };
-		65C528F72A5F94FA004EB3C3 /* RTCView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCView.h; sourceTree = "<group>"; };
-		65C528F82A5F94FA004EB3C3 /* RTCButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTCButton.m; sourceTree = "<group>"; };
-		65C528FA2A5F94FA004EB3C3 /* incomingRing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incomingRing.wav; sourceTree = "<group>"; };
-		65C528FB2A5F94FA004EB3C3 /* AVChat_incoming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_incoming.mp3; sourceTree = "<group>"; };
-		65C528FC2A5F94FA004EB3C3 /* AVChat_busy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_busy.mp3; sourceTree = "<group>"; };
-		65C528FD2A5F94FA004EB3C3 /* AVChat_waitingForAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_waitingForAnswer.mp3; sourceTree = "<group>"; };
-		65C528FE2A5F94FA004EB3C3 /* Message_system.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Message_system.mp3; sourceTree = "<group>"; };
-		65C528FF2A5F94FA004EB3C3 /* AVChat_endCall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AVChat_endCall.mp3; sourceTree = "<group>"; };
-		65C529002A5F9E60004EB3C3 /* WebRTCManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebRTCManager.h; sourceTree = "<group>"; };
-		65C529012A5F9E60004EB3C3 /* WebRTCManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebRTCManager.m; sourceTree = "<group>"; };
-		65C529032A5F9FF9004EB3C3 /* RTCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCHeader.h; sourceTree = "<group>"; };
 		65C529042A5FA0DA004EB3C3 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		65CD73B42A4AC31B00507D52 /* XMPPIQ+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPIQ+custom.h"; sourceTree = "<group>"; };
 		65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPIQ+custom.m"; sourceTree = "<group>"; };
@@ -554,8 +600,8 @@
 		654CEAA52A2D85E6001F8541 /* ChatXmppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				65C528CD2A5F94FA004EB3C3 /* RTC */,
-				6575E2B82A5E94F400DA5768 /* WebRTC */,
+				65BE2C2D2A64D94300F18440 /* WebRTC */,
+				65BE2BCC2A64D92900F18440 /* RTC */,
 				654CEB3B2A3177BD001F8541 /* Bases */,
 				654CEB212A2F0BED001F8541 /* BaseConfig */,
 				654CEAF52A2DB1A8001F8541 /* ViewControllers */,
@@ -594,6 +640,8 @@
 		654CEADC2A2D8612001F8541 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				65BE2BCA2A64D7EC00F18440 /* WebRTCManager.h */,
+				65BE2BC92A64D7EC00F18440 /* WebRTCManager.m */,
 				654CEADD2A2D8633001F8541 /* ChatManager.h */,
 				654CEADE2A2D8633001F8541 /* ChatManager.m */,
 				654CEAE02A2D8640001F8541 /* RosterManager.h */,
@@ -618,8 +666,6 @@
 				652443E62A56B04F00871283 /* ImagePickerManager.m */,
 				652443E82A56B19200871283 /* PermissionsManager.h */,
 				652443E92A56B19200871283 /* PermissionsManager.m */,
-				65C529002A5F9E60004EB3C3 /* WebRTCManager.h */,
-				65C529012A5F9E60004EB3C3 /* WebRTCManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -775,52 +821,6 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
-		6575E2B82A5E94F400DA5768 /* WebRTC */ = {
-			isa = PBXGroup;
-			children = (
-				6575E2B92A5E94F400DA5768 /* include */,
-			);
-			path = WebRTC;
-			sourceTree = "<group>";
-		};
-		6575E2B92A5E94F400DA5768 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				6575E2BA2A5E94F400DA5768 /* RTCPair.h */,
-				6575E2BB2A5E94F400DA5768 /* RTCAVFoundationVideoSource.h */,
-				6575E2BC2A5E94F400DA5768 /* RTCStatsReport.h */,
-				6575E2BD2A5E94F400DA5768 /* RTCPeerConnectionDelegate.h */,
-				6575E2BE2A5E94F400DA5768 /* RTCSessionDescription.h */,
-				6575E2BF2A5E94F400DA5768 /* RTCVideoCapturer.h */,
-				6575E2C02A5E94F400DA5768 /* RTCVideoSource.h */,
-				6575E2C12A5E94F400DA5768 /* RTCICEServer.h */,
-				6575E2C22A5E94F400DA5768 /* RTCMediaConstraints.h */,
-				6575E2C32A5E94F400DA5768 /* RTCMediaStreamTrack.h */,
-				6575E2C42A5E94F400DA5768 /* RTCVideoTrack.h */,
-				6575E2C52A5E94F400DA5768 /* RTCVideoRenderer.h */,
-				6575E2C62A5E94F400DA5768 /* RTCEAGLVideoView.h */,
-				6575E2C72A5E94F400DA5768 /* RTCNSGLVideoView.h */,
-				6575E2C82A5E94F400DA5768 /* RTCAudioTrack.h */,
-				6575E2C92A5E94F400DA5768 /* RTCDataChannel.h */,
-				6575E2CA2A5E94F400DA5768 /* RTCI420Frame.h */,
-				6575E2CB2A5E94F400DA5768 /* RTCSessionDescriptionDelegate.h */,
-				6575E2CC2A5E94F400DA5768 /* RTCFileLogger.h */,
-				6575E2CD2A5E94F400DA5768 /* RTCAudioSource.h */,
-				6575E2CE2A5E94F400DA5768 /* RTCPeerConnection.h */,
-				6575E2CF2A5E94F400DA5768 /* RTCPeerConnectionFactory.h */,
-				6575E2D02A5E94F400DA5768 /* RTCMediaStream.h */,
-				6575E2D12A5E94F400DA5768 /* RTCLogging.h */,
-				6575E2D22A5E94F400DA5768 /* RTCTypes.h */,
-				6575E2D32A5E94F400DA5768 /* RTCICECandidate.h */,
-				6575E2D42A5E94F400DA5768 /* RTCMediaSource.h */,
-				6575E2D52A5E94F400DA5768 /* RTCStatsDelegate.h */,
-				6575E2D62A5E94F400DA5768 /* RTCPeerConnectionInterface.h */,
-				6575E2D72A5E94F400DA5768 /* RTCOpenGLVideoRenderer.h */,
-				65C529032A5F9FF9004EB3C3 /* RTCHeader.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		658AA3702A5D2B63007E69DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,75 +848,121 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		65C528CD2A5F94FA004EB3C3 /* RTC */ = {
+		65BE2BCC2A64D92900F18440 /* RTC */ = {
 			isa = PBXGroup;
 			children = (
-				65C528D02A5F94FA004EB3C3 /* icons */,
-				65C528F92A5F94FA004EB3C3 /* sound */,
-				65C528F72A5F94FA004EB3C3 /* RTCView.h */,
-				65C528CF2A5F94FA004EB3C3 /* RTCView.m */,
-				65C528CE2A5F94FA004EB3C3 /* RTCButton.h */,
-				65C528F82A5F94FA004EB3C3 /* RTCButton.m */,
+				65BE2BCD2A64D92900F18440 /* RTCButton.h */,
+				65BE2BCE2A64D92900F18440 /* RTCView.m */,
+				65BE2BCF2A64D92900F18440 /* icons */,
+				65BE2BF62A64D92900F18440 /* RTCView.h */,
+				65BE2BF72A64D92900F18440 /* RTCButton.m */,
+				65BE2BF82A64D92900F18440 /* sound */,
 			);
 			path = RTC;
 			sourceTree = "<group>";
 		};
-		65C528D02A5F94FA004EB3C3 /* icons */ = {
+		65BE2BCF2A64D92900F18440 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				65C528D12A5F94FA004EB3C3 /* icon_avp_video_white@2x.png */,
-				65C528D22A5F94FA004EB3C3 /* icon_av_audio_micro_normal@2x.png */,
-				65C528D32A5F94FA004EB3C3 /* icon_avp_mute_white@2x.png */,
-				65C528D42A5F94FA004EB3C3 /* icon_avp_mute_gray@2x.png */,
-				65C528D52A5F94FA004EB3C3 /* icon_call_reject_normal@2x.png */,
-				65C528D62A5F94FA004EB3C3 /* icon_avp_loudspeaker_gray@2x.png */,
-				65C528D72A5F94FA004EB3C3 /* portrait.jpg */,
-				65C528D82A5F94FA004EB3C3 /* im_skin_icon_audiocall_bg.jpg */,
-				65C528D92A5F94FA004EB3C3 /* icon_avp_reduce_blue@2x.png */,
-				65C528DA2A5F94FA004EB3C3 /* icon_avp_loudspeaker_black@2x.png */,
-				65C528DB2A5F94FA004EB3C3 /* icon_av_reply_message_normal@2x.png */,
-				65C528DC2A5F94FA004EB3C3 /* icon_avp_reduce_white@2x.png */,
-				65C528DD2A5F94FA004EB3C3 /* icon_avp_invite_white@2x.png */,
-				65C528DE2A5F94FA004EB3C3 /* icon_avp_invite_gray@2x.png */,
-				65C528DF2A5F94FA004EB3C3 /* icon_avp_video_blue@2x.png */,
-				65C528E02A5F94FA004EB3C3 /* icon_avp_mute_black@2x.png */,
-				65C528E12A5F94FA004EB3C3 /* icon_av_audio_receive_normal@2x.png */,
-				65C528E22A5F94FA004EB3C3 /* portrait@2x.png */,
-				65C528E32A5F94FA004EB3C3 /* icon_avp_video_black@2x.png */,
-				65C528E42A5F94FA004EB3C3 /* 123.png */,
-				65C528E52A5F94FA004EB3C3 /* icon_audio_receive_normal@2x.png */,
-				65C528E62A5F94FA004EB3C3 /* icon_avp_mute_blue@2x.png */,
-				65C528E72A5F94FA004EB3C3 /* 456.png */,
-				65C528E82A5F94FA004EB3C3 /* icon_avp_loudspeaker_blue@2x.png */,
-				65C528E92A5F94FA004EB3C3 /* call_bg@2x.png */,
-				65C528EA2A5F94FA004EB3C3 /* view_audio_reply_message_bg@2x.png */,
-				65C528EB2A5F94FA004EB3C3 /* icon_call_reject_press@2x.png */,
-				65C528EC2A5F94FA004EB3C3 /* icon_audio_receive_press@2x.png */,
-				65C528ED2A5F94FA004EB3C3 /* icon_avp_reduce_gray@2x.png */,
-				65C528EE2A5F94FA004EB3C3 /* icon_av_reply_message_press@2x.png */,
-				65C528EF2A5F94FA004EB3C3 /* icon_avp_camera_white@2x.png */,
-				65C528F02A5F94FA004EB3C3 /* icon_av_audio_receive_press@2x.png */,
-				65C528F12A5F94FA004EB3C3 /* icon_avp_loudspeaker_white@2x.png */,
-				65C528F22A5F94FA004EB3C3 /* icon_avp_invite_black@2x.png */,
-				65C528F32A5F94FA004EB3C3 /* icon_avp_reduce_black@2x.png */,
-				65C528F42A5F94FA004EB3C3 /* icon_avp_invite_blue@2x.png */,
-				65C528F52A5F94FA004EB3C3 /* icon_avp_video_gray@2x.png */,
-				65C528F62A5F94FA004EB3C3 /* icon_av_audio_micro_press@2x.png */,
+				65BE2BD02A64D92900F18440 /* icon_avp_video_white@2x.png */,
+				65BE2BD12A64D92900F18440 /* icon_av_audio_micro_normal@2x.png */,
+				65BE2BD22A64D92900F18440 /* icon_avp_mute_white@2x.png */,
+				65BE2BD32A64D92900F18440 /* icon_avp_mute_gray@2x.png */,
+				65BE2BD42A64D92900F18440 /* icon_call_reject_normal@2x.png */,
+				65BE2BD52A64D92900F18440 /* icon_avp_loudspeaker_gray@2x.png */,
+				65BE2BD62A64D92900F18440 /* portrait.jpg */,
+				65BE2BD72A64D92900F18440 /* im_skin_icon_audiocall_bg.jpg */,
+				65BE2BD82A64D92900F18440 /* icon_avp_reduce_blue@2x.png */,
+				65BE2BD92A64D92900F18440 /* icon_avp_loudspeaker_black@2x.png */,
+				65BE2BDA2A64D92900F18440 /* icon_av_reply_message_normal@2x.png */,
+				65BE2BDB2A64D92900F18440 /* icon_avp_reduce_white@2x.png */,
+				65BE2BDC2A64D92900F18440 /* icon_avp_invite_white@2x.png */,
+				65BE2BDD2A64D92900F18440 /* icon_avp_invite_gray@2x.png */,
+				65BE2BDE2A64D92900F18440 /* icon_avp_video_blue@2x.png */,
+				65BE2BDF2A64D92900F18440 /* icon_avp_mute_black@2x.png */,
+				65BE2BE02A64D92900F18440 /* icon_av_audio_receive_normal@2x.png */,
+				65BE2BE12A64D92900F18440 /* portrait@2x.png */,
+				65BE2BE22A64D92900F18440 /* icon_avp_video_black@2x.png */,
+				65BE2BE32A64D92900F18440 /* 123.png */,
+				65BE2BE42A64D92900F18440 /* icon_audio_receive_normal@2x.png */,
+				65BE2BE52A64D92900F18440 /* icon_avp_mute_blue@2x.png */,
+				65BE2BE62A64D92900F18440 /* 456.png */,
+				65BE2BE72A64D92900F18440 /* icon_avp_loudspeaker_blue@2x.png */,
+				65BE2BE82A64D92900F18440 /* call_bg@2x.png */,
+				65BE2BE92A64D92900F18440 /* view_audio_reply_message_bg@2x.png */,
+				65BE2BEA2A64D92900F18440 /* icon_call_reject_press@2x.png */,
+				65BE2BEB2A64D92900F18440 /* icon_audio_receive_press@2x.png */,
+				65BE2BEC2A64D92900F18440 /* icon_avp_reduce_gray@2x.png */,
+				65BE2BED2A64D92900F18440 /* icon_av_reply_message_press@2x.png */,
+				65BE2BEE2A64D92900F18440 /* icon_avp_camera_white@2x.png */,
+				65BE2BEF2A64D92900F18440 /* icon_av_audio_receive_press@2x.png */,
+				65BE2BF02A64D92900F18440 /* icon_avp_loudspeaker_white@2x.png */,
+				65BE2BF12A64D92900F18440 /* icon_avp_invite_black@2x.png */,
+				65BE2BF22A64D92900F18440 /* icon_avp_reduce_black@2x.png */,
+				65BE2BF32A64D92900F18440 /* icon_avp_invite_blue@2x.png */,
+				65BE2BF42A64D92900F18440 /* icon_avp_video_gray@2x.png */,
+				65BE2BF52A64D92900F18440 /* icon_av_audio_micro_press@2x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
 		};
-		65C528F92A5F94FA004EB3C3 /* sound */ = {
+		65BE2BF82A64D92900F18440 /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				65C528FA2A5F94FA004EB3C3 /* incomingRing.wav */,
-				65C528FB2A5F94FA004EB3C3 /* AVChat_incoming.mp3 */,
-				65C528FC2A5F94FA004EB3C3 /* AVChat_busy.mp3 */,
-				65C528FD2A5F94FA004EB3C3 /* AVChat_waitingForAnswer.mp3 */,
-				65C528FE2A5F94FA004EB3C3 /* Message_system.mp3 */,
-				65C528FF2A5F94FA004EB3C3 /* AVChat_endCall.mp3 */,
+				65BE2BF92A64D92900F18440 /* incomingRing.wav */,
+				65BE2BFA2A64D92900F18440 /* AVChat_incoming.mp3 */,
+				65BE2BFB2A64D92900F18440 /* AVChat_busy.mp3 */,
+				65BE2BFC2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 */,
+				65BE2BFD2A64D92900F18440 /* Message_system.mp3 */,
+				65BE2BFE2A64D92900F18440 /* AVChat_endCall.mp3 */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		65BE2C2D2A64D94300F18440 /* WebRTC */ = {
+			isa = PBXGroup;
+			children = (
+				65BE2C2E2A64D94300F18440 /* include */,
+			);
+			path = WebRTC;
+			sourceTree = "<group>";
+		};
+		65BE2C2E2A64D94300F18440 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				65BE2C2F2A64D94300F18440 /* RTCPair.h */,
+				65BE2C302A64D94300F18440 /* RTCAVFoundationVideoSource.h */,
+				65BE2C312A64D94300F18440 /* RTCStatsReport.h */,
+				65BE2C322A64D94300F18440 /* RTCPeerConnectionDelegate.h */,
+				65BE2C332A64D94300F18440 /* RTCSessionDescription.h */,
+				65BE2C342A64D94300F18440 /* RTCVideoCapturer.h */,
+				65BE2C352A64D94300F18440 /* RTCVideoSource.h */,
+				65BE2C362A64D94300F18440 /* RTCICEServer.h */,
+				65BE2C372A64D94300F18440 /* RTCMediaConstraints.h */,
+				65BE2C382A64D94300F18440 /* RTCMediaStreamTrack.h */,
+				65BE2C392A64D94300F18440 /* RTCVideoTrack.h */,
+				65BE2C3A2A64D94300F18440 /* RTCVideoRenderer.h */,
+				65BE2C3B2A64D94300F18440 /* RTCEAGLVideoView.h */,
+				65BE2C3C2A64D94300F18440 /* RTCNSGLVideoView.h */,
+				65BE2C3D2A64D94300F18440 /* RTCAudioTrack.h */,
+				65BE2C3E2A64D94300F18440 /* RTCDataChannel.h */,
+				65BE2C3F2A64D94300F18440 /* RTCI420Frame.h */,
+				65BE2C402A64D94300F18440 /* RTCSessionDescriptionDelegate.h */,
+				65BE2C412A64D94300F18440 /* RTCFileLogger.h */,
+				65BE2C422A64D94300F18440 /* RTCAudioSource.h */,
+				65BE2C432A64D94300F18440 /* RTCPeerConnection.h */,
+				65BE2C442A64D94300F18440 /* RTCPeerConnectionFactory.h */,
+				65BE2C452A64D94300F18440 /* RTCMediaStream.h */,
+				65BE2C462A64D94300F18440 /* RTCHeader.h */,
+				65BE2C472A64D94300F18440 /* RTCLogging.h */,
+				65BE2C482A64D94300F18440 /* RTCTypes.h */,
+				65BE2C492A64D94300F18440 /* RTCICECandidate.h */,
+				65BE2C4A2A64D94300F18440 /* RTCMediaSource.h */,
+				65BE2C4B2A64D94300F18440 /* RTCStatsDelegate.h */,
+				65BE2C4C2A64D94300F18440 /* RTCPeerConnectionInterface.h */,
+				65BE2C4D2A64D94300F18440 /* RTCOpenGLVideoRenderer.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		73CA0F2247DFFD1217603A72 /* Pods */ = {
@@ -1091,10 +1137,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE2C1A2A64D92900F18440 /* icon_call_reject_press@2x.png in Resources */,
+				65BE2C132A64D92900F18440 /* 123.png in Resources */,
+				65BE2C222A64D92900F18440 /* icon_avp_reduce_black@2x.png in Resources */,
+				65BE2C022A64D92900F18440 /* icon_avp_mute_white@2x.png in Resources */,
+				65BE2C032A64D92900F18440 /* icon_avp_mute_gray@2x.png in Resources */,
+				65BE2C1B2A64D92900F18440 /* icon_audio_receive_press@2x.png in Resources */,
+				65BE2C1C2A64D92900F18440 /* icon_avp_reduce_gray@2x.png in Resources */,
+				65BE2C0C2A64D92900F18440 /* icon_avp_invite_white@2x.png in Resources */,
+				65BE2C292A64D92900F18440 /* AVChat_busy.mp3 in Resources */,
 				654CEB2D2A305D51001F8541 /* Normal.xcassets in Resources */,
+				65BE2C0F2A64D92900F18440 /* icon_avp_mute_black@2x.png in Resources */,
+				65BE2C072A64D92900F18440 /* im_skin_icon_audiocall_bg.jpg in Resources */,
+				65BE2C012A64D92900F18440 /* icon_av_audio_micro_normal@2x.png in Resources */,
+				65BE2C272A64D92900F18440 /* incomingRing.wav in Resources */,
+				65BE2C252A64D92900F18440 /* icon_av_audio_micro_press@2x.png in Resources */,
+				65BE2C002A64D92900F18440 /* icon_avp_video_white@2x.png in Resources */,
+				65BE2C282A64D92900F18440 /* AVChat_incoming.mp3 in Resources */,
+				65BE2C182A64D92900F18440 /* call_bg@2x.png in Resources */,
+				65BE2C062A64D92900F18440 /* portrait.jpg in Resources */,
+				65BE2C112A64D92900F18440 /* portrait@2x.png in Resources */,
+				65BE2C2B2A64D92900F18440 /* Message_system.mp3 in Resources */,
 				654CEAB62A2D85E8001F8541 /* LaunchScreen.storyboard in Resources */,
+				65BE2C0D2A64D92900F18440 /* icon_avp_invite_gray@2x.png in Resources */,
+				65BE2C122A64D92900F18440 /* icon_avp_video_black@2x.png in Resources */,
+				65BE2C172A64D92900F18440 /* icon_avp_loudspeaker_blue@2x.png in Resources */,
+				65BE2C152A64D92900F18440 /* icon_avp_mute_blue@2x.png in Resources */,
+				65BE2C052A64D92900F18440 /* icon_avp_loudspeaker_gray@2x.png in Resources */,
 				654CEAB32A2D85E8001F8541 /* Assets.xcassets in Resources */,
+				65BE2C082A64D92900F18440 /* icon_avp_reduce_blue@2x.png in Resources */,
+				65BE2C142A64D92900F18440 /* icon_audio_receive_normal@2x.png in Resources */,
+				65BE2C092A64D92900F18440 /* icon_avp_loudspeaker_black@2x.png in Resources */,
+				65BE2C1F2A64D92900F18440 /* icon_av_audio_receive_press@2x.png in Resources */,
+				65BE2C1E2A64D92900F18440 /* icon_avp_camera_white@2x.png in Resources */,
 				654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */,
+				65BE2C162A64D92900F18440 /* 456.png in Resources */,
+				65BE2C242A64D92900F18440 /* icon_avp_video_gray@2x.png in Resources */,
+				65BE2C0E2A64D92900F18440 /* icon_avp_video_blue@2x.png in Resources */,
+				65BE2C212A64D92900F18440 /* icon_avp_invite_black@2x.png in Resources */,
+				65BE2C102A64D92900F18440 /* icon_av_audio_receive_normal@2x.png in Resources */,
+				65BE2C042A64D92900F18440 /* icon_call_reject_normal@2x.png in Resources */,
+				65BE2C0A2A64D92900F18440 /* icon_av_reply_message_normal@2x.png in Resources */,
+				65BE2C2C2A64D92900F18440 /* AVChat_endCall.mp3 in Resources */,
+				65BE2C1D2A64D92900F18440 /* icon_av_reply_message_press@2x.png in Resources */,
+				65BE2C232A64D92900F18440 /* icon_avp_invite_blue@2x.png in Resources */,
+				65BE2C192A64D92900F18440 /* view_audio_reply_message_bg@2x.png in Resources */,
+				65BE2C2A2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 in Resources */,
+				65BE2C0B2A64D92900F18440 /* icon_avp_reduce_white@2x.png in Resources */,
+				65BE2C202A64D92900F18440 /* icon_avp_loudspeaker_white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1197,7 +1287,7 @@
 				652443E72A56B04F00871283 /* ImagePickerManager.m in Sources */,
 				65AABE4F2A3FF28E000EBEA6 /* UICollectionView+custom.m in Sources */,
 				654CEB102A2ECC67001F8541 /* LXNavgationViewController.m in Sources */,
-				65C529022A5F9E60004EB3C3 /* WebRTCManager.m in Sources */,
+				65BE2BCB2A64D7EC00F18440 /* WebRTCManager.m in Sources */,
 				654CEB252A2F0C10001F8541 /* HHDeviceTool.m in Sources */,
 				65CD73B62A4AC31B00507D52 /* XMPPIQ+custom.m in Sources */,
 				654CF69F2A3C5791001F8541 /* LXMessage.m in Sources */,
@@ -1223,6 +1313,7 @@
 				654CEAB92A2D85E8001F8541 /* main.m in Sources */,
 				65B0C6A02A418962008B65AB /* NSArray+custom.m in Sources */,
 				654CEB0D2A2ECBBE001F8541 /* FriendsViewController.m in Sources */,
+				65BE2BFF2A64D92900F18440 /* RTCView.m in Sources */,
 				654CF69B2A399422001F8541 /* RegisterViewController.m in Sources */,
 				6575E2B72A5E576C00DA5768 /* UITableViewCell+custom.m in Sources */,
 				65B0C6A32A42D80C008B65AB /* Room.m in Sources */,
@@ -1238,6 +1329,7 @@
 				654CEB452A32F53E001F8541 /* XMPPPresence+custom.m in Sources */,
 				654CEB012A2ECAA0001F8541 /* RoomViewController.m in Sources */,
 				65B0C7A72A4813FC008B65AB /* LXRefresh.m in Sources */,
+				65BE2C262A64D92900F18440 /* RTCButton.m in Sources */,
 				65AABE562A404F77000EBEA6 /* TranscribeVoiceView.m in Sources */,
 				654CF68F2A388F71001F8541 /* UIAlertController+custom.m in Sources */,
 				654CEB302A307A64001F8541 /* UITableView+custom.m in Sources */,

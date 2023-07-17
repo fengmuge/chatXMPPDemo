@@ -12,6 +12,7 @@
 #import <XMPPFramework.h>
 #import <Masonry.h>
 #import <MJRefresh.h>
+#import <SJNetwork.h>
 
 #import "NSString+custom.h"
 #import "NSArray+custom.h"
