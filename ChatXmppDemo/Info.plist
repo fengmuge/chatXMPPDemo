@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CFBundleAllowMixedLocalizations</key>
@@ -29,6 +30,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 	<key>NSMicrophoneUsageDescription</key>
 	<string>需要访问你的麦克风权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>

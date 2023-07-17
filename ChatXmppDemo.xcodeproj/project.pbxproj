@@ -182,6 +182,7 @@
 		65B0C7AA2A481BEE008B65AB /* NSDate+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7A92A481BEE008B65AB /* NSDate+custom.m */; };
 		65B0C7AD2A4844A7008B65AB /* RoomConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */; };
 		65B363AC2A5410E200B62616 /* RoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B363AB2A5410E200B62616 /* RoomSettingViewController.m */; };
+<<<<<<< HEAD
 		65BE2BCB2A64D7EC00F18440 /* WebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2BC92A64D7EC00F18440 /* WebRTCManager.m */; };
 		65BE2BFF2A64D92900F18440 /* RTCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2BCE2A64D92900F18440 /* RTCView.m */; };
 		65BE2C002A64D92900F18440 /* icon_avp_video_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BD02A64D92900F18440 /* icon_avp_video_white@2x.png */; };
@@ -238,6 +239,8 @@
 		65C528C82A5EAA54004EB3C3 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C72A5EAA54004EB3C3 /* libicucore.tbd */; };
 		65C528CA2A5EAA5D004EB3C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528C92A5EAA5D004EB3C3 /* UIKit.framework */; };
 		65C529052A5FA0DA004EB3C3 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C529042A5FA0DA004EB3C3 /* CallKit.framework */; };
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 		65CD73B62A4AC31B00507D52 /* XMPPIQ+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */; };
 		65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CD73B82A4AC3A100507D52 /* XMPPMessage+custom.m */; };
 		8F954FD49F46F8D0257B6D4D /* Pods_ChatXmppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CB752B4904AAA40D75C22C /* Pods_ChatXmppDemo.framework */; };
@@ -405,6 +408,7 @@
 		65B0C7AC2A4844A7008B65AB /* RoomConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomConfiguration.m; sourceTree = "<group>"; };
 		65B363AA2A5410E200B62616 /* RoomSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomSettingViewController.h; sourceTree = "<group>"; };
 		65B363AB2A5410E200B62616 /* RoomSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomSettingViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		65BE2BC92A64D7EC00F18440 /* WebRTCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebRTCManager.m; sourceTree = "<group>"; };
 		65BE2BCA2A64D7EC00F18440 /* WebRTCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebRTCManager.h; sourceTree = "<group>"; };
 		65BE2BCD2A64D92900F18440 /* RTCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCButton.h; sourceTree = "<group>"; };
@@ -496,6 +500,8 @@
 		65C528C92A5EAA5D004EB3C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65C528CB2A5EAA72004EB3C3 /* libidn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libidn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C529042A5FA0DA004EB3C3 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 		65CD73B42A4AC31B00507D52 /* XMPPIQ+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPIQ+custom.h"; sourceTree = "<group>"; };
 		65CD73B52A4AC31B00507D52 /* XMPPIQ+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMPPIQ+custom.m"; sourceTree = "<group>"; };
 		65CD73B72A4AC3A100507D52 /* XMPPMessage+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMPPMessage+custom.h"; sourceTree = "<group>"; };
@@ -509,6 +515,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				65C529052A5FA0DA004EB3C3 /* CallKit.framework in Frameworks */,
 				65C528CA2A5EAA5D004EB3C3 /* UIKit.framework in Frameworks */,
 				65C528C82A5EAA54004EB3C3 /* libicucore.tbd in Frameworks */,
@@ -518,6 +525,8 @@
 				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
 				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
 				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
 				652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */,
@@ -600,8 +609,12 @@
 		654CEAA52A2D85E6001F8541 /* ChatXmppDemo */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				65BE2C2D2A64D94300F18440 /* WebRTC */,
 				65BE2BCC2A64D92900F18440 /* RTC */,
+=======
+				652443D52A553C3000871283 /* Cache */,
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 				654CEB3B2A3177BD001F8541 /* Bases */,
 				654CEB212A2F0BED001F8541 /* BaseConfig */,
 				654CEAF52A2DB1A8001F8541 /* ViewControllers */,
@@ -712,8 +725,11 @@
 				654CF6942A395E45001F8541 /* UITextView+custom.m */,
 				654CEB2E2A307A64001F8541 /* UITableView+custom.h */,
 				654CEB2F2A307A64001F8541 /* UITableView+custom.m */,
+<<<<<<< HEAD
 				6575E2B52A5E576C00DA5768 /* UITableViewCell+custom.h */,
 				6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */,
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 				654CEB3D2A31CC13001F8541 /* UIViewController+custom.h */,
 				654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */,
 				65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */,
@@ -977,6 +993,7 @@
 		F57FCB7000D5BA7613CFADFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				65C529042A5FA0DA004EB3C3 /* CallKit.framework */,
 				65C528CB2A5EAA72004EB3C3 /* libidn.framework */,
 				65C528C92A5EAA5D004EB3C3 /* UIKit.framework */,
@@ -987,6 +1004,8 @@
 				65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */,
 				65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */,
 				65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */,
+=======
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
 				652443F12A56B60D00871283 /* UserNotifications.framework */,
 				652443EF2A56B60600871283 /* CoreLocation.framework */,
 				652443ED2A56B5FC00871283 /* AVFoundation.framework */,

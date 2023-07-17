@@ -17,9 +17,13 @@ target 'ChatXmppDemo' do
   pod 'XMPPFramework'
   pod 'MJRefresh'
   pod 'TZImagePickerController'
+<<<<<<< HEAD
 #  pod 'AFNetworking'
   pod 'ReactiveObjC'
   pod 'SJNetwork'
+=======
+  
+>>>>>>> 854b75d26cabd7d317d2b4ed108afde93654cb47
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
