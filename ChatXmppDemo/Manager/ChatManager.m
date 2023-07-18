@@ -14,6 +14,8 @@
 #import "AuxiliaryManager.h"
 #import "UIViewController+custom.h"
 
+#import "XMPPMessage+custom.h"
+
 @interface ChatManager() <NSCopying,
 NSMutableCopying,
 XMPPStreamDelegate
@@ -345,9 +347,9 @@ static ChatManager *_sharedInstance;
     
     bool isRequest = YES;
     // XEP--0136 已经用coreData实现了数据的接受和保存
-    NSXMLElement *request = [message elementForName:@"request"];
+    NSXMLElement *request = message.request;
     if (request) {
-        if (![request.xmlns isEqualToString:@"urn:xmpp:receipts"]) { // 如果不是消息回执
+        if (![request.xmlns isEqualToString:@"urn:xmpp:receipts"]) { // 如果不需要消息回执
             return;
         }
         // 组装消息回执

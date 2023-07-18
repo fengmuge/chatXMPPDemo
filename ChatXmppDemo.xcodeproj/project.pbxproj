@@ -229,6 +229,7 @@
 		65BE2C2A2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFC2A64D92900F18440 /* AVChat_waitingForAnswer.mp3 */; };
 		65BE2C2B2A64D92900F18440 /* Message_system.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFD2A64D92900F18440 /* Message_system.mp3 */; };
 		65BE2C2C2A64D92900F18440 /* AVChat_endCall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65BE2BFE2A64D92900F18440 /* AVChat_endCall.mp3 */; };
+		65BE2C542A65229600F18440 /* RTCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BE2C532A65229600F18440 /* RTCRoom.m */; };
 		65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */; };
 		65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */; };
 		65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */; };
@@ -486,6 +487,8 @@
 		65BE2C4B2A64D94300F18440 /* RTCStatsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCStatsDelegate.h; sourceTree = "<group>"; };
 		65BE2C4C2A64D94300F18440 /* RTCPeerConnectionInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCPeerConnectionInterface.h; sourceTree = "<group>"; };
 		65BE2C4D2A64D94300F18440 /* RTCOpenGLVideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCOpenGLVideoRenderer.h; sourceTree = "<group>"; };
+		65BE2C522A65229600F18440 /* RTCRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTCRoom.h; sourceTree = "<group>"; };
+		65BE2C532A65229600F18440 /* RTCRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTCRoom.m; sourceTree = "<group>"; };
 		65C528BB2A5EAA11004EB3C3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		65C528BD2A5EAA1A004EB3C3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		65C528BF2A5EAA25004EB3C3 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -602,7 +605,6 @@
 			children = (
 				65BE2C2D2A64D94300F18440 /* WebRTC */,
 				65BE2BCC2A64D92900F18440 /* RTC */,
-				652443D52A553C3000871283 /* Cache */,
 				654CEB3B2A3177BD001F8541 /* Bases */,
 				654CEB212A2F0BED001F8541 /* BaseConfig */,
 				654CEAF52A2DB1A8001F8541 /* ViewControllers */,
@@ -775,6 +777,8 @@
 				654CF6882A385724001F8541 /* Subscription.m */,
 				65B0C6A12A42D80C008B65AB /* Room.h */,
 				65B0C6A22A42D80C008B65AB /* Room.m */,
+				65BE2C522A65229600F18440 /* RTCRoom.h */,
+				65BE2C532A65229600F18440 /* RTCRoom.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1282,6 +1286,7 @@
 				654CEB382A316E5F001F8541 /* User.m in Sources */,
 				654CEB0A2A2ECB23001F8541 /* ConversationViewController.m in Sources */,
 				654CEAF12A2D86D0001F8541 /* AuxiliaryManager.m in Sources */,
+				65BE2C542A65229600F18440 /* RTCRoom.m in Sources */,
 				654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */,
 				652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */,
 				65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */,

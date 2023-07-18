@@ -8,6 +8,7 @@
 #import "MessageManager.h"
 #import "ChatManager.h"
 #import "LXMessage.h"
+#import "XMPPMessage+custom.h"
 
 @interface MessageManager () <
 XMPPMessageArchivingStorage
@@ -88,6 +89,17 @@ static MessageManager *_sharedInstance;
     }
     
     return [sortResultes copy];
+}
+
+- (void)sendSignalingMessage:(NSString *)message toUser:(NSString *)userJid isVideoCall:(BOOL)isVideo {
+    XMPPJID *jid = [XMPPJID lxJidWithUsername:userJid];
+    
+    XMPPMessage *xmppMessage = [XMPPMessage messageWithType:@"chat" to:jid];
+    [xmppMessage addBody:message];
+    xmppMessage.bodyType = isVideo ? LXMessageBodyVideoCall : LXMessageBodyVoiceCell;
+    xmppMessage.request = @"urn:xmpp:receipts";
+    
+    [[ChatManager sharedInstance].stream sendElement:xmppMessage];
 }
 
 #pragma mark --XMPPMessageArchivingStorage--

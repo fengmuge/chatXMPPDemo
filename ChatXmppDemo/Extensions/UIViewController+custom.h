@@ -7,12 +7,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    LXNavgationBarItemCenter = 0,
+    LXNavgationBarItemLeft = 1,
+    LXNavgationBarItemRight = 2,
+} LXNavgationBarItemPoistion;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^kInputAlertActionHandler)(bool result, UITextField * __nullable textField);
 typedef void (^kInputAlertTextFieldHandler)(UITextField *textField);
 
 @interface UIViewController (custom)
+
+@property (nonatomic, assign) BOOL isPopViewControllerAnimated;
 
 + (UIViewController *)currentVC;
 
@@ -75,6 +83,37 @@ typedef void (^kInputAlertTextFieldHandler)(UITextField *textField);
                                 titleColor:(UIColor * _Nullable)titleColor
                                normalImage:(UIImage * _Nullable)normalImage
                              selectedImage:(UIImage * _Nullable)selectedImage;
+
+// 获取导航栏barButtonItem with image
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithNormalImage:(UIImage * _Nullable)normalImage
+                                           selectedImage:(UIImage * _Nullable)selectedImage
+                                                      poistion:(LXNavgationBarItemPoistion)poistion;
+// 获取导航栏barButtonItem with title
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTitle:(NSString * _Nullable)title
+                                              titleColor:(UIColor * _Nullable)titleColor
+                                                poistion:(LXNavgationBarItemPoistion)poistion;
+
+// 获取导航栏barButtonItem with image & selector
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id _Nullable)target
+                                                selector:(SEL _Nullable)selector
+                                             normalImage:(UIImage * _Nullable)normalImage
+                                           selectedImage:(UIImage * _Nullable)selectedImage
+                                                poistion:(LXNavgationBarItemPoistion)poistion;
+// 获取导航栏barButtonItem with title & selector
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id _Nullable)target
+                                                selector:(SEL _Nullable)selector
+                                                   title:(NSString * _Nullable)title
+                                              titleColor:(UIColor * _Nullable)titleColor
+                                                poistion:(LXNavgationBarItemPoistion)poistion;
+// 获取导航栏barButtonItem with image & title & selector
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id _Nullable)target
+                                                selector:(SEL _Nullable)selector
+                                                   title:(NSString * _Nullable)title
+                                              titleColor:(UIColor * _Nullable)titleColor
+                                             normalImage:(UIImage * _Nullable)normalImage
+                                           selectedImage:(UIImage * _Nullable)selectedImage
+                                                poistion:(LXNavgationBarItemPoistion)poistion;
+
 
 @end
 

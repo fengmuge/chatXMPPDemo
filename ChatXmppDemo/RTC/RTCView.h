@@ -55,6 +55,14 @@
 /** 对方是否开启了摄像头 */
 @property (assign, nonatomic)   BOOL            oppositeCamera;
 
+/** 是否是视频聊天 */
+@property (assign, nonatomic, readonly)   BOOL isVideo;
+/** 是否是被呼叫方 */
+@property (assign, nonatomic, readonly)   BOOL callee;
+/** 本地是否开启摄像头  */
+@property (assign, nonatomic, readonly)   BOOL localCamera;
+/** 是否是外放模式 */
+@property (assign, nonatomic, readonly)   BOOL loudSpeaker;
 /** 头像 */
 @property (strong, nonatomic, readonly)   UIImageView             *portraitImageView;
 /** 自己的视频画面 */

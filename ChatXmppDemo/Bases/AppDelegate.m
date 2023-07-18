@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WebRTCManager.h"
 #import "LXNavgationViewController.h"
 #import "LXTabbarViewController.h"
 @interface AppDelegate ()
@@ -23,8 +24,13 @@
     [self.window makeKeyAndVisible];
     
     [self configureSJNetwork];
+    [[WebRTCManager sharedInstance] startEngine];
     
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [[WebRTCManager sharedInstance] startEngine];
 }
 
 - (void)configureSJNetwork {

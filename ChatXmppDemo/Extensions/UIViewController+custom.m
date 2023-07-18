@@ -28,6 +28,19 @@
     return [valueNumber boolValue];
 }
 
+- (void)setIsPopViewControllerAnimated:(BOOL)isPopViewControllerAnimated {
+    NSNumber *valueNumber = [NSNumber numberWithBool:isPopViewControllerAnimated];
+    objc_setAssociatedObject(self, @selector(isPopViewControllerAnimated), valueNumber, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (BOOL)isPopViewControllerAnimated {
+    NSNumber *valueNumber = objc_getAssociatedObject(self, @selector(isPopViewControllerAnimated));
+    if (!valueNumber) {
+        return YES;
+    }
+    return [valueNumber boolValue];
+}
+
 #pragma mark -- Alert
 - (void)alertAutoDisappearWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title
@@ -151,7 +164,7 @@
 #pragma mark -- navgationBar item
 
 - (void)backBtnClicked {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:self.isPopViewControllerAnimated];
 }
 
 - (void)setLeftNavgationBarItem {
@@ -274,21 +287,94 @@
                           normalImage:(UIImage * _Nullable)normalImage
                         selectedImage:(UIImage * _Nullable)selectedImage
                              poistion:(LXNavgationBarItemPoistion)poistion {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.adjustsImageWhenHighlighted = NO;
-    btn.frame = CGRectMake(0.0f, 0.0f, 40.0f, 40.0f);
-    [btn setImage:normalImage forState:UIControlStateNormal];
-    [btn setImage:selectedImage forState:UIControlStateSelected];
-    btn = [self setNavgationBarCustomButton:btn
-                                      title:title
-                                 titleColor:titleColor];
-    btn.contentHorizontalAlignment = poistion == LXNavgationBarItemLeft ? UIControlContentHorizontalAlignmentLeft : UIControlContentHorizontalAlignmentRight;
-    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    UIBarButtonItem *buttonItem = [self makeNavgationBarButtonItemWithTarget:target
+                                                                    selector:selector
+                                                                       title:title
+                                                                  titleColor:titleColor
+                                                                 normalImage:normalImage
+                                                               selectedImage:selectedImage
+                                                                    poistion:poistion];
     if (poistion == LXNavgationBarItemLeft) {
         self.navigationItem.leftBarButtonItem = buttonItem;
     } else {
         self.navigationItem.rightBarButtonItem = buttonItem;
     }
+}
+
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithNormalImage:(UIImage *)normalImage
+                                           selectedImage:(UIImage *)selectedImage
+                                                poistion:(LXNavgationBarItemPoistion)poistion {
+    return [self makeNavgationBarButtonItemWithTarget:nil
+                                             selector:nil
+                                                title:nil
+                                           titleColor:nil
+                                          normalImage:normalImage
+                                        selectedImage:selectedImage
+                                             poistion:poistion];
+}
+
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTitle:(NSString *)title
+                                              titleColor:(UIColor *)titleColor
+                                                poistion:(LXNavgationBarItemPoistion)poistion {
+    return [self makeNavgationBarButtonItemWithTarget:nil
+                                             selector:nil
+                                                title:title
+                                           titleColor:titleColor
+                                          normalImage:nil
+                                        selectedImage:nil
+                                             poistion:poistion];
+}
+
+
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id)target
+                                                selector:(SEL)selector
+                                             normalImage:(UIImage *)normalImage
+                                           selectedImage:(UIImage *)selectedImage
+                                                poistion:(LXNavgationBarItemPoistion)poistion {
+    return [self makeNavgationBarButtonItemWithTarget:target
+                                             selector:selector
+                                                title:nil
+                                           titleColor:nil
+                                          normalImage:normalImage
+                                        selectedImage:selectedImage
+                                             poistion:poistion];
+}
+
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id)target
+                                                selector:(SEL)selector
+                                                   title:(NSString *)title
+                                              titleColor:(UIColor *)titleColor
+                                                poistion:(LXNavgationBarItemPoistion)poistion {
+    return [self makeNavgationBarButtonItemWithTarget:target
+                                             selector:selector
+                                                title:title
+                                           titleColor:titleColor
+                                          normalImage:nil
+                                        selectedImage:nil
+                                             poistion:poistion];
+}
+
+- (UIBarButtonItem *)makeNavgationBarButtonItemWithTarget:(id)target
+                                                selector:(SEL)selector
+                                                   title:(NSString *)title
+                                              titleColor:(UIColor *)titleColor
+                                             normalImage:(UIImage *)normalImage
+                                           selectedImage:(UIImage *)selectedImage
+                                                poistion:(LXNavgationBarItemPoistion)poistion {
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.adjustsImageWhenHighlighted = NO;
+    btn.frame = CGRectMake(0.0f, 0.0f, 40.0f, 40.0f);
+    
+    btn = [self setNavgationBarCustomButton:btn
+                                normalImage:normalImage
+                              selectedImage:selectedImage];
+    btn = [self setNavgationBarCustomButton:btn
+                                      title:title
+                                 titleColor:titleColor];
+    btn.contentHorizontalAlignment = (UIControlContentHorizontalAlignment)poistion; // ? UIControlContentHorizontalAlignmentLeft : UIControlContentHorizontalAlignmentRight;
+    
     if (selector && target) {
         [btn addTarget:target
                 action:selector
@@ -298,6 +384,24 @@
                 action:@selector(backBtnClicked)
       forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    return buttonItem;
+}
+
+- (UIButton *)setNavgationBarCustomButton:(UIButton * _Nullable)button
+                              normalImage:(UIImage * _Nullable)normalImage
+                            selectedImage:(UIImage * _Nullable)selectedImage {
+    if (!normalImage || !button) {
+        return button;
+    }
+    [button setImage:normalImage forState:UIControlStateNormal];
+    if (!selectedImage) {
+        return button;
+    }
+    [button setImage:selectedImage forState:UIControlStateSelected];
+    
+    return button;
 }
 
 - (UIButton *)setNavgationBarCustomButton:(UIButton * _Nullable)button
@@ -307,7 +411,8 @@
         return button;
     }
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:titleColor forState:UIControlStateNormal];
+    UIColor *normalColor = titleColor ?: [UIColor blueColor];
+    [button setTitleColor:normalColor forState:UIControlStateNormal];
     UIColor *selectedColor = !titleColor ? [[UIColor blueColor] colorWithAlphaComponent:0.7] : [titleColor colorWithAlphaComponent:0.7];
     [button setTitleColor:selectedColor forState:UIControlStateSelected];
     

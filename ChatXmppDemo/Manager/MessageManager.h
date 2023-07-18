@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 以上两个参数互斥，以toUserJid优先
 + (NSArray *)getHistoryMessageWith:(nullable XMPPJID *)toUserJid orRoomId:(nullable XMPPJID *)toRoomJid;
 
+- (void)sendSignalingMessage:(NSString *)message toUser:(NSString *)userJid isVideoCall:(BOOL)isVideo;
+
 @end
 
 NS_ASSUME_NONNULL_END

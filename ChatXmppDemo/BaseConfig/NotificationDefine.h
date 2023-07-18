@@ -82,6 +82,9 @@
 // 房间主题变更
 #define kXMPP_ROOM_DIDCHANGE_SUBJIEC @"kXMPP_ROOM_DIDCHANGE_SUBJIEC"
 
+// 收到视频/语音通话邀请
+#define kReceivedOfferSignalingMessageNotification @"kReceivedSignalingMessageNotification"
+
 // 收到 rtc 信号 message
 #define kReceivedSignalingMessageNotification @"kReceivedSignalingMessageNotification"
 /* 挂断的通知，object 中附带参数
@@ -110,6 +113,5 @@
     示例：@{@"videoCapture":@(YES)}
  */
 #define kVideoCaptureNotification @"kVideoCaptureNotification"
-
 
 #endif /* NotificationDefine_h */

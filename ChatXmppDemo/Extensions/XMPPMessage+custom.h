@@ -12,7 +12,9 @@ typedef enum : NSUInteger {
     LXMessageBodyAudio,
     LXMessageBodyVideo,
     LXMessageBodyImage,
-    LXMessageBodyCard
+    LXMessageBodyCard,
+    LXMessageBodyVideoCall,
+    LXMessageBodyVoiceCell,
 } LXMessageBodyType;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 是否是来自房间的邀请
 - (BOOL)isRoomInvite;
+
+- (NSXMLElement *)request;
+- (void)setRequest:(NSString *)request;
 
 @end
 

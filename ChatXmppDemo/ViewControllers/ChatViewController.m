@@ -11,6 +11,7 @@
 #import "Room.h"
 #import "RoomManager.h"
 #import "AudioManager.h"
+#import "WebRTCManager.h"
 #import "MessageManager.h"
 #import "LXMessage.h"
 #import "TranscribeVoiceView.h"
@@ -81,14 +82,34 @@
 }
 
 - (void)setRightNavgationBar {
-    if (!self.room) {
+    if (self.room) {
         return;
     }
+//    [self setRightNavgationBarItemWithTarget:self
+//                                    selector:@selector(rightNavgationbarClicked)
+//                                       title:@"群设置"
+//                                  titleColor:nil];
     
-    [self setRightNavgationBarItemWithTarget:self
-                                    selector:@selector(rightNavgationbarClicked)
-                                       title:@"群设置"
-                                  titleColor:nil];
+    UIBarButtonItem *videoCallItem = [self makeNavgationBarButtonItemWithTarget:self selector:@selector(videoCallItemClicked) title:@"视频" titleColor:nil poistion:LXNavgationBarItemCenter];
+    UIBarButtonItem *voiceCallItem = [self makeNavgationBarButtonItemWithTarget:self selector:@selector(voiceCallItemClicked) title:@"语音" titleColor:nil poistion:LXNavgationBarItemCenter];
+    self.navigationItem.rightBarButtonItems = @[videoCallItem, voiceCallItem];
+}
+
+- (void)videoCallItemClicked {
+    [self startCallWith:YES];
+}
+
+- (void)voiceCallItemClicked {
+    [self startCallWith:NO];
+}
+
+- (void)startCallWith:(BOOL)isVideo {
+    WebRTCManager *manager = [WebRTCManager sharedInstance];
+    [manager startEngine];
+    manager.myJid = self.sender.jid.bare;
+    manager.remoteJid = self.contact.jid.bare;
+    
+    [manager showRtcViewWith:self.contact.jid.full isVideo:isVideo isCallee:NO];
 }
 
 - (void)rightNavgationbarClicked {
@@ -127,7 +148,6 @@
     self.inputToolbar.contentView.rightBarButtonItem = sendButton;
 }
 
-// 这个按钮可能是图片有问题
 - (void)setInputBarLeftButton {
     UIButton *recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
     recordButton.frame = CGRectMake(0.0f, 0.0f, 45.0f, 32.0f);
@@ -218,8 +238,7 @@
         message = [XMPPMessage messageWithType:@"chat" to:self.contact.jid]; // [[XMPPMessage alloc] initWithType:@"chat" to:self.contact.jid];
     }
     // 添加回执，并且在didReceivedMessage回调中对回执进行组装和发送，方便我们知道消息是否发送成功
-    NSXMLElement *receipt = [NSXMLElement elementWithName:@"request" xmlns:@"urn:xmpp:receipts"];
-    [message addChild:receipt];
+    message.request = @"urn:xmpp:receipts";
     
     return message;
 }

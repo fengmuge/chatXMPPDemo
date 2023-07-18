@@ -40,13 +40,13 @@
 @interface RTCView ()
 
 /** 是否是视频聊天 */
-@property (assign, nonatomic)   BOOL                    isVideo;
+@property (assign, nonatomic, readwrite)   BOOL                    isVideo;
 /** 是否是被呼叫方 */
-@property (assign, nonatomic)   BOOL                    callee;
+@property (assign, nonatomic, readwrite)   BOOL                    callee;
 /** 本地是否开启摄像头  */
-@property (assign, nonatomic)   BOOL                    localCamera;
+@property (assign, nonatomic, readwrite)   BOOL                    localCamera;
 /** 是否是外放模式 */
-@property (assign, nonatomic)   BOOL                    loudSpeaker;
+@property (assign, nonatomic, readwrite)   BOOL                    loudSpeaker;
 
 /** 语音聊天背景视图 */
 @property (strong, nonatomic)   UIImageView             *bgImageView;

@@ -10,6 +10,10 @@
 #import "RTCHeader.h"
 #import "RTCView.h"
 
+#import "RTCRoom.h"
+
+#import "MessageManager.h"
+
 @interface WebRTCManager () <
 RTCPeerConnectionDelegate,
 RTCSessionDescriptionDelegate,
@@ -45,6 +49,10 @@ CXCallObserverDelegate
 @property (nonatomic, assign)   BOOL initiator;
 // 是否收到SDP信息
 @property (nonatomic, assign)   BOOL hasReceivedSdp;
+// 已经发送候选
+@property (nonatomic, assign)   BOOL HaveSentCandidate;
+
+@property (nonatomic, assign)   BOOL isVideoCall;
 
 @end
 
@@ -151,16 +159,45 @@ static WebRTCManager *_sharedInstance;
         // 如果是被呼叫者,需要处理信号信息,创建一个answer
         NSLog(@"如果是接收者，就要处理信号信息");
         self.rtcView.connectText = isVideo ? @"视频通话" : @"语音通话";
-        // 注册房间，并加入
-//        [self req];
-    } else {
-        
+//        // 注册房间，并加入
+//        [self requestRoomServerWithURL:kRTCRoomServer roomId:self.roomId completionHandler:^(RTCRoom *info, BOOL success) {
+//            if (!success) {
+//                NSLog(@"加入房间失败");
+//                return;
+//            }
+//            NSLog(@"加入房间成功 %@", info);
+//            self.roomId = info.params.room_id;
+//            self.clientId = info.params.client_id;
+//
+//            for (NSString *messageStr in info.params.messages) {
+//                NSData *data = [messageStr dataUsingEncoding:NSUTF8StringEncoding];
+//                NSDictionary *messageDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//                [self handleSignalingMessage:messageDict];
+//            }
+//        }];
+    } else { // 如果是呼叫者
+        self.initiator = YES;
+//        NSString *roomId = [NSString random];
+//
+//        [self requestRoomServerWithURL:kRTCRoomServer roomId:roomId completionHandler:^(RTCRoom *info, BOOL success) {
+//            if (!success) {
+//                NSLog(@"加入房间失败");
+//                return;
+//            }
+//            self.roomId = info.params.room_id;
+//            self.clientId = info.params.client_id;
+//            self.initiator = info.params.is_initiator;
+            
+            [self initRTCConfiguration];
+            // 创建一个offer信号
+            [self.peerConnection createOfferWithDelegate:self constraints:self.sdpConstraints];
+//        }];
     }
 }
 
 // 关于RTC配置
 - (void)initRTCConfiguration {
-    self.peerConnection = [self.peerConnectionFactory peerConnectionWithICEServers:_ICEServers constraints:self.pcConstraints delegate:self];
+    self.peerConnection = [self.peerConnectionFactory peerConnectionWithICEServers:self.ICEServers constraints:self.pcConstraints delegate:self];
     // 设置local media stream
     RTCMediaStream *mediaStream = [self.peerConnectionFactory mediaStreamWithLabel:@"ARDAMS"];
     // 添加 local video track
@@ -230,25 +267,114 @@ static WebRTCManager *_sharedInstance;
                                                  name:kAcceptNotification
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedSignalingMessage)
+                                             selector:@selector(receivedSignalingMessage:)
                                                  name:kReceivedSignalingMessageNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedOfferMessage:)
+                                                 name:kReceivedOfferSignalingMessageNotification
+                                               object:nil];
+}
+
+// 收到通话邀请
+- (void)receivedOfferMessage:(NSNotification *)notification {
+    NSDictionary *dict = [notification object];
+    NSString *jid = dict[@"myJid"];
+    BOOL isVideo = [(NSNumber *)dict[@"isVideo"] boolValue];
+    [self showRtcViewWith:jid isVideo:isVideo isCallee:YES];
 }
 
 // 挂断
 - (void)hangUp {
-    
+    [self processMessageDict:@{@"type": @"bye"}];
 }
 
 // 同意对方的语音或视频通话请求
 - (void)accept {
+    [self.audioPlayer stop];
+    [self initRTCConfiguration];
     
+//    [self drainMessage];
+    
+    NSLog(@"%@", self.remoteVideoView);
+
+    for (NSDictionary *dict in self.messages) {
+        [self processMessageDict:dict];
+    }
+    [self.messages removeAllObjects];
+}
+
+- (void)drainMessage {
+    if (!_peerConnection || !_hasReceivedSdp) {
+        return;
+    }
+    for (NSDictionary *dict in self.messages) {
+        [self processMessageDict:dict];
+    }
+    [self.messages removeAllObjects];
 }
 
 // 收到视频/语音 通话消息
-- (void)receivedSignalingMessage {
-    if (@available(iOS 10.0, *)) {
+- (void)receivedSignalingMessage:(NSNotification *)notification {
+    NSDictionary *dict = [notification object];
+    
+    self.myJid = dict[@"myJid"];
+    self.remoteJid = dict[@"remoteJid"];
+    
+    [self handleSignalingMessage:dict];
+    
+//    [self drainMessage];
+}
+
+- (void)handleSignalingMessage:(NSDictionary *)dict {
+    NSString *type = dict[@"type"];
+    if ([type isEqualToString:@"offer"]) {
+        [self showRtcViewWith:self.remoteJid isVideo:YES isCallee:YES];
+        [self.messages insertObject:dict atIndex:0];
+        _hasReceivedSdp = YES;
+    } else if ([type isEqualToString:@"answer"]) {
+        RTCSessionDescription *sdp = [[RTCSessionDescription alloc] initWithType:type sdp:dict[@"sdp"]];
+        [self.peerConnection setRemoteDescriptionWithDelegate:self sessionDescription:sdp];
+    } else if ([type isEqualToString:@"candidate"]) {
+        [self.messages addObject:dict];
+    } else if ([type isEqualToString:@"bye"]) {
+        [self processMessageDict:dict];
+    }
+}
+
+- (void)processMessageDict:(NSDictionary *)dict {
+    NSString *type = dict[@"type"];
+    if ([type isEqualToString:@"offer"]) {
+        RTCSessionDescription *remoteSdp = [[RTCSessionDescription alloc] initWithType:type sdp:dict[@"sdp"]];
         
+        [self.peerConnection setRemoteDescriptionWithDelegate:self sessionDescription:remoteSdp];
+        
+        [self.peerConnection createAnswerWithDelegate:self constraints:self.sdpConstraints];
+    } else if ([type isEqualToString:@"answer"]) {
+        RTCSessionDescription *remoteSdp = [[RTCSessionDescription alloc] initWithType:type sdp:dict[@"sdp"]];
+        
+        [self.peerConnection setRemoteDescriptionWithDelegate:self sessionDescription:remoteSdp];
+        
+    } else if ([type isEqualToString:@"candidate"]) {
+        NSString *mid = [dict objectForKey:@"id"];
+        NSNumber *sdpLineIndex = [dict objectForKey:@"label"];
+        NSString *sdp = [dict objectForKey:@"sdp"];
+        RTCICECandidate *candidate = [[RTCICECandidate alloc] initWithMid:mid index:sdpLineIndex.intValue sdp:sdp];
+
+        [self.peerConnection addICECandidate:candidate];
+    } else if ([type isEqualToString:@"bye"]) {
+
+        if (self.rtcView) {
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            if (jsonStr.length > 0) {
+                [[MessageManager sharedInstance] sendSignalingMessage:jsonStr toUser:self.remoteJid isVideoCall:self.isVideoCall];
+            }
+            
+            [self.rtcView dismiss];
+            
+            [self cleanCache];
+        }
     }
 }
 
@@ -312,11 +438,116 @@ static WebRTCManager *_sharedInstance;
     NSLog(@"outgoing(拨打):%d  onHold(待接通):%d   hasConnected(接通):%d   hasEnded(挂断):%d",call.outgoing,call.onHold,call.hasConnected,call.hasEnded);
 }
 
+/**
+ *  在服务器端创建房间
+ *
+ *  @param URL               房间服务器地址
+ *  @param roomId            房间号
+ *  @param completionHandler 完成后回调
+ */
+- (void)requestRoomServerWithURL:(NSString *)URL roomId:(NSString *)roomId completionHandler:(void (^)(RTCRoom *info, BOOL success))completionHandler
+{
+    [SJNetworkConfig sharedConfig].baseUrl = kRTCRoomServer;
+    [[SJNetworkManager sharedManager] sendPostRequest:[NSString stringWithFormat:@"/join/%@", roomId] parameters:nil success:^(id responseObject) {
+        RTCRoom *item = [RTCRoom yy_modelWithJSON:responseObject];
+        if (completionHandler) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(item, item != nil);
+            });
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        NSLog(@"在服务器上创建房间失败");
+        if (completionHandler) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil, NO);
+            });
+        }
+    }];
+}
+
+- (void)registWithRoomId:(NSString *)roomId clientId:(NSString *)clientId completionHandle:(void (^)(NSDictionary *dict))completionHandler
+{
+    [SJNetworkConfig sharedConfig].baseUrl = kRTCRoomServer;
+    [[SJNetworkManager sharedManager] sendPostRequest:[NSString stringWithFormat:@"/%@/%@", roomId, clientId] parameters:nil success:^(id responseObject) {
+        NSLog(@"%s result: %@", __func__, responseObject);
+        
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        if (completionHandler) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil);
+            });
+        }
+    }];
+}
+
+- (RTCSessionDescription *)descriptionWithDescription:(RTCSessionDescription *)description videoFormat:(NSString *)videoFormat
+{
+    NSString *sdpString = description.description;
+    NSString *lineChar = @"\n";
+    NSMutableArray *lines = [NSMutableArray arrayWithArray:[sdpString componentsSeparatedByString:lineChar]];
+    NSInteger mLineIndex = -1;
+    NSString *videoFormatRtpMap = nil;
+    NSString *pattern = [NSString stringWithFormat:@"^a=rtpmap:(\\d+) %@(/\\d+)+[\r]?$", videoFormat];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    for (int i = 0; (i < lines.count) && (mLineIndex == -1 || !videoFormatRtpMap); ++i) {
+        // mLineIndex 和 videoFromatRtpMap 都更新了之后跳出循环
+        NSString *line = lines[i];
+        if ([line hasPrefix:@"m=video"]) {
+            mLineIndex = i;
+            continue;
+        }
+        
+        NSTextCheckingResult *result = [regex firstMatchInString:line options:0 range:NSMakeRange(0, line.length)];
+        if (result) {
+            videoFormatRtpMap = [line substringWithRange:[result rangeAtIndex:1]];
+            continue;
+        }
+    }
+    
+    if (mLineIndex == -1) {
+        // 没有m = video line, 所以不能转格式,所以返回原来的description
+        return description;
+    }
+    
+    if (!videoFormatRtpMap) {
+        // 没有videoFormat 类型的rtpmap。
+        return description;
+    }
+    
+    NSString *spaceChar = @" ";
+    NSArray *origSpaceLineParts = [lines[mLineIndex] componentsSeparatedByString:spaceChar];
+    if (origSpaceLineParts.count > 3) {
+        NSMutableArray *newMLineParts = [NSMutableArray arrayWithCapacity:origSpaceLineParts.count];
+        NSInteger origPartIndex = 0;
+        
+        [newMLineParts addObject:origSpaceLineParts[origPartIndex++]];
+        [newMLineParts addObject:origSpaceLineParts[origPartIndex++]];
+        [newMLineParts addObject:origSpaceLineParts[origPartIndex++]];
+        [newMLineParts addObject:videoFormatRtpMap];
+        for (; origPartIndex < origSpaceLineParts.count; ++origPartIndex) {
+            if (![videoFormatRtpMap isEqualToString:origSpaceLineParts[origPartIndex]]) {
+                [newMLineParts addObject:origSpaceLineParts[origPartIndex]];
+            }
+        }
+        
+        NSString *newMLine = [newMLineParts componentsJoinedByString:spaceChar];
+        [lines replaceObjectAtIndex:mLineIndex withObject:newMLine];
+    } else {
+        NSLog(@"SDP Media description 格式 错误");
+    }
+    NSString *mangledSDPString = [lines componentsJoinedByString:lineChar];
+    
+    return [[RTCSessionDescription alloc] initWithType:description.type sdp:mangledSDPString];
+}
 
 #pragma mark --getter/setter--
+- (BOOL)isVideoCall {
+    return self.rtcView.isVideo;
+}
+
 - (NSMutableArray *)ICEServers {
     if (!_ICEServers) {
-        _ICEServers = [NSMutableArray arrayWithObject:[self defaultSTUNServer]];
+        _ICEServers = [[NSMutableArray alloc] init]; // [NSMutableArray arrayWithObject:[self defaultSTUNServer]];
     }
     return _ICEServers;
 }
@@ -329,51 +560,129 @@ static WebRTCManager *_sharedInstance;
 }
 
 #pragma mark --RTCPeerConnectionDelegate--
-// Triggered when the SignalingState changed.
+// 信号状态改变
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
  signalingStateChanged:(RTCSignalingState)stateChanged {
+    NSLog(@"信号状态改变 %s", __func__);
     
+    switch (stateChanged) {
+        case RTCSignalingStable:
+            break;
+        case RTCSignalingClosed:
+            break;
+        case RTCSignalingHaveLocalOffer:
+            break;
+        case RTCSignalingHaveRemoteOffer:
+            break;
+        case RTCSignalingHaveLocalPrAnswer:
+            break;
+        case RTCSignalingHaveRemotePrAnswer:
+            break;
+        default:
+            break;
+    }
 }
 
-// Triggered when media is received on a new stream from remote peer.
+// 已添加多媒体流
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
            addedStream:(RTCMediaStream *)stream {
+    NSLog(@"received %lu video tracks and %lu audio tracks", stream.videoTracks.count, stream.audioTracks.count);
     
+    if (stream.videoTracks.count) {
+        self.remoteVideoTrack = nil;
+        [self.remoteVideoView renderFrame:nil];
+        
+        self.remoteVideoTrack = stream.videoTracks[0];
+        [self.remoteVideoTrack addRenderer:self.remoteVideoView];
+    }
+    
+    [self videoView:self.remoteVideoView didChangeVideoSize:self.rtcView.adverseImageView.bounds.size];
+    [self videoView:self.localVideoView didChangeVideoSize:self.rtcView.ownImageView.bounds.size];
 }
 
-// Triggered when a remote peer close a stream.
+// 已移除多媒体流
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
          removedStream:(RTCMediaStream *)stream {
-    
+    NSLog(@"%s", __func__);
 }
 
-// Triggered when renegotiation is needed, for example the ICE has restarted.
+// 重新协商时候触发, 例如ICE重新启动
 - (void)peerConnectionOnRenegotiationNeeded:(RTCPeerConnection *)peerConnection {
-    
+    NSLog(@"%s", __func__);
 }
 
-// Called any time the ICEConnectionState changes.
+// ICE 连接状态改变时候触发
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
   iceConnectionChanged:(RTCICEConnectionState)newState {
-    
+    switch (newState) {
+        case RTCICEConnectionNew:
+            break;
+        case RTCICEConnectionMax:
+            break;
+        case RTCICEConnectionClosed:
+            break;
+        case RTCICEConnectionFailed:
+            break;
+        case RTCICEConnectionChecking:
+            break;
+        case RTCICEConnectionCompleted:
+            break;
+        case RTCICEConnectionConnected:
+            break;
+        case RTCICEConnectionDisconnected:
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.rtcView dismiss];
+                [self cleanCache];
+            });
+        }
+            break;
+        default:
+            break;
+    }
 }
 
-// Called any time the ICEGatheringState changes.
+// ICEGatheringState 收集状态改变时候触发
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
    iceGatheringChanged:(RTCICEGatheringState)newState {
-    
+    switch (newState) {
+        case RTCICEGatheringNew:
+            break;
+        case RTCICEGatheringComplete:
+            break;
+        case RTCICEGatheringGathering:
+            break;
+        default:
+            break;
+    }
 }
 
-// New Ice candidate have been found.
+// 新的ICE candidate候选人被发现时候触发
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
        gotICECandidate:(RTCICECandidate *)candidate {
-    
+    if (self.HaveSentCandidate) {
+        return;
+    }
+    NSDictionary *jsonDict = @{@"type": @"candidate",
+                               @"label": [NSNumber numberWithInteger:candidate.sdpMLineIndex],
+                               @"id": candidate.sdpMid,
+                               @"sdp": candidate.sdp
+    };
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:&error];
+    if (error || jsonData.length <= 0) {
+        NSLog(@"候选人信息处理失败 error: %@", [error localizedDescription]);
+        return;
+    }
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [[MessageManager sharedInstance] sendSignalingMessage:jsonStr toUser:self.remoteJid isVideoCall:self.isVideoCall];
+    self.HaveSentCandidate = YES;
 }
 
-// New data channel has been opened.
+// 新的数据通道被打开
 - (void)peerConnection:(RTCPeerConnection*)peerConnection
     didOpenDataChannel:(RTCDataChannel*)dataChannel {
-    
+    NSLog(@"%s", __func__);
 }
 
 #pragma mark --RTCSessionDescriptionDelegate--
@@ -381,13 +690,35 @@ static WebRTCManager *_sharedInstance;
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
     didCreateSessionDescription:(RTCSessionDescription *)sdp
                  error:(NSError *)error {
-    
+    if (error) {
+        NSLog(@"创建SessionDescription失败 error: %@", [error localizedDescription]);
+    } else {
+        NSLog(@"创建SessionDescription成功");
+        RTCSessionDescription *sdpH264 = [self descriptionWithDescription:sdp videoFormat:@"h264"];
+        [self.peerConnection setLocalDescriptionWithDelegate:self sessionDescription:sdpH264];
+        
+//        if ([sdp.type isEqualToString:@"offer"]) {
+//            NSDictionary *dict = @{@"roomId": self.roomId};
+//            NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
+//            NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//
+//            [[MessageManager sharedInstance] sendSignalingMessage:message toUser:self.remoteJid isVideoCall:self.isVideoCall];
+//        }
+        
+        NSDictionary *jsonDict = @{@"type": sdp.type, @"sdp": sdp.description};
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:0 error:nil];
+        NSString *jsonMessage = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        [[MessageManager sharedInstance] sendSignalingMessage:jsonMessage toUser:self.remoteJid isVideoCall:self.isVideoCall];
+    }
 }
 
 // Called when setting a local or remote description.
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
 didSetSessionDescriptionWithError:(NSError *)error {
-    
+    NSLog(@"%s", __func__);
+    if (error) {
+        NSLog(@"设置SessionDescription失败 error: %@", [error localizedDescription]);
+    }
 }
 
 #pragma mark --RTCEAGLVideoViewDelegate--

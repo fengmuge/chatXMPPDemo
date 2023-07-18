@@ -28,6 +28,15 @@
     return NO;
 }
 
+- (NSXMLElement *)request {
+    return [self elementForName:@"request"];
+}
+
+- (void)setRequest:(NSString *)request {
+    NSXMLElement *receipt = [NSXMLElement elementWithName:@"request" xmlns:request];
+    [self addChild:receipt];
+}
+
 - (LXMessageBodyType)bodyType {
     NSString *bodyTypeValue = self.attributesAsDictionary[@"bodyType"];
     if ([bodyTypeValue isEqualToString:@"text"]) {
@@ -38,6 +47,10 @@
         return LXMessageBodyVideo;
     } else if ([bodyTypeValue isEqualToString:@"image"]) {
         return LXMessageBodyImage;
+    } else if ([bodyTypeValue isEqualToString:@"videoCall"]) {
+        return LXMessageBodyVideoCall;
+    } else if ([bodyTypeValue isEqualToString:@"voiceCall"]) {
+        return LXMessageBodyVoiceCell;
     }
     return LXMessageBodyCard;
 }
@@ -57,6 +70,10 @@
             return @"video";
         case LXMessageBodyImage:
             return @"image";
+        case LXMessageBodyVideoCall:
+            return @"videoCall";
+        case LXMessageBodyVoiceCell:
+            return @"voiceCall";
         default:
             return @"card";
     }

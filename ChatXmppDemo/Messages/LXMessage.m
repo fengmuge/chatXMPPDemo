@@ -7,7 +7,7 @@
 
 #import "LXMessage.h"
 #import "User.h"
-
+#import "WebRTCManager.h"
 #import "XMPPMessage+custom.h"
 
 @interface LXMessage ()
@@ -116,7 +116,7 @@
     self.messageId = message.attributesAsDictionary[@"id"]; // 或者 [message elementID]
     
     [self makeMediaWith:message];
-    
+    [self makeCallWith:message];
     [self makeDelayDate:message.children];
     
     [self makeJSQMessage];
@@ -152,6 +152,38 @@
     }
     
     self.isMySend = [jidUser isEqualToString:self.fromName];
+}
+
+- (void)makeCallWith:(XMPPMessage *)message {
+    if (message.bodyType != LXMessageBodyVideoCall && message.bodyType != LXMessageBodyVoiceCell) {
+        return;
+    }
+    NSData *data = [message.body dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingAllowFragments
+                                                           error:&error];
+    if (error) {
+        NSLog(@"视频/语音通话数据解析失败!");
+        return;
+    }
+    
+    BOOL isVideoCall = message.bodyType == LXMessageBodyVideoCall;
+    NSString *myJid = [UserManager sharedInstance].jid.bare;
+    
+    NSMutableDictionary *mutableDict = [dict mutableCopy];
+    mutableDict[@"myJid"] = myJid;
+    mutableDict[@"isVideo"] = [NSNumber numberWithBool:isVideoCall];
+    
+    if ([dict objectForKey:@"roomId"]) {
+//        [[WebRTCManager sharedInstance] showRtcViewWith:myJid isVideo:isVideoCall isCallee:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReceivedOfferSignalingMessageNotification object:dict];
+    } else {
+//        [WebRTCManager sharedInstance].myJid = myJid;
+//        [WebRTCManager sharedInstance].remoteJid = message.from.bare;
+        mutableDict[@"remoteJid"] = message.from.bare;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReceivedSignalingMessageNotification object:dict];
+    }
 }
 
 // 例子，处理多媒体线信息(通过二进制进行传递，临时使用body作为type判断，正式项目不可以这样搞)
