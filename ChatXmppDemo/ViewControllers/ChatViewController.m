@@ -106,8 +106,8 @@
 - (void)startCallWith:(BOOL)isVideo {
     WebRTCManager *manager = [WebRTCManager sharedInstance];
     [manager startEngine];
-    manager.myJid = self.sender.jid.bare;
-    manager.remoteJid = self.contact.jid.bare;
+    manager.myJid = self.sender.jid.user;
+    manager.remoteJid = self.contact.jid.user;
     
     [manager showRtcViewWith:self.contact.jid.full isVideo:isVideo isCallee:NO];
 }

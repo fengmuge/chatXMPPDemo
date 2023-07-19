@@ -588,16 +588,23 @@ static WebRTCManager *_sharedInstance;
            addedStream:(RTCMediaStream *)stream {
     NSLog(@"received %lu video tracks and %lu audio tracks", stream.videoTracks.count, stream.audioTracks.count);
     
-    if (stream.videoTracks.count) {
-        self.remoteVideoTrack = nil;
-        [self.remoteVideoView renderFrame:nil];
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong typeof(self) strongSelf = weakSelf;
+        if (stream.videoTracks.count) {
+            strongSelf.remoteVideoTrack = nil;
+            [strongSelf.remoteVideoView renderFrame:nil];
+            
+            strongSelf.remoteVideoTrack = stream.videoTracks[0];
+            [strongSelf.remoteVideoTrack addRenderer:strongSelf.remoteVideoView];
+        }
         
-        self.remoteVideoTrack = stream.videoTracks[0];
-        [self.remoteVideoTrack addRenderer:self.remoteVideoView];
-    }
-    
-    [self videoView:self.remoteVideoView didChangeVideoSize:self.rtcView.adverseImageView.bounds.size];
-    [self videoView:self.localVideoView didChangeVideoSize:self.rtcView.ownImageView.bounds.size];
+        [strongSelf videoView:strongSelf.remoteVideoView
+           didChangeVideoSize:strongSelf.rtcView.adverseImageView.bounds.size];
+        
+        [strongSelf videoView:strongSelf.localVideoView
+           didChangeVideoSize:strongSelf.rtcView.ownImageView.bounds.size];
+    });
 }
 
 // 已移除多媒体流
@@ -631,9 +638,11 @@ static WebRTCManager *_sharedInstance;
             break;
         case RTCICEConnectionDisconnected:
         {
+            __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.rtcView dismiss];
-                [self cleanCache];
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf.rtcView dismiss];
+                [strongSelf cleanCache];
             });
         }
             break;

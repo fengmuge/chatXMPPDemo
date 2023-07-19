@@ -38,8 +38,8 @@
     [self.view addSubview:self.registerButton];
     
 #warning mark --测试数据--
-    self.userNameTF.text = @"12312";
-    self.passwordTF.text = @"12";
+    self.userNameTF.text = @"12310";
+    self.passwordTF.text = @"123";
 }
 
 - (void)viewWillAppear:(BOOL)animated {

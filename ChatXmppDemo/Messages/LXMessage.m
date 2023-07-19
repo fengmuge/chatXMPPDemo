@@ -169,7 +169,7 @@
     }
     
     BOOL isVideoCall = message.bodyType == LXMessageBodyVideoCall;
-    NSString *myJid = [UserManager sharedInstance].jid.bare;
+    NSString *myJid = [UserManager sharedInstance].jid.user;
     
     NSMutableDictionary *mutableDict = [dict mutableCopy];
     mutableDict[@"myJid"] = myJid;
@@ -181,7 +181,7 @@
     } else {
 //        [WebRTCManager sharedInstance].myJid = myJid;
 //        [WebRTCManager sharedInstance].remoteJid = message.from.bare;
-        mutableDict[@"remoteJid"] = message.from.bare;
+        mutableDict[@"remoteJid"] = message.from.user;
         [[NSNotificationCenter defaultCenter] postNotificationName:kReceivedSignalingMessageNotification object:dict];
     }
 }

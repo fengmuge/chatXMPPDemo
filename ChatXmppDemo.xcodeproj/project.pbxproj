@@ -16,6 +16,7 @@
 		652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443ED2A56B5FC00871283 /* AVFoundation.framework */; };
 		652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443EF2A56B60600871283 /* CoreLocation.framework */; };
 		652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443F12A56B60D00871283 /* UserNotifications.framework */; };
+		653A87962A669B9700A2DA82 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 653A87952A669B9700A2DA82 /* libWebRTC.a */; };
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
@@ -278,6 +279,7 @@
 		652443ED2A56B5FC00871283 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652443EF2A56B60600871283 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		652443F12A56B60D00871283 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		653A87952A669B9700A2DA82 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				65C528C22A5EAA2D004EB3C3 /* GLKit.framework in Frameworks */,
 				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
 				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
+				653A87962A669B9700A2DA82 /* libWebRTC.a in Frameworks */,
 				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
@@ -927,6 +930,7 @@
 		65BE2C2D2A64D94300F18440 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
+				653A87952A669B9700A2DA82 /* libWebRTC.a */,
 				65BE2C2E2A64D94300F18440 /* include */,
 			);
 			path = WebRTC;

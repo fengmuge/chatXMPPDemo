@@ -36,3 +36,9 @@
 
 2 由于libWebRTC.a文件过大，所以保存在了百度网盘
        链接: https://pan.baidu.com/s/1KEwDMtZc4s50faKAgzKeKQ  密码: eu7m
+
+记录 --- 2023-07-19
+  
+1 完成WebRTC音视频通话，这里感谢Harvey大佬的RTCView
+
+2 目前还存在由于消息未过滤导致的重复接听和需要多次挂断才能关闭通话页面等问题
