@@ -16,7 +16,10 @@
 		652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443ED2A56B5FC00871283 /* AVFoundation.framework */; };
 		652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443EF2A56B60600871283 /* CoreLocation.framework */; };
 		652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443F12A56B60D00871283 /* UserNotifications.framework */; };
-		653A87962A669B9700A2DA82 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 653A87952A669B9700A2DA82 /* libWebRTC.a */; };
+		653A87982A677C5300A2DA82 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 653A87972A677C5300A2DA82 /* libWebRTC.a */; };
+		653A879C2A68E09500A2DA82 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A879B2A68E09500A2DA82 /* Conversation.m */; };
+		653A879F2A68E3BE00A2DA82 /* NSMutableArray+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A879E2A68E3BE00A2DA82 /* NSMutableArray+custom.m */; };
+		653A87A22A6A32DE00A2DA82 /* UIView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A87A12A6A32DE00A2DA82 /* UIView+custom.m */; };
 		654CEAA82A2D85E6001F8541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAA72A2D85E6001F8541 /* AppDelegate.m */; };
 		654CEAAE2A2D85E6001F8541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CEAAD2A2D85E6001F8541 /* ViewController.m */; };
 		654CEAB12A2D85E6001F8541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654CEAAF2A2D85E6001F8541 /* Main.storyboard */; };
@@ -279,7 +282,14 @@
 		652443ED2A56B5FC00871283 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652443EF2A56B60600871283 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		652443F12A56B60D00871283 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		653A87952A669B9700A2DA82 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
+		653A87972A677C5300A2DA82 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
+		653A87992A67920900A2DA82 /* LXMessageDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMessageDefine.h; sourceTree = "<group>"; };
+		653A879A2A68E09500A2DA82 /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		653A879B2A68E09500A2DA82 /* Conversation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		653A879D2A68E3BE00A2DA82 /* NSMutableArray+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+custom.h"; sourceTree = "<group>"; };
+		653A879E2A68E3BE00A2DA82 /* NSMutableArray+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+custom.m"; sourceTree = "<group>"; };
+		653A87A02A6A32DE00A2DA82 /* UIView+custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+custom.h"; sourceTree = "<group>"; };
+		653A87A12A6A32DE00A2DA82 /* UIView+custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+custom.m"; sourceTree = "<group>"; };
 		654CEAA32A2D85E6001F8541 /* ChatXmppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXmppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654CEAA62A2D85E6001F8541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654CEAA72A2D85E6001F8541 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -522,7 +532,7 @@
 				65C528C22A5EAA2D004EB3C3 /* GLKit.framework in Frameworks */,
 				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
 				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
-				653A87962A669B9700A2DA82 /* libWebRTC.a in Frameworks */,
+				653A87982A677C5300A2DA82 /* libWebRTC.a in Frameworks */,
 				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
@@ -720,12 +730,16 @@
 				654CEB2F2A307A64001F8541 /* UITableView+custom.m */,
 				6575E2B52A5E576C00DA5768 /* UITableViewCell+custom.h */,
 				6575E2B62A5E576C00DA5768 /* UITableViewCell+custom.m */,
+				653A87A02A6A32DE00A2DA82 /* UIView+custom.h */,
+				653A87A12A6A32DE00A2DA82 /* UIView+custom.m */,
 				654CEB3D2A31CC13001F8541 /* UIViewController+custom.h */,
 				654CEB3E2A31CC13001F8541 /* UIViewController+custom.m */,
 				65AABE4D2A3FF28E000EBEA6 /* UICollectionView+custom.h */,
 				65AABE4E2A3FF28E000EBEA6 /* UICollectionView+custom.m */,
 				65B0C69E2A418962008B65AB /* NSArray+custom.h */,
 				65B0C69F2A418962008B65AB /* NSArray+custom.m */,
+				653A879D2A68E3BE00A2DA82 /* NSMutableArray+custom.h */,
+				653A879E2A68E3BE00A2DA82 /* NSMutableArray+custom.m */,
 				65B0C7A82A481BEE008B65AB /* NSDate+custom.h */,
 				65B0C7A92A481BEE008B65AB /* NSDate+custom.m */,
 				654CEB262A2F0CA5001F8541 /* NSString+custom.h */,
@@ -750,6 +764,7 @@
 				654CF67A2A37216D001F8541 /* FontDefine.h */,
 				654CEB242A2F0C10001F8541 /* globalDefine.h */,
 				654CF6702A36FCD8001F8541 /* NotificationDefine.h */,
+				653A87992A67920900A2DA82 /* LXMessageDefine.h */,
 				654CEB232A2F0C10001F8541 /* HHDeviceTool.h */,
 				654CEB222A2F0C10001F8541 /* HHDeviceTool.m */,
 			);
@@ -782,6 +797,8 @@
 				65B0C6A22A42D80C008B65AB /* Room.m */,
 				65BE2C522A65229600F18440 /* RTCRoom.h */,
 				65BE2C532A65229600F18440 /* RTCRoom.m */,
+				653A879A2A68E09500A2DA82 /* Conversation.h */,
+				653A879B2A68E09500A2DA82 /* Conversation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -930,7 +947,7 @@
 		65BE2C2D2A64D94300F18440 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
-				653A87952A669B9700A2DA82 /* libWebRTC.a */,
+				653A87972A677C5300A2DA82 /* libWebRTC.a */,
 				65BE2C2E2A64D94300F18440 /* include */,
 			);
 			path = WebRTC;
@@ -1291,6 +1308,7 @@
 				654CEB0A2A2ECB23001F8541 /* ConversationViewController.m in Sources */,
 				654CEAF12A2D86D0001F8541 /* AuxiliaryManager.m in Sources */,
 				65BE2C542A65229600F18440 /* RTCRoom.m in Sources */,
+				653A879C2A68E09500A2DA82 /* Conversation.m in Sources */,
 				654CEAE22A2D8640001F8541 /* RosterManager.m in Sources */,
 				652443DE2A564FC700871283 /* RoomCacheModel.m in Sources */,
 				65CD73B92A4AC3A100507D52 /* XMPPMessage+custom.m in Sources */,
@@ -1319,6 +1337,7 @@
 				654CF6922A395DA0001F8541 /* UITextField+custom.m in Sources */,
 				658AA3762A5D48BD007E69DC /* LXUserDefaults.m in Sources */,
 				654CEAEB2A2D866E001F8541 /* MessageManager.m in Sources */,
+				653A879F2A68E3BE00A2DA82 /* NSMutableArray+custom.m in Sources */,
 				654CF6832A384312001F8541 /* XMPPJID+custom.m in Sources */,
 				654CEAB92A2D85E8001F8541 /* main.m in Sources */,
 				65B0C6A02A418962008B65AB /* NSArray+custom.m in Sources */,
@@ -1333,6 +1352,7 @@
 				654CEB172A2ED50A001F8541 /* UITabBarItem+custom.m in Sources */,
 				654CF6792A371BFA001F8541 /* SubscriptionTableViewCell.m in Sources */,
 				654CEB422A32CD6B001F8541 /* UserManager.m in Sources */,
+				653A87A22A6A32DE00A2DA82 /* UIView+custom.m in Sources */,
 				654CF6862A384A51001F8541 /* FriendMenuTableViewCell.m in Sources */,
 				652443D82A553C4800871283 /* LRUCacheModel.m in Sources */,
 				654CF67D2A373386001F8541 /* DDXMLElement+custom.m in Sources */,

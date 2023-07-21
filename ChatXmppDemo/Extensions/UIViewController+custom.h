@@ -24,6 +24,8 @@ typedef void (^kInputAlertTextFieldHandler)(UITextField *textField);
 
 + (UIViewController *)currentVC;
 
+- (BOOL)isCurrentVC;
+
 - (void)showHud:(NSTimeInterval)afterDelay;
 
 - (void)hideHud:(bool)animated;

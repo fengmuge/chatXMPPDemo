@@ -17,7 +17,7 @@
 #import "TranscribeVoiceView.h"
 #import "XMPPMessage+custom.h"
 
-@interface ChatViewController ()
+@interface ChatViewController () // <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *messages;
 @property (nonatomic, strong) JSQMessagesBubbleImage *myBubble;
@@ -238,7 +238,7 @@
         message = [XMPPMessage messageWithType:@"chat" to:self.contact.jid]; // [[XMPPMessage alloc] initWithType:@"chat" to:self.contact.jid];
     }
     // 添加回执，并且在didReceivedMessage回调中对回执进行组装和发送，方便我们知道消息是否发送成功
-    message.request = @"urn:xmpp:receipts";
+    message.request = kReceipts;
     
     return message;
 }
@@ -329,16 +329,20 @@
                                                  name:kXMPP_DIDFAIL_TOSEND_MESSAGE
                                                object:nil];
 }
-// 发送消息不需要进行处理，除非是有特殊需求，因为有消息回执的原因，发送出去的消息自己也会接收到
-// 收到消息
+// 收到消息: 因为有消息回执的原因，发送出去的消息自己会接收到回执信息,这种消息不需要进行处理，除非是有特殊需求，
 - (void)didReceiveMessage:(NSNotification *)notification {
+    if (![self isCurrentVC]) {
+        return;
+    }
     XMPPMessage *message = (XMPPMessage *)[notification object];
-    bool isRequest = [(NSNumber *)([notification userInfo][@"isRequest"]) boolValue];
-    if (!message || !isRequest) {
+    if (!message) {
         return;
     }
     // 处理消息，缓存并展示
     LXMessage *msg = [[LXMessage alloc] initWithMessage:message];
+    if (!msg.willShow) {
+        return;
+    }
     [self.messages addObject:msg];
     [self.collectionView reloadData];
     [self.collectionView scrollToBottom:NO];
@@ -346,6 +350,9 @@
 
 // 发送消息成功
 - (void)didSendMessage:(NSNotification *)notification {
+    if (![self isCurrentVC]) {
+        return;
+    }
     XMPPMessage *message = (XMPPMessage *)[notification object];
     if (!message) {
         return;
@@ -354,6 +361,9 @@
 }
 // 发送消息失败
 - (void)didFailToSendMessage:(NSNotification *)notification {
+    if (![self isCurrentVC]) {
+        return;
+    }
     XMPPMessage *message = (XMPPMessage *)[notification object];
     NSError *error = (NSError *)notification.userInfo[@"error"];
     if (!message) {
@@ -414,7 +424,9 @@
 // 每一行的气泡信息
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
     LXMessage *msg = self.messages[indexPath.row];
-    if (msg.isMySend) {
+    if (msg.isNotification) {
+        return nil;
+    } else if (msg.isMySend) {
         return self.myBubble;
     }
     return self.otherBubble;
@@ -422,7 +434,11 @@
 
 // 每一行的头像信息
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
-    // 测试代码
+    LXMessage *msg = self.messages[indexPath.row];
+    if (msg.isNotification) {
+        return nil;
+    }
+    // 测试代码，应该是去查询本地数据中有没有缓存的用户信息，并且去服务端数据库进行数据查找
     UIImage *img = [UIImage imageNamed:@"头像"];
     
     JSQMessagesAvatarImage *avatarImage = [[JSQMessagesAvatarImage alloc] initWithAvatarImage:img
@@ -435,6 +451,9 @@
 //    // 测试代码
 //    return [[NSAttributedString alloc] initWithString:@"cellTopLabel = 顶部label内容"];
     LXMessage *msg = self.messages[indexPath.row];
+    if (msg.isNotification) {
+        return [[NSAttributedString alloc] initWithString: msg.noti];
+    }
     return [[NSAttributedString alloc] initWithString: [msg.showDate transformWithFormat: nil]];
 }
 // 定义每一行气泡的topLabel的attributedString
@@ -482,10 +501,12 @@
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath {
     [self.inputToolbar.contentView.textView resignFirstResponder];
 }
+
 // 点击cell，indexpath, location
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapCellAtIndexPath:(NSIndexPath *)indexPath touchLocation:(CGPoint)touchLocation {
     [self.inputToolbar.contentView.textView resignFirstResponder];
 }
+
 // 点击提前加载按钮 ?? 提前加载？
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView
                 header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender {

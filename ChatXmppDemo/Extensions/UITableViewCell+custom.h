@@ -15,13 +15,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)lxRegisterCellWith:(UITableView *)tableView forCellReuseIdentifier:(nullable NSString *)identifier;
 
+
 + (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView;
 
 + (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView identifier:(nullable NSString *)identifier;
 
++ (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView style:(UITableViewCellStyle)style identifier:(nullable NSString *)identifier;
+
+
 + (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath;
 
 + (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView identifier:(nullable NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+
++ (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView style:(UITableViewCellStyle)style forIndexPath:(NSIndexPath *)indexPath;
+
++ (instancetype)lxdequeueReusableCellWith:(UITableView *)tableView style:(UITableViewCellStyle)style identifier:(nullable NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

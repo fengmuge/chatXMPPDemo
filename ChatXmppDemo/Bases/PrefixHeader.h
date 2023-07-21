@@ -17,6 +17,7 @@
 
 #import "NSString+custom.h"
 #import "NSArray+custom.h"
+#import "NSMutableArray+custom.h"
 #import "NSDate+custom.h"
 #import "UIImage+custom.h"
 #import "UITableView+custom.h"
@@ -24,6 +25,7 @@
 #import "UICollectionView+custom.h"
 #import "UITextField+custom.h"
 #import "UIAlertController+custom.h"
+#import "UIView+custom.h"
 #import "UIViewController+custom.h"
 #import "XMPPPresence+custom.h"
 #import "DDXMLElement+custom.h"

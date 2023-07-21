@@ -82,8 +82,10 @@
 // 房间主题变更
 #define kXMPP_ROOM_DIDCHANGE_SUBJIEC @"kXMPP_ROOM_DIDCHANGE_SUBJIEC"
 
+// 收到通讯相关消息
+#define kRTC_DIDREVEICE_CALLMESSAGE @"kRTC_DIDREVEICE_CALLMESSAGE"
 // 收到视频/语音通话邀请
-#define kReceivedOfferSignalingMessageNotification @"kReceivedSignalingMessageNotification"
+#define kReceivedOfferSignalingMessageNotification @"kReceivedOfferSignalingMessageNotification"
 
 // 收到 rtc 信号 message
 #define kReceivedSignalingMessageNotification @"kReceivedSignalingMessageNotification"

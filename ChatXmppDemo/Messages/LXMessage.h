@@ -6,27 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-// 消息发送状态
-typedef enum : NSUInteger {
-    LXMessageSendSuccess,
-    LXMessageSending,
-    LXMessageSendError,
-} LXMessageSendStatus;
-
-typedef enum : NSUInteger {
-    LXChatSingle,
-    LXChatGroup,
-    LXChatUnknow,
-} LXChatType;
-
-typedef enum : NSUInteger {
-    LXMessageContentText,
-    LXMessageContentAudio,
-    LXMessageContentPicture,
-    LXMessageContentVideo,
-} LXMessageContentType;
-
+#import "LXMessageDefine.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LXMessage : NSObject
@@ -42,13 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
  
 @property (nonatomic, strong) NSDate *showDate;
 @property (nonatomic, strong) NSString *body;
+@property (nonatomic, strong) NSString *noti; // 通知，显示在气泡顶部或者cell顶部
 @property (nonatomic, strong) NSData *audioData;
 @property (nonatomic, assign) NSTimeInterval audioDuringTime;
 @property (nonatomic, assign) LXChatType type;
-@property (nonatomic, assign) LXMessageContentType contentType;
+@property (nonatomic, assign) LXMessageBodyType contentType;
+@property (nonatomic, assign) LXCallMessageType callMessageType;
 @property (nonatomic, strong) NSString *thread;
 // 是否是用户自己发送
-@property (nonatomic, assign) bool isMySend;
+@property (nonatomic, assign) BOOL isMySend;
+// 是否是通知信息，比如谁打视频过来了，视频结束了，谁加入群聊了之类的
+@property (nonatomic, assign) BOOL isNotification;
+// 消息是否展示
+@property (nonatomic, assign) BOOL willShow;
 
 - (instancetype)initWithMessage:(XMPPMessage *)message;
 

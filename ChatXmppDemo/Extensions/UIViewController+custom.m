@@ -161,6 +161,11 @@
     return currentVC;
 }
 
+- (BOOL)isCurrentVC {
+    UIViewController *currentVC = [UIViewController currentVC];
+    return [self isEqual:currentVC];
+}
+
 #pragma mark -- navgationBar item
 
 - (void)backBtnClicked {

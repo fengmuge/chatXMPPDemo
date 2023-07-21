@@ -41,6 +41,17 @@
     return self;
 }
 
+- (BOOL)willShow {
+    if (self.isNotification && (self.callMessageType == LXCallMessageUnknow  || self.callMessageType == LXCallMessageCandidate)) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)isNotification {
+    return ![NSString isNone:self.noti];
+}
+
 - (NSDate *)showDate {
     return self.delayDate ?: self.timeDate;
 }
@@ -52,17 +63,24 @@
         return;
     }
     switch (self.contentType) {
-        case LXMessageContentText:
+        case LXMessageBodyText:
             self.message = [[JSQMessage alloc] initWithSenderId:self.fromName
                                               senderDisplayName:self.fromName
                                                            date:[self showDate]
                                                            text:self.body];
             break;
-        case LXMessageContentAudio:
+        case LXMessageBodyAudio:
             self.message = [[JSQMessage alloc] initWithSenderId:self.fromName
                                               senderDisplayName:self.fromName
                                                            date:[self showDate]
                                                           media:[self makeAudioMedia]];
+            break;
+        case LXMessageBodyVideoCall:
+        case LXMessageBodyVoiceCell:
+            self.message = [[JSQMessage alloc] initWithSenderId:self.fromName
+                                              senderDisplayName:self.fromName
+                                                           date:[self showDate]
+                                                           text:self.body];
             break;
         default:
             break;
@@ -102,7 +120,7 @@
 #pragma mark --message数据处理--
 - (void)sortMessage:(XMPPMessage *)message {
     
-    self.contentType = LXMessageContentText;
+    self.contentType = message.bodyType;
     
     [self makeType:message.type];
     self.fromJid = [message.from bare];
@@ -155,35 +173,15 @@
 }
 
 - (void)makeCallWith:(XMPPMessage *)message {
-    if (message.bodyType != LXMessageBodyVideoCall && message.bodyType != LXMessageBodyVoiceCell) {
-        return;
-    }
-    NSData *data = [message.body dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
-                                                         options:NSJSONReadingAllowFragments
-                                                           error:&error];
-    if (error) {
-        NSLog(@"视频/语音通话数据解析失败!");
+    if (![message isCallAbout]) {
+        self.callMessageType = LXCallMessageUnknow;
         return;
     }
     
-    BOOL isVideoCall = message.bodyType == LXMessageBodyVideoCall;
-    NSString *myJid = [UserManager sharedInstance].jid.user;
-    
-    NSMutableDictionary *mutableDict = [dict mutableCopy];
-    mutableDict[@"myJid"] = myJid;
-    mutableDict[@"isVideo"] = [NSNumber numberWithBool:isVideoCall];
-    
-    if ([dict objectForKey:@"roomId"]) {
-//        [[WebRTCManager sharedInstance] showRtcViewWith:myJid isVideo:isVideoCall isCallee:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kReceivedOfferSignalingMessageNotification object:dict];
-    } else {
-//        [WebRTCManager sharedInstance].myJid = myJid;
-//        [WebRTCManager sharedInstance].remoteJid = message.from.bare;
-        mutableDict[@"remoteJid"] = message.from.user;
-        [[NSNotificationCenter defaultCenter] postNotificationName:kReceivedSignalingMessageNotification object:dict];
-    }
+    self.callMessageType = message.callMessageType;
+    NSString *alertStr = message.bodyType == LXMessageBodyVideoCall ? @"视频" : @"语音";
+    self.body = @"";
+    self.noti = [NSString stringWithFormat:@"%@发起了%@", message.from.user, alertStr];
 }
 
 // 例子，处理多媒体线信息(通过二进制进行传递，临时使用body作为type判断，正式项目不可以这样搞)
@@ -202,10 +200,9 @@
 //        break;
 //    }
     
-    if (message.bodyType != LXMessageBodyAudio) {
+    if (_contentType != LXMessageBodyAudio) {
         return;
     }
-    
     NSData *data = [[NSData alloc] initWithBase64EncodedString:message.body options:0];
     self.audioData = data;
     

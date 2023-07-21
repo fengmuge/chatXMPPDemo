@@ -6,10 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Conversation;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConversationTableViewCell : UITableViewCell
+
+//- (void)reload:(NSString *)title content:(NSString *)content;
+
+- (void)reload:(Conversation *)item;
 
 @end
 

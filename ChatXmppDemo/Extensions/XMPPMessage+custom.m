@@ -28,12 +28,35 @@
     return NO;
 }
 
+- (BOOL)isCallAbout {
+    return self.bodyType == LXMessageBodyVideoCall || self.bodyType == LXMessageBodyVoiceCell;
+}
+
+- (BOOL)isRequest {
+    NSXMLElement *request = [self request];
+    return request && [request.xmlns isEqualToString:kReceipts];
+}
+
 - (NSXMLElement *)request {
     return [self elementForName:@"request"];
 }
 
 - (void)setRequest:(NSString *)request {
     NSXMLElement *receipt = [NSXMLElement elementWithName:@"request" xmlns:request];
+    [self addChild:receipt];
+}
+
+- (BOOL)isReceived {
+    NSXMLElement *received = [self received];
+    return received && [received.xmlns isEqualToString:kReceipts];
+}
+
+- (NSXMLElement *)received {
+    return [self elementForName:@"received"];
+}
+
+- (void)setReceived:(NSString *)received {
+    NSXMLElement *receipt = [NSXMLElement elementWithName:@"request" xmlns:received];
     [self addChild:receipt];
 }
 
@@ -77,6 +100,35 @@
         default:
             return @"card";
     }
+}
+
+- (LXCallMessageType)callMessageType {
+    NSDictionary *dict = [self transformBodyToDict];
+    NSString *type = dict[@"type"];
+    
+    if ([type isEqualToString:@"offer"]) {
+        return LXCallMessageOffer;
+    } else if ([type isEqualToString:@"bye"]) {
+        return LXCallMessageBye;
+    } else if ([type isEqualToString:@"answer"]) {
+        return LXCallMessageAnswer;
+    } else if ([type isEqualToString:@"candidate"]) {
+        return LXCallMessageCandidate;
+    }
+    return LXCallMessageUnknow;
+}
+
+- (NSDictionary *)transformBodyToDict {
+    NSData *data = [self.body dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingAllowFragments
+                                                           error:&error];
+    if (error) {
+        NSLog(@"视频/语音通话数据解析失败!");
+        return nil;
+    }
+    return dict;
 }
 
 @end

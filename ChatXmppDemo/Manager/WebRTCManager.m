@@ -13,6 +13,7 @@
 #import "RTCRoom.h"
 
 #import "MessageManager.h"
+#import "XMPPMessage+custom.h"
 
 @interface WebRTCManager () <
 RTCPeerConnectionDelegate,
@@ -266,19 +267,51 @@ static WebRTCManager *_sharedInstance;
                                              selector:@selector(accept)
                                                  name:kAcceptNotification
                                                object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(receivedSignalingMessage:)
+//                                                 name:kReceivedSignalingMessageNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(receivedOfferMessage:)
+//                                                 name:kReceivedOfferSignalingMessageNotification
+//                                               object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedSignalingMessage:)
-                                                 name:kReceivedSignalingMessageNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedOfferMessage:)
-                                                 name:kReceivedOfferSignalingMessageNotification
+                                             selector:@selector(receivedCallAboutMessage:)
+                                                 name:kRTC_DIDREVEICE_CALLMESSAGE
                                                object:nil];
 }
 
+// 收到通讯相关消息
+- (void)receivedCallAboutMessage:(NSNotification *)notification {
+    XMPPMessage *message = (XMPPMessage *)[notification object];
+    
+    NSData *data = [message.body dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingAllowFragments
+                                                           error:&error];
+    if (error) {
+        NSLog(@"视频/语音通话数据解析失败!");
+        return;
+    }
+    
+    BOOL isVideoCall = message.bodyType == LXMessageBodyVideoCall;
+    NSString *myJid = [UserManager sharedInstance].jid.user;
+    
+    NSMutableDictionary *mutableDict = [dict mutableCopy];
+    mutableDict[@"myJid"] = myJid;
+    mutableDict[@"isVideo"] = [NSNumber numberWithBool:isVideoCall];
+    
+    if ([dict objectForKey:@"roomId"]) {
+        [self receivedOfferMessage:mutableDict];
+    } else {
+        mutableDict[@"remoteJid"] = message.from.user;
+        [self receivedSignalingMessage: mutableDict];
+    }
+}
+
 // 收到通话邀请
-- (void)receivedOfferMessage:(NSNotification *)notification {
-    NSDictionary *dict = [notification object];
+- (void)receivedOfferMessage:(NSDictionary *)dict {
     NSString *jid = dict[@"myJid"];
     BOOL isVideo = [(NSNumber *)dict[@"isVideo"] boolValue];
     [self showRtcViewWith:jid isVideo:isVideo isCallee:YES];
@@ -315,9 +348,7 @@ static WebRTCManager *_sharedInstance;
 }
 
 // 收到视频/语音 通话消息
-- (void)receivedSignalingMessage:(NSNotification *)notification {
-    NSDictionary *dict = [notification object];
-    
+- (void)receivedSignalingMessage:(NSDictionary *)dict {
     self.myJid = dict[@"myJid"];
     self.remoteJid = dict[@"remoteJid"];
     

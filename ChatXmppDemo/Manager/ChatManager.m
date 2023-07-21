@@ -345,31 +345,29 @@ static ChatManager *_sharedInstance;
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
     NSLog(@"%s", __func__);
     
-    bool isRequest = YES;
     // XEP--0136 已经用coreData实现了数据的接受和保存
-    NSXMLElement *request = message.request;
-    if (request) {
-        if (![request.xmlns isEqualToString:@"urn:xmpp:receipts"]) { // 如果不需要消息回执
-            return;
-        }
+    if ([message isRequest]) {
         // 组装消息回执
-        NSXMLElement *recieved = [NSXMLElement elementWithName:@"received" xmlns:@"urn:xmpp:receipts"];
-        XMPPMessage *msg = [XMPPMessage messageWithType:[message attributeStringValueForName:@"type"] to:message.from elementID:[message attributeStringValueForName:@"id"] child:recieved];
+        XMPPMessage *msg = [XMPPMessage messageWithType:[message attributeStringValueForName:@"type"] to:message.from elementID:[message attributeStringValueForName:@"id"]]; // child:recieved];
+        msg.received = kReceipts;
         // 发送回执
         [[ChatManager sharedInstance].stream sendElement:msg];
-    } else {
-        NSXMLElement *received = [message elementForName:@"received"];
-        if (!received || ![received.xmlns isEqualToString:@"urn:xmpp:receipts"]) { // 判断是否是消息回执
-            return;
-        }
-        isRequest = NO;
+    } else if ([message isReceived]) { // 判断是否是消息回执
         NSLog(@"消息回执发送成功");
     }
-    // 通知，收到消息
-    [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_DIDREVEICE_MESSAGE
-                                                        object:message
-                                                      userInfo:@{@"isRequest": [NSNumber numberWithBool:isRequest]}
-    ];
+    
+    if ([message isCallAbout] && ![message isReceived]) {
+        // 通知WebRTCManager，收到消息
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRTC_DIDREVEICE_CALLMESSAGE
+                                                            object:message
+        ];
+    }
+    if (![message isReceived]) {
+        // 通知Chat/Friend/Conversation viewController，收到消息
+        [[NSNotificationCenter defaultCenter] postNotificationName:kXMPP_DIDREVEICE_MESSAGE
+                                                            object:message
+        ];
+    }
 }
 
 // 会收到各种信息，包括房间列表、房间信息、用户信息等等

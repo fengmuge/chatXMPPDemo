@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL stateBarHidden;
 
 @property (nonatomic, assign, readonly) BOOL isLogin;
+//@property (nonatomic, assign, readonly) BOOL isCurrentVC;
 
 @end
 

@@ -85,6 +85,9 @@ static MessageManager *_sharedInstance;
     NSMutableArray *sortResultes = [[NSMutableArray alloc] init];
     for (XMPPMessageArchiving_Message_CoreDataObject *object in messages) {
         LXMessage *msg = [[LXMessage alloc] initWithMessageCoreDataObject:object];
+        if (!msg.willShow) {
+            continue;
+        }
         [sortResultes addObject:msg];
     }
     
@@ -97,7 +100,7 @@ static MessageManager *_sharedInstance;
     XMPPMessage *xmppMessage = [XMPPMessage messageWithType:@"chat" to:jid];
     [xmppMessage addBody:message];
     xmppMessage.bodyType = isVideo ? LXMessageBodyVideoCall : LXMessageBodyVoiceCell;
-    xmppMessage.request = @"urn:xmpp:receipts";
+    xmppMessage.request = kReceipts;
     
     [[ChatManager sharedInstance].stream sendElement:xmppMessage];
 }

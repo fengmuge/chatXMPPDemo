@@ -12,6 +12,8 @@
 @interface LXViewController () {
 }
 
+//@property (nonatomic, assign, readwrite) BOOL isCurrentVC;
+
 @end
 
 @implementation LXViewController
@@ -23,7 +25,32 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+//    self.isCurrentVC = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+//    self.isCurrentVC = NO;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
 #pragma mark -- setter/getter
+//- (BOOL)isCurrentVC {
+//
+//}
+
+#pragma mark -- 方向和状态栏
 - (BOOL)prefersNavgationBarHidden {
     return self.fd_prefersNavigationBarHidden;
 }
