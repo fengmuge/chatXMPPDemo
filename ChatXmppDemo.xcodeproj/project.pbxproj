@@ -16,7 +16,6 @@
 		652443EE2A56B5FC00871283 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443ED2A56B5FC00871283 /* AVFoundation.framework */; };
 		652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443EF2A56B60600871283 /* CoreLocation.framework */; };
 		652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652443F12A56B60D00871283 /* UserNotifications.framework */; };
-		653A87982A677C5300A2DA82 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 653A87972A677C5300A2DA82 /* libWebRTC.a */; };
 		653A879C2A68E09500A2DA82 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A879B2A68E09500A2DA82 /* Conversation.m */; };
 		653A879F2A68E3BE00A2DA82 /* NSMutableArray+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A879E2A68E3BE00A2DA82 /* NSMutableArray+custom.m */; };
 		653A87A22A6A32DE00A2DA82 /* UIView+custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A87A12A6A32DE00A2DA82 /* UIView+custom.m */; };
@@ -282,7 +281,6 @@
 		652443ED2A56B5FC00871283 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		652443EF2A56B60600871283 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		652443F12A56B60D00871283 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		653A87972A677C5300A2DA82 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
 		653A87992A67920900A2DA82 /* LXMessageDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMessageDefine.h; sourceTree = "<group>"; };
 		653A879A2A68E09500A2DA82 /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		653A879B2A68E09500A2DA82 /* Conversation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
@@ -532,7 +530,6 @@
 				65C528C22A5EAA2D004EB3C3 /* GLKit.framework in Frameworks */,
 				65C528C02A5EAA25004EB3C3 /* libxml2.tbd in Frameworks */,
 				65C528BE2A5EAA1A004EB3C3 /* VideoToolbox.framework in Frameworks */,
-				653A87982A677C5300A2DA82 /* libWebRTC.a in Frameworks */,
 				65C528BC2A5EAA11004EB3C3 /* CoreTelephony.framework in Frameworks */,
 				652443F22A56B60D00871283 /* UserNotifications.framework in Frameworks */,
 				652443F02A56B60600871283 /* CoreLocation.framework in Frameworks */,
@@ -947,7 +944,6 @@
 		65BE2C2D2A64D94300F18440 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
-				653A87972A677C5300A2DA82 /* libWebRTC.a */,
 				65BE2C2E2A64D94300F18440 /* include */,
 			);
 			path = WebRTC;
